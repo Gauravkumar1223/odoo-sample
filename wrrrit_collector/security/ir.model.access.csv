@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wrrrit_collector_data,wrrrit.collector.data access,model_wrrrit_collector_data,base.group_user,1,1,1,1
+access_wrrrit_data_lake_internal_user,"Wrrrit Data Lake Internal User Access","model_wrrrit_data_lake_entry","base.group_user",1,1,1,1
+access_wrrrit_data_lake_admin,"Wrrrit Data Lake Admin Access","model_wrrrit_data_lake_entry","base.group_system",1,1,1,1
+access_wrrrit_metadata_entry_user,"Wrrrit Metadata Entry User Access","model_wrrrit_metadata_entry","base.group_user",1,1,1,1
+access_wrrrit_metadata_entry_admin,"Wrrrit Metadata Entry Admin Access","model_wrrrit_metadata_entry","base.group_system",1,1,1,1

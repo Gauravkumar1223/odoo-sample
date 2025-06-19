@@ -1,0 +1,63 @@
+/* Base styles for the voice recorder layout */
+.voice-recorder-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+    background: #f7f7f7; /* Background color for the layout */
+}
+
+/* Top region styles */
+.voice-recorder__top-region {
+    padding: 1rem; /* Padding for top region content */
+    border-bottom: 1px solid #e0e0e0; /* Bottom border to separate from the main content */
+}
+
+/* Center region styles */
+.voice-recorder__center-region {
+    flex-grow: 1; /* Center region takes up remaining space */
+    display: flex;
+    flex-direction: row; /* Horizontal layout for waveform and transcription panels */
+}
+
+/* Waveform panel styles */
+.voice-recorder__waveform-panel {
+    flex-basis: 30%; /* Occupy 30% of the horizontal space */
+    padding: 1rem; /* Padding around waveform panel content */
+    border-right: 1px solid #e0e0e0; /* Right border to separate from transcription panel */
+}
+
+/* Transcription panel styles */
+.voice-recorder__transcription-panel {
+    flex-basis: 70%; /* Occupy the rest of the horizontal space (70%) */
+    padding: 1rem; /* Padding around transcription panel content */
+}
+
+/* Bottom region styles */
+.voice-recorder__bottom-region {
+    padding: 1rem; /* Padding for bottom region content */
+    border-top: 1px solid #e0e0e0; /* Top border to separate from the main content */
+}
+
+/* Common style for buttons within the voice recorder layout */
+.voice-recorder-layout .btn {
+    margin-right: 0.5rem; /* Spacing between buttons */
+    padding: 0.5rem 1rem; /* Padding within the buttons */
+    background: #007bff; /* Primary button color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    cursor: pointer;
+}
+
+/* additional styles can go here... */
+
+/* Responsive design adjustments, if needed */
+@media (max-width: 768px) {
+    .voice-recorder__center-region {
+        flex-direction: column; /* Stack waveform and transcription panels vertically on smaller screens */
+    }
+    .voice-recorder__waveform-panel,
+    .voice-recorder__transcription-panel {
+        flex-basis: auto; /* Let each panel take the necessary space vertically */
+        border-right: none; /* Remove right border from waveform panel */
+    }
+}

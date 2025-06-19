@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="wrrrit_ai.DocxViewer" owl="1">
+        <div>
+            Open Your Document :
+            <a target="_blank" t-att-href="iframeSrc"> With MS Office Online</a>
+
+            </div>
+        <div style="width: 100%">
+            <iframe t-att-src="iframeSrc" width="100%" height="100%" frameborder="0">
+            This is an embedded
+            <a target="_blank" href="http://office.com">Microsoft Office</a>
+                document, powered by
+                <a target="_blank" href="http://office.com/webapps">Office Online</a>.
+        </iframe>
+        </div>
+    </t>
+</templates>

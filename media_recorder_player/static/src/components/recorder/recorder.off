@@ -1,0 +1,889 @@
+/** @odoo-module */
+
+import {Component, onMounted, onWillStart, onWillUnmount, useRef, useState} from "@odoo/owl";
+import {useService} from "@web/core/utils/hooks";
+import {standardFieldProps} from "@web/views/fields/standard_field_props";
+import {registry} from "@web/core/registry";
+import {loadJS} from "@web/core/assets";
+
+class VoiceRecorderComponent extends Component {
+    setup() {
+        this.state = useState({
+            isRecording: false,
+            isPaused: false,
+            audioChunks: [],
+            audioPlaying: false,
+            audioBlob: null,
+            currentTimestamp: 0,
+            formattedTimeStamps: "",
+            recordingStartTime: null,
+            totalPauseDuration: 0,
+            rawSampleData: null,
+        });
+        this.wavesurfer = null;
+        this.record = null;
+        this.audio = null;
+        // Initialize the audio context and analyser here
+        this.audioContext = null;
+        this.analyzer = null;
+        this.audioSource = null; // Initialize the audio source here
+
+        this.cursorColor = "black"; // Initial color of the blinking cursor
+        this.blinkInterval = setInterval(() => {
+            // Blink the cursor every 500ms
+            this.cursorColor = this.cursorColor === "black" ? "red" : "black";
+        }, 500);
+
+        // Use a single canvas reference for both waveform visualization and drawing
+        this.canvasRef = useRef("waveformCanvas");
+        this.waveformRef = useRef('waveform');
+        this.recordingsRef = useRef('recordings');
+
+        this.rpc = useService("rpc");
+        this.orm = useService("orm");
+        this.record = null;
+
+
+        onWillStart(async () => {
+
+            await loadJS('https://unpkg.com/wavesurfer.js@7.6.4/dist/wavesurfer.min.js');
+            await loadJS('https://unpkg.com/wavesurfer.js@7.6.4/dist/plugins/record.min.js');
+
+
+            await loadJS('https://cdn.jsdelivr.net/npm/howler@2.2.1/dist/howler.min.js');
+            await loadJS("https://unpkg.com/peaks.js/dist/peaks.js");
+
+        });
+        onMounted(() => {
+            console.log("mounted WaveSurfer:", WaveSurfer);
+            console.log("mounted WaveSurfer.RecordPlugin :", window.WaveSurfer.Record);
+            console.log("mounted Howler :", window.Howler);
+            console.log("mounted Peaks :", window.peaks);
+
+
+        });
+
+        onWillUnmount(() => {
+            this.cleanupAudioComponents(); // Ensure cleanup is called when component is destroyed
+        });
+    }
+
+    createWaveSurfer() {
+        if (this.wavesurfer) {
+            this.wavesurfer.destroy();
+        }
+
+        this.wavesurfer = WaveSurfer.create({
+            container: this.waveformRef.el,
+            waveColor: 'rgb(200, 0, 200)',
+            progressColor: 'rgb(100, 0, 100)'
+        });
+        console.log("WaveSurfer :", this.wavesurfer);
+
+        this.record = this.wavesurfer.registerPlugin(WaveSurfer.Record.create({
+            audioContext: this.audioContext || new AudioContext(),
+            audioScriptProcessor: null, // Use default scriptProcessor if not specified
+            audioWorkerPath: '', // Specify if using a custom path for the worker script
+            format: 'webm', // Format of the recording (webm, wav, etc.)
+            mimeType: 'audio/webm', // MIME type of the recording
+            bufferSize: 4096, // Buffer size for the audio script processor
+            numberOfInputChannels: 1, // Number of input channels (1 = mono, 2 = stereo)
+            numberOfOutputChannels: 1, // Number of output channels
+            sampleRate: 44100, // Sample rate of the recording
+            container: this.recordingsRef.el,
+        }));
+
+
+        // Event listeners
+        this.record.on('record-end', blob => {
+            console.log("record-end :", blob);
+        });
+
+
+        console.log("This Record :", this.record);
+    }
+
+    cleanupAudioComponents() {
+        // Cleanup media stream
+        if (this.stream) {
+            this.stream.getTracks().forEach((track) => track.stop());
+            this.stream = null;
+        }
+
+        // Cleanup AudioContext
+        if (this.audioContext) {
+            this.audioContext.close();
+            this.audioContext = null;
+        }
+
+        // Revoke object URLs
+        if (this.state.audioBlob) {
+            URL.revokeObjectURL(this.getAudioElement().src);
+        }
+
+        // Remove event listeners from mediaRecorder
+        if (this.mediaRecorder) {
+            this.mediaRecorder.removeEventListener(
+                "dataavailable",
+                this._onDataAvailable
+            );
+            this.mediaRecorder.removeEventListener(
+                "stop",
+                this._onMediaRecorderStopped
+            );
+        }
+        if (this.analyzer) {
+            this.analyzer.disconnect();
+            this.analyzer = null;
+        }
+        if (this.audioSource) {
+            this.audioSource.disconnect();
+            this.audioSource = null;
+        }
+        if (this.audio) {
+            this.audio.pause();
+            this.audio = null;
+        }
+        if (this.waveSurfer) {
+            this.waveSurfer.destroy();
+        }
+    }
+
+    async startRecording() {
+        console.warn("Recording is in progress.");
+        if (this.state.isRecording) {
+            console.warn("Recording is already in progress.");
+            return;
+        }
+
+        this.state.isRecording = true;
+
+        const audioConstraints = {
+            audio: {
+                echoCancellation: true,
+                autoGainControl: true,
+                noiseSuppression: true,
+                sampleRate: {ideal: 44100}
+            }
+        };
+
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia(audioConstraints);
+
+            if (!this.wavesurfer) {
+                this.wavesurfer = window.WaveSurfer.create({
+                    container: this.waveformRef.el,
+                    waveColor: 'violet',
+                    progressColor: 'purple',
+                    backend: 'WebAudio',
+
+                });
+            }
+
+            this.wavesurfer.registerPlugin(
+                window.WaveSurfer.Record.create({
+                    audioContext: new AudioContext(),
+                    audioWorkerPath: '', // specify if needed
+                    format: 'webm',
+                    mimeType: 'audio/webm',
+                    bufferSize: 4096,
+                    numberOfInputChannels: 1,
+                    numberOfOutputChannels: 1,
+                    sampleRate: 44100
+                })
+            )
+            console.log("WaveSurfer :", this.wavesurfer);
+            console.log("this.wavesurfer.record :", this.wavesurfer.Record);
+
+            console.log("WaveSurfer.Record :", this.wavesurfer.Record);
+            console.log("WaveSurfer.RecordPlugin :", window.WaveSurfer.Record);
+
+            this.wavesurfer.Record.startRecording(stream);
+
+            this.wavesurfer.on('finishRecord', (audioBlob) => {
+                // Handle the recorded audio blob here
+                this.state.audioBlob = audioBlob;
+                this.getAudioElement().src = URL.createObjectURL(audioBlob);
+            });
+
+        } catch (error) {
+            console.error("Error during recording:", error);
+            this.state.isRecording = false;
+        }
+    }
+
+    async stopRecording() {
+        if (!this.state.isRecording) {
+            console.warn("Recording is not in progress.");
+            return;
+        }
+
+        this.state.isRecording = false;
+
+        // Stop the recording and process the audio blob
+        this.wavesurfer.Record.stopRecording();
+
+        // Additional code as needed...
+    }
+
+    async startRecording_walid() {
+
+
+        if (window.Howler) {
+            // You can now use Howler
+            console.log("Howler :", Howler);
+            var sound = new Howl({
+                src: ['/media_recorder_player/static/AnissApsy.webm']
+            });
+
+            //sound.play();
+        }
+
+
+        if (this.state.isPlaying) {
+            console.warn("Can't start recording while playback is in progress.");
+            return;
+        }
+        if (this.state.isRecording) {
+            console.warn("Recording is already in progress.");
+            return;
+        }
+        this.state.totalPauseDuration = 0;
+        this.state.isRecording = true;
+        this.state.recordingStartTime = Date.now();
+        this.state.isPaused = false;
+
+        const audioConstraints = {
+            audio: {
+                // Specify the number of audio channels (optional)
+                echoCancellation: true, // Enable echo cancellation (optional)
+                autoGainControl: true, // Enable automatic gain control (optional)
+                noiseSuppression: true, // Enable noise suppression (optional)
+                sampleRate: {ideal: 44100}, // Specify the sample rate (optional)
+                // Note that 'volume' and 'latency' have been removed as they are not standard constraints
+            },
+        };
+
+        const stream = await navigator.mediaDevices.getUserMedia(audioConstraints);
+
+        this.audioContext = new AudioContext();
+
+        this.wavesurfer = WaveSurfer.create({
+            container: this.waveformRef.el,
+            waveColor: 'rgb(200, 0, 200)',
+            progressColor: 'rgb(100, 0, 100)'
+        });
+        this.record = this.wavesurfer.registerPlugin(WaveSurfer.Record.create({
+            audioContext: this.audioContext || new AudioContext(),
+            audioScriptProcessor: null, // Use default scriptProcessor if not specified
+            audioWorkerPath: '', // Specify if using a custom path for the worker script
+            format: 'webm', // Format of the recording (webm, wav, etc.)
+            mimeType: 'audio/webm', // MIME type of the recording
+            bufferSize: 4096, // Buffer size for the audio script processor
+            numberOfInputChannels: 1, // Number of input channels (1 = mono, 2 = stereo)
+            numberOfOutputChannels: 1, // Number of output channels
+            sampleRate: 44100, // Sample rate of the recording
+            container: this.recordingsRef.el,
+            // Other Record plugin options as needed
+        }));
+
+        console.log("WaveSurfer Record :", this.wavesurfer);
+        // Event listeners
+        this.record.on('record-end', blob => {
+            console.log("record-end :", blob);
+        });
+
+        console.log("This Record :", this.record);
+        console.log("Start Recording :");
+
+
+        // Connect the stream to WaveSurfer
+
+
+        const source = this.audioContext.createMediaStreamSource(stream);
+        const processor = this.audioContext.createScriptProcessor(2048, 1, 1);
+
+        source.connect(processor);
+        processor.connect(this.audioContext.destination);
+
+
+        // Set up interval to update timestamp
+        this.timestampInterval = setInterval(() => {
+            this.updateTimestamp();
+        }, 50); // Update every 1/10 second
+
+        processor.onaudioprocess = this.processAudio.bind(this);
+
+        this.mediaRecorder = new MediaRecorder(stream);
+        this.state.audioChunks = [];
+        this.mediaRecorder.addEventListener("dataavailable", (event) => {
+            this.state.audioChunks.push(event.data);
+        });
+
+        this.mediaRecorder.start();
+        this.mediaRecorder.addEventListener("stop", () => {
+            clearInterval(this.timestampInterval); // Clear the interval when recording stops
+            processor.disconnect();
+            // this.audioContext.close();
+        });
+
+        var Peaks = window.peaks;
+
+
+        const options = {
+            zoomview: {
+                container: document.getElementById('zoomview-container'),
+
+            },
+            overview: {
+                container: document.getElementById('overview-container'),
+                waveformColor: '#cccccc',
+                playedWaveformColor: '#888888',
+                showPlayheadTime: true
+            },
+            mediaElement: document.getElementById('audio_peaks'),
+            webAudio: {
+                audioContext: this.audioContext,
+                scale: 128,
+                multiChannel: false
+            }
+        };
+
+        console.log("options :", options);
+
+        let peaked = Peaks.init(options, function (err, peaks) {
+
+            if (err) {
+                console.error('Failed to initialize Peaks instance: ' + err.message);
+
+            }
+
+            // Do something when the waveform is displayed and ready
+        });
+        console.log("peaks :", peaked);
+    }
+
+    async stopRecording_walid() {
+        if (!this.state.isRecording || this.state.isPaused) {
+            console.warn("Recording is not in progress or is paused.");
+            return;
+        }
+        this.state.isRecording = false;
+        this.state.isPaused = false;
+        clearInterval(this.timestampInterval); // Make sure to clear the timestamp interval
+        this.mediaRecorder.stop();
+        this.mediaRecorder.addEventListener("stop", async () => {
+            const audioBlob = new Blob(this.state.audioChunks);
+            this.state.audioBlob = audioBlob;
+            this.getAudioElement().src = URL.createObjectURL(audioBlob);
+            document.getElementById('audio_peaks').src = URL.createObjectURL(audioBlob);
+
+            await this.sendAudioToServer(audioBlob);
+            this.audio = new Audio(URL.createObjectURL(this.state.audioBlob));
+            this.audio.onended = () => {
+                this.state.audioPlaying = false;
+            };
+            await this.drawWaveform_blob(audioBlob);
+        });
+
+        this.mediaRecorder.stream.getTracks().forEach((track) => track.stop());
+    }
+
+    _onDataAvailable(event) {
+        this.state.audioChunks.push(event.data);
+    }
+
+    _onMediaRecorderStopped() {
+        // Modified code when the media recorder stops
+        this.cleanupAudioComponents();
+        this.state.audioBlob = new Blob(this.state.audioChunks);
+        this.getAudioElement().src = URL.createObjectURL(this.state.audioBlob);
+        this.sendAudioToServer(this.state.audioBlob).catch((error) => {
+            console.error("Error sending audio to server:", error);
+            this.displayNotification("Upload Error", "Failed to upload audio.");
+        });
+        this.audio = new Audio(URL.createObjectURL(this.state.audioBlob));
+        this.audio.onended = () => {
+            this.state.audioPlaying = false;
+        };
+        this.drawWaveform_blob(this.state.audioBlob);
+    }
+
+    async sendAudioToServer_off(audioBlob) {
+        // Implement sending audio data to Odoo server using RPC
+        // Added try-catch for error handling
+        try {
+            const response = await this.rpc("/web/dataset/call_kw", {
+                model: "media.recorder",
+                method: "write",
+                args: [audioBlob],
+                kwargs: {},
+            });
+            // handle the response if necessary
+        } catch (error) {
+            throw error; // Rethrow error for centralized error handling
+        }
+    }
+
+    // ...
+
+    displayNotification(title, message) {
+        // Utilize Odoo's notification service to display an error
+        this.notificationService = useService("notification");
+        this.notificationService.add(title, message, {
+            type: "danger",
+        });
+    }
+
+    deleteRecording() {
+        this.eraseRecording(); // Utilize the existing eraseRecording logic
+        // Additional logic for deletion can be implemented here
+    }
+
+    playPauseRecording() {
+        if (!this.audio) {
+            console.log("No audio recorded to play or pause.");
+            return;
+        }
+
+        if (!this.state.audioPlaying) {
+            // If the audio is not currently playing, play it and start the visualizer
+            this.audio.play();
+            this.state.audioPlaying = true;
+            this.startVisualizingPlayback(); // Start the visualization when playback begins
+        } else {
+            // If the audio is currently playing, pause it and stop the visualizer
+            this.audio.pause();
+            this.state.audioPlaying = false;
+            //this.stopVisualizer(); // Stop the visualization when playback is paused
+        }
+    }
+
+    async sendAudioToServer(audioBlob) {
+        // Implement sending audio data to Odoo server using RPC
+        // Example:
+        // this.rpc('/web/dataset/call_kw', { model: 'your.model', method: 'your_method', args: [audioBlob], kwargs: {} });
+        console.log("Sending audio data to server...");
+        console.log("audioBlob:", audioBlob);
+    }
+
+    pauseRecording() {
+        if (!this.state.isRecording || this.state.isPaused) {
+            console.warn("Recording is not in progress or is already paused.");
+            return;
+        }
+        if (this.mediaRecorder && this.mediaRecorder.state === "recording") {
+            this.state.pauseStartTime = Date.now(); // Save the time when paused
+            this.mediaRecorder.pause();
+            this.state.isPaused = true;
+        }
+    }
+
+    resumeRecording() {
+        if (this.mediaRecorder && this.mediaRecorder.state === "paused") {
+            const pausedDuration = Date.now() - this.state.pauseStartTime;
+            this.state.totalPauseDuration += pausedDuration; // Increment total pause duration
+            this.state.recordingStartTime += pausedDuration; // Adjust start time with pause duration
+
+            this.mediaRecorder.resume();
+            this.state.isPaused = false;
+        }
+    }
+
+    // Inside the VoiceRecorderComponent class
+
+    playRecording() {
+        if (this.state.audioBlob && this.state.rawSampleData) {
+            const audioUrl = URL.createObjectURL(this.state.audioBlob);
+            this.audio = new Audio(audioUrl);
+
+            this.audio.play();
+            this.startVisualizingPlayback();
+        }
+    }
+
+    startVisualizingPlayback_off() {
+        const draw = () => {
+            if (!this.audio.paused && !this.audio.ended) {
+                this.animationFrameRequest = requestAnimationFrame(draw);
+                const currentTime = this.audio.currentTime * 1000; // Convert to milliseconds
+                this.state.currentTimestamp = currentTime;
+                this.state.formattedTimeStamps = this.formatTimestamp(currentTime);
+                this.drawWaveform(this.state.rawSampleData, currentTime / 1000); // Draw the waveform
+            }
+        };
+
+        this.animationFrameRequest = requestAnimationFrame(draw);
+    }
+
+    startVisualizingPlayback() {
+        if (!this.audioContext) {
+            console.error("AudioContext not initialized.");
+            return;
+        }
+
+        if (!this.audioSource && this.audio) {
+            this.audioSource = this.audioContext.createMediaElementSource(this.audio);
+            if (!this.analyzer) {
+                this.analyzer = this.audioContext.createAnalyser();
+            }
+
+            // Ensure proper connection of nodes
+            try {
+                this.audioSource.connect(this.analyzer);
+                this.analyzer.connect(this.audioContext.destination);
+            } catch (error) {
+                console.error("Error connecting audio nodes:", error);
+                return;
+            }
+        }
+        // Create a source node from the audio element using the existing audio context
+
+        const visualizerCanvas = this.canvasRef.el;
+        if (!visualizerCanvas) return; // Ensure the canvas element is found
+
+        const visualizerCanvasContext = visualizerCanvas.getContext("2d");
+
+        const dataArray = new Uint8Array(this.analyzer.frequencyBinCount);
+        const canvasWidth = visualizerCanvas.width;
+        const canvasHeight = visualizerCanvas.height;
+
+        const gradient = visualizerCanvasContext.createLinearGradient(
+            0,
+            0,
+            0,
+            canvasHeight
+        );
+        gradient.addColorStop(0, "rgba(35, 7, 77, 1)");
+        gradient.addColorStop(1, "rgba(204, 83, 51, 1)");
+
+        const drawVisualizer = () => {
+            // Get the frequency data from the analyzer
+            this.analyzer.getByteFrequencyData(dataArray);
+
+            // Clear the canvas
+            visualizerCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // Variables for drawing the bars
+            let barWidth = (canvasWidth / dataArray.length) * 2.5;
+            let barHeight;
+            let x = 0;
+
+            // Draw bars for each frequency bin
+            for (let i = 0; i < dataArray.length; i++) {
+                barHeight = dataArray[i];
+                visualizerCanvasContext.fillStyle = gradient;
+                visualizerCanvasContext.fillRect(
+                    x,
+                    canvasHeight - barHeight,
+                    barWidth,
+                    barHeight
+                );
+
+                x += barWidth + 1;
+            }
+            this.drawTimeIndices(
+                visualizerCanvasContext,
+                canvasWidth,
+                canvasHeight,
+                this.audio.currentTime - 5,
+                this.audio.currentTime + 5
+            );
+            this.state.currentTimestamp = this.audio.currentTime * 1000; // Convert to milliseconds
+            this.state.formattedTimeStamps = this.formatTimestamp(
+                this.state.currentTimestamp
+            );
+            this.drawTimestamp(visualizerCanvasContext, canvasWidth, canvasHeight);
+            // Continue drawing if the audio is still playing
+            if (!this.audio.paused && !this.audio.ended) {
+                this.animationFrameRequest = requestAnimationFrame(drawVisualizer);
+            }
+        };
+
+        // Start drawing
+        drawVisualizer();
+    }
+
+    stopVisualizingPlayback() {
+        // Cancel the animation frame request to stop drawing
+        if (this.animationFrameRequest) {
+            cancelAnimationFrame(this.animationFrameRequest);
+            this.animationFrameRequest = null;
+        }
+
+        // Disconnect the audio source and analyzer to release resources
+        if (this.audioSource) {
+            this.audioSource.disconnect(this.analyzer);
+            this.analyzer.disconnect(this.audioContext.destination);
+            this.audioSource = null;
+        }
+    }
+
+    processAudio(e) {
+        if (this.state.isRecording && !this.state.isPaused) {
+            // Get the audio data and process it for waveform drawing
+            const inputData = e.inputBuffer.getChannelData(0);
+            this.drawWaveform(inputData, this.state.currentTimestamp / 1000); // drawWaveform is a method to draw the waveform on canvas
+        }
+    }
+
+    eraseRecording() {
+        this.state.audioChunks = [];
+        this.state.audioBlob = null;
+        this.state.currentTimestamp = 0;
+        this.state.recordingStartTime = null;
+        this.state.totalPauseDuration = 0; // Reset the total pause duration
+    }
+
+    fastForward() {
+        const audio = this.getAudioElement();
+        if (audio) {
+            audio.currentTime += 10; // Fast forward by 10 seconds
+        }
+    }
+
+    rewind() {
+        const audio = this.getAudioElement();
+        if (audio) {
+            audio.currentTime -= 10; // Rewind by 10 seconds
+        }
+    }
+
+    getAudioElement() {
+        return document.getElementById("recorder-player");
+    }
+
+    updateTimestamp() {
+        if (this.state.isRecording && !this.state.isPaused) {
+            const elapsedTime =
+                Date.now() -
+                this.state.recordingStartTime -
+                this.state.totalPauseDuration;
+            this.state.currentTimestamp = elapsedTime; // Keep the original number format for calculations
+            this.state.formattedTimeStamps = this.formatTimestamp(elapsedTime);
+        }
+    }
+
+    drawWaveform(inputData, currentSecond) {
+        window.requestAnimationFrame(() => {
+            const canvas = this.canvasRef.el;
+            const ctx = canvas.getContext("2d");
+            const width = canvas.width;
+            const height = canvas.height;
+
+            // Constants for waveform visualization
+            const barWidth = 10;
+            const barSpacing = 2;
+            const scaleFactor = 50 * height;
+
+            // Calculate pixels per second based on the canvas width
+            const pixelsPerSecond = width / 10; // 10-second window
+
+            // Calculate the total number of samples in 10 seconds
+            const sampleRate = inputData.length / currentSecond;
+            const samplesIn10Seconds = sampleRate * 1000;
+
+            // Calculate the start and end indices for the 10-second window
+            const middleSampleIndex = Math.floor(sampleRate * currentSecond);
+            const startIndex = Math.max(
+                0,
+                middleSampleIndex - samplesIn10Seconds / 2
+            );
+            const endIndex = Math.min(
+                inputData.length,
+                startIndex + samplesIn10Seconds
+            );
+
+            // Clear the canvas for a new frame
+            ctx.clearRect(0, 0, width, height);
+
+            const yAxisPosition = height - 25; // 15px from the bottom
+
+            // Draw the X-axis at the bottom
+            ctx.beginPath();
+            ctx.moveTo(0, yAxisPosition);
+            ctx.lineTo(width, yAxisPosition);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            // Draw time indices on the X-axis
+            this.drawTimeIndices(
+                ctx,
+                width,
+                height,
+                currentSecond - 5,
+                currentSecond + 5
+            );
+
+            // Draw the waveform bars
+            let x = 0;
+            for (let i = startIndex; i < endIndex; i++) {
+                const amplitude = inputData[i];
+                const barHeight = amplitude * scaleFactor;
+
+                ctx.fillStyle = this.getRandomColor();
+                ctx.fillRect(x, height / 2 - barHeight / 2, barWidth, barHeight);
+
+                x += barWidth + barSpacing;
+                if (x >= width) break; // Stop drawing if we reach the end of the canvas
+            }
+
+            // Draw time indices on the X-axis
+            this.drawTimeIndices(
+                ctx,
+                width,
+                height,
+                currentSecond - 5,
+                currentSecond + 5
+            );
+            this.drawTimestamp(ctx, width, height);
+        });
+    }
+
+    drawTimeIndices(ctx, width, height, startSecond, endSecond) {
+        const secondsInterval = 1; // Interval for indices in seconds
+        const pixelsPerSecond = width / (endSecond - startSecond); // Calculate pixels per second
+
+        const yAxisPosition = height - 25; // 15px from the bottom
+
+        ctx.fillStyle = "black";
+        ctx.font = "12px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        // Set the style for the vertical dashed lines
+        ctx.strokeStyle = "black";
+        ctx.setLineDash([5, 5]); // Create dashed lines with a pattern of 5 pixels dash and 5 pixels gap
+
+        for (let sec = startSecond; sec <= endSecond; sec += secondsInterval) {
+            const roundedSec = Math.round(sec); // Round to nearest whole number
+            const xPosition = (roundedSec - startSecond) * pixelsPerSecond;
+
+            // Draw vertical dashed line extending the full height of the canvas
+            ctx.beginPath();
+            ctx.moveTo(xPosition, 0);
+            ctx.lineTo(xPosition, height);
+            ctx.stroke();
+
+            // Draw index line at the bottom, make it solid
+            ctx.beginPath();
+            ctx.setLineDash([]); // Reset to solid line for the index
+            ctx.moveTo(xPosition, yAxisPosition - 5);
+            ctx.lineTo(xPosition, yAxisPosition + 5);
+            ctx.stroke();
+
+            // Draw time label below the line
+            ctx.fillText(roundedSec.toString(), xPosition, yAxisPosition + 20);
+
+            // Reset to dashed line after drawing each index
+            ctx.setLineDash([5, 5]);
+        }
+
+        // Reset line dash style to default for other canvas drawing operations
+        ctx.setLineDash([]);
+    }
+
+    drawTimestamp(ctx, width, height) {
+        const timestampText = this.formatTimestamp(this.state.currentTimestamp);
+        const padding = 5;
+        const font = "14px Arial";
+        ctx.font = ` bold ${font}`;
+        ctx.textAlign = "right"; // Align text to the right
+        ctx.textBaseline = "middle"; // Align text to the middle vertically
+        const textWidth = ctx.measureText(timestampText).width + padding * 2;
+        const boxHeight = 22; // Height of the background box
+
+        // Position for the timestamp at the top right, adjusted for the padding and box height
+        const rectX = width - textWidth - padding;
+        const rectY = padding;
+
+        // Draw background box
+        ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+        this.drawRoundedRect(ctx, rectX, rectY, textWidth, boxHeight, 3);
+
+        // Draw text inside the box, aligned to the right and vertically centered
+        const textY = rectY + boxHeight / 2; // Calculate the vertical center of the box
+        ctx.fillStyle = "white";
+        ctx.fillText(timestampText, width - padding, textY);
+    }
+
+    getRandomColor() {
+        // Define the base for pastel blue (light blue tones)
+        const baseRed = 100; // Lower than blue for a blue-dominant pastel
+        const baseGreen = 40; // Lower than blue for a blue-dominant pastel
+        const baseBlue = 200; // Dominant blue component for blue pastel
+
+        // Define the range for variation (smaller range for subtler pastel tones)
+        const variationRange = 55;
+
+        // Generate pastel blue color components
+        const r = this.randomizeColorComponent(baseRed, variationRange);
+        const g = this.randomizeColorComponent(baseGreen, variationRange);
+        const b = this.randomizeColorComponent(baseBlue, variationRange);
+
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    randomizeColorComponent(base, range) {
+        const min = Math.max(base - range, 0);
+        const max = Math.min(base + range, 255);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    drawRoundedRect(ctx, x, y, width, height, radius) {
+        if (typeof radius === "undefined") {
+            radius = 5;
+        }
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    formatTimestamp(milliseconds) {
+        milliseconds = Math.round(milliseconds); // Round to nearest millisecond
+        const totalSeconds = Math.floor(milliseconds / 1000);
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+        const millis = Math.floor((milliseconds % 1000) / 10); // Milliseconds part of the time but with only two digits
+
+        // Use string padding to present the values in "HH:MM:SS:mm" format
+        // where mm represents only the first two digits of milliseconds.
+        const paddedHours = String(hours).padStart(2, "0");
+        const paddedMinutes = String(minutes).padStart(2, "0");
+        const paddedSeconds = String(seconds).padStart(2, "0");
+        const paddedMillis = String(millis).padStart(2, "0"); // Pad milliseconds to two digits
+
+        // Compile the formatted timestamp string
+        return `${paddedHours}:${paddedMinutes}:${paddedSeconds}:${paddedMillis}`;
+    }
+
+    async drawWaveform_blob(audioBlob) {
+        const audioContext = new AudioContext();
+        const arrayBuffer = await audioBlob.arrayBuffer();
+        const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+        // Store the decoded audio data for playback visualization
+        this.rawSampleData = audioBuffer.getChannelData(0);
+
+        // Draw the initial waveform from the blob (optional)
+        this.drawWaveform(this.rawSampleData, 0);
+    }
+}
+
+VoiceRecorderComponent.template =
+    "media_recorder_player.VoiceRecorderComponent";
+VoiceRecorderComponent.props = {...standardFieldProps};
+
+registry.category("fields").add("recorder", VoiceRecorderComponent);
+VoiceRecorderComponent.supportedTypes = ["binary"];
+export default VoiceRecorderComponent;

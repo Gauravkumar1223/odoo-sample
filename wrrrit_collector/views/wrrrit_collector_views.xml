@@ -1,0 +1,193 @@
+<odoo>
+
+    <record id="view_wrrrit_collector_data_form" model="ir.ui.view">
+        <field name="name">wrrrit.collector.data.form</field>
+        <field name="model">wrrrit.collector.data</field>
+        <field name="arch" type="xml">
+            <form string="AI Collector Data">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="value"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wrrrit_collector_data_tree" model="ir.ui.view">
+        <field name="name">wrrrit.collector.data.tree</field>
+        <field name="model">wrrrit.collector.data</field>
+        <field name="arch" type="xml">
+            <tree string="AI Collector Data">
+                <field name="name"/>
+                <field name="value"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_wrrrit_collector_data_kanban" model="ir.ui.view">
+        <field name="name">wrrrit.collector.data.kanban</field>
+        <field name="model">wrrrit.collector.data</field>
+        <field name="arch" type="xml">
+            <kanban string="AI Collector Data">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <field name="name"/>
+                                <field name="value"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_wrrrit_collector_data" model="ir.actions.act_window">
+        <field name="name">AI Collector Data</field>
+        <field name="res_model">wrrrit.collector.data</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <record id="menu_wrrrit_root" model="ir.ui.menu">
+        <field name="name">AI Data</field>
+         <field name="parent_id" ref="wrrrit_ai.wrrrit_ai_main_menu"/>
+        <field name="sequence">4</field> <!-- Change sequence as needed to order the menu -->
+    </record>
+
+    <!-- Create the menu item for the action -->
+    <record id="menu_action_wrrrit_collector_data" model="ir.ui.menu">
+        <field name="name">--Collector Data</field>
+        <field name="parent_id" ref="menu_wrrrit_root"/>
+        <field name="action" ref="action_wrrrit_collector_data"/>
+        <field name="sequence">20</field> <!-- Change sequence as needed to order the menu -->
+    </record>
+
+
+    <!-- Tree View -->
+    <record id="view_wrrrit_data_lake_entry_tree" model="ir.ui.view">
+        <field name="name">wrrrit.data_lake.entry.tree</field>
+        <field name="model">wrrrit.data_lake.entry</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="entry_created_on"/>
+                <field name="entry_last_modified"/>
+                <field name="is_processed"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_wrrrit_data_lake_entry_form" model="ir.ui.view">
+        <field name="name">wrrrit.data_lake.entry.form</field>
+        <field name="model">wrrrit.data_lake.entry</field>
+        <field name="arch" type="xml">
+            <form string="Data Lake Entry Form">
+                <sheet>
+                    <group string="Data Lake Entry Details">
+                        <field name="name" readonly="1" string="Unique ID"/>
+                        <field name="entry_created_on" string="Entry Created On"/>
+                        <field name="entry_last_modified" string="Entry Last Modified"/>
+                        <field name="is_processed" string="Is Processed"/>
+                    </group>
+                    <group string="Metadata Entries">
+                        <field name="metadata_entry_ids" widget="one2many_list" >
+                            <tree string="Metadata Entries" style="width:100%;">
+                                <field name="name"/>
+                                <field name="metadata_json" string="Metadata JSON" widget="wrrrit_truncate"
+                                       options="{'max_len': 45, 'styled': true}"/>
+                                <field name="meta_data_raw" string="Raw Data" widget="wrrrit_truncate"
+                                       options="{'max_len': 45, 'styled': true}"/>
+                                <field name="timestamp" string="Timestamp"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Kanban View -->
+    <record id="view_wrrrit_data_lake_entry_kanban" model="ir.ui.view">
+        <field name="name">wrrrit.data_lake.entry.kanban</field>
+        <field name="model">wrrrit.data_lake.entry</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_view">
+                <field name="unique_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <field name="unique_id"/>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <field name="is_processed"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_wrrrit_data_lake_entry" model="ir.actions.act_window">
+        <field name="name">AI Data Lake Entry</field>
+        <field name="res_model">wrrrit.data_lake.entry</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Menu Entry -->
+    <menuitem id="menu_wrrrit_data_lake_entry" name="--AI Data Lake Entry"
+              parent="menu_wrrrit_root"
+              action="action_wrrrit_data_lake_entry" sequence="10"/>
+
+
+    <!-- Tree View -->
+    <record id="view_wrrrit_metadata_entry_tree" model="ir.ui.view">
+        <field name="name">wrrrit.metadata.entry.tree</field>
+        <field name="model">wrrrit.metadata.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Metadata Entry">
+                <field name="data_lake_entry_id"/>
+                <field name="metadata_json"/>
+                <field name="meta_data_raw"/>
+                <field name="timestamp"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_wrrrit_metadata_entry_form" model="ir.ui.view">
+        <field name="name">wrrrit.metadata.entry.form</field>
+        <field name="model">wrrrit.metadata.entry</field>
+        <field name="arch" type="xml">
+            <form string="Metadata Entry">
+                <sheet>
+                    <group>
+                        <field name="data_lake_entry_id"/>
+                        <field name="metadata_json"/>
+                        <field name="meta_data_raw"/>
+                        <field name="timestamp"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the correct view -->
+    <record id="action_wrrrit_metadata_entry" model="ir.actions.act_window">
+        <field name="name">Metadata Entries</field>
+        <field name="res_model">wrrrit.metadata.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_wrrrit_metadata_entry_tree"/>
+    </record>
+
+    <!-- Menu item to access the action -->
+    <menuitem id="menu_wrrrit_metadata_entry" name="--Metadata Entries"
+              parent="menu_wrrrit_root"
+              action="action_wrrrit_metadata_entry"/>
+</odoo>

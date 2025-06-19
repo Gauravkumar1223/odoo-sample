@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <record id="group_ai_board" model="res.groups">
+        <field name="name">AI Board</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <record id="voice_record_rule_users" model="ir.rule">
+        <field name="name">Voice Record Rule for Users</field>
+        <field name="model_id" ref="model_wrrrit_ai_voice_record"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">['|', '|', ('owner_id', '=', user.id), ('owner_id', '=', False), ('create_uid', '=',
+            user.id)]
+        </field>
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_unlink">True</field>
+    </record>
+
+    <!-- Allow Admin User to Access All Records -->
+    <record id="voice_record_rule_admin" model="ir.rule">
+        <field name="name">Voice Record Rule for Admin</field>
+        <field name="model_id" ref="model_wrrrit_ai_voice_record"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field> <!-- This domain always evaluates to True -->
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_unlink">True</field>
+    </record>
+    <record id="med_record_rule_users" model="ir.rule">
+        <field name="name">Med Record Rule for Users</field>
+        <field name="model_id" ref="model_wrrrit_ai_medical_document"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">['|', '|', ('owner_id', '=', user.id), ('owner_id', '=', False), ('create_uid', '=',
+            user.id)]
+        </field>
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_unlink">True</field>
+    </record>
+
+    <!-- Allow Admin User to Access All Records -->
+    <record id="med_record_rule_admin" model="ir.rule">
+        <field name="name">Med Record Rule for Admin</field>
+        <field name="model_id" ref="model_wrrrit_ai_medical_document"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field> <!-- This domain always evaluates to True -->
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_unlink">True</field>
+    </record>
+
+
+</odoo>

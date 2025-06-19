@@ -1,0 +1,102 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Dermatologist Information Section -->
+        <record id="section_dermatologist_info" model="wrrrit.ai.prompt.section">
+            <field name="sequence">10</field>
+            <field name="title">Dermatologist Information</field>
+            <field name="prompt">Present the dermatologist's qualifications, areas of expertise (e.g., cosmetic
+                dermatology, pediatric dermatology), and practicing credentials.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Dermatologist Information</h2>
+                    <p><strong>Name:</strong> [Doctor's Name]</p>
+                    <p><strong>Expertise:</strong> [Dermatology Expertise]</p>
+                    <p><strong>Credentials:</strong> [Professional Credentials]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Patient Dermatological History Section -->
+        <record id="section_patient_dermatological_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">20</field>
+            <field name="title">Patient Dermatological History</field>
+            <field name="prompt">Document the patient's dermatological history, including any chronic skin conditions,
+                previous treatments, and family history of skin diseases.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Patient Dermatological History</h2>
+                    <p>[Chronic Skin Conditions]</p>
+                    <p>[Previous Treatments]</p>
+                    <p>[Family Skin Diseases]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Skin Examination Findings Section -->
+        <record id="section_skin_examination_findings" model="wrrrit.ai.prompt.section">
+            <field name="sequence">30</field>
+            <field name="title">Skin Examination Findings</field>
+            <field name="prompt">Report the findings from the dermatological examination, noting any lesions,
+                discoloration, or abnormal skin features detected.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Skin Examination Findings</h2>
+                    <p>[Lesions Notes]</p>
+                    <p>[Discoloration Details]</p>
+                    <p>[Abnormal Features]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Dermatologist's Diagnosis Section -->
+        <record id="section_dermatologists_diagnosis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">40</field>
+            <field name="title">Dermatologist's Diagnosis</field>
+            <field name="prompt">Deliver a concise diagnosis based on the examination findings, the patient's medical
+                history, and any test results.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Dermatologist's Diagnosis</h2>
+                    <p>[Diagnosis Summary]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Management and Treatment Section -->
+        <record id="section_management_treatment" model="wrrrit.ai.prompt.section">
+            <field name="sequence">50</field>
+            <field name="title">Management and Treatment</field>
+            <field name="prompt">Detail the management plan and treatment options provided to the patient, including
+                prescriptions, procedures, or lifestyle modifications.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Management and Treatment</h2>
+                    <p>[Prescriptions]</p>
+                    <p>[Procedures]</p>
+                    <p>[Lifestyle Modifications]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Dermatologist Report Template -->
+        <record id="dermatologist_report_template" model="wrrrit.ai.prompt">
+            <field name="name">Dermatologist Report Template</field>
+            <field name="section_ids" eval="[(6, 0, [ref('section_dermatologist_info'), ref('section_patient_dermatological_history'), ref('section_skin_examination_findings'), ref('section_dermatologists_diagnosis'), ref('section_management_treatment')])]"/>
+        </record>
+    </data>
+</odoo>

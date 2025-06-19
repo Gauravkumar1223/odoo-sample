@@ -1,0 +1,172 @@
+<odoo>
+    <data>
+        <!-- Patient Personal Information Section -->
+        <record id="section_patient_personal_info_detailed" model="wrrrit.ai.prompt.section">
+            <field name="sequence">10</field>
+            <field name="title">A-Detailed Patient Personal Information</field>
+            <field name="prompt">
+                <![CDATA[
+                Extract and present detailed personal information of the patient. This includes the patient's full name, date of birth, age, gender, complete contact details, address, and the name and contact information of their emergency contact person. if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Detailed Patient Personal Information</h2>
+                    <p><strong>Name:</strong> [Patient's Full Name]</p>
+                    <p><strong>Date of Birth:</strong> [DOB]</p>
+                    <p><strong>Age:</strong> [Patient's Age]</p>
+                    <p><strong>Gender:</strong> [Patient's Gender]</p>
+                    <p><strong>Contact Details:</strong> [Full Contact Information]</p>
+                    <p><strong>Address:</strong> [Residential Address]</p>
+                    <p><strong>Emergency Contact:</strong> [Emergency Contact Name and Information]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Comprehensive Medical History Section -->
+        <record id="section_comprehensive_medical_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">20</field>
+            <field name="title">Comprehensive Medical History</field>
+            <field name="prompt">
+                <![CDATA[
+                Create a comprehensive record of the patient's medical history. This should include any known allergies, a history of surgeries, chronic conditions, detailed family health history, and any previous hospitalizations with reasons and durations.
+                if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Comprehensive Medical History</h2>
+                    <p><strong>Allergies:</strong> [Detailed Allergy Information]</p>
+                    <p><strong>Past Surgeries:</strong> [List and Dates of Surgeries]</p>
+                    <p><strong>Chronic Conditions:</strong> [List of Chronic Conditions]</p>
+                    <p><strong>Family Health History:</strong> [Detailed Family Health History]</p>
+                    <p><strong>Previous Hospitalizations:</strong> [Details of Past Hospitalizations]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Detailed Symptoms and Emergency Indicators Section -->
+        <record id="section_detailed_symptoms_emergency" model="wrrrit.ai.prompt.section">
+            <field name="sequence">30</field>
+            <field name="title">Detailed Symptoms and Emergency Indicators</field>
+            <field name="prompt">
+                <![CDATA[
+                Thoroughly describe the patient's current symptoms, with particular attention to any emergency indicators such as severity of pain, breathing difficulties, loss of consciousness, or other acute symptoms. Specify the onset, duration, and any factors that aggravate or alleviate these symptoms.
+                if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Detailed Symptoms and Emergency Indicators</h2>
+                    <p>[Comprehensive Description of Symptoms]</p>
+                    <p>[Details of Any Emergency Indicators]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Patient's Emotional Analysis Section -->
+        <record id="section_patient_intonation_expressions" model="wrrrit.ai.prompt.section">
+            <field name="sequence">40</field>
+            <field name="title">Patient's Emotional Analysis</field>
+            <field name="prompt">
+                <![CDATA[
+                Conduct an analysis of the patient's emotional state based on their speech patterns, tone of voice, and expressed sentiments. Identify specific emotions, their intensity, and any contextual factors or triggers. Highlight any nuances in speech or tone that may indicate underlying emotional states.
+                if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Patient's Emotional Analysis</h2>
+                    <p><strong>Identified Emotions:</strong> [List of Detected Emotions]</p>
+                    <p><strong>Emotion Intensity:</strong> [Assessment of Emotion Intensities]</p>
+                    <p><strong>Contextual Triggers:</strong> [Identified Triggers for Emotional Responses]</p>
+                    <p><strong>Speech and Tone Analysis:</strong> [Detailed Analysis of Speech and Tone]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Situation Summary and Preliminary Analysis Section -->
+        <record id="section_situation_summary_analysis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">50</field>
+            <field name="title">Situation Summary and Preliminary Analysis</field>
+            <field name="prompt">
+                <![CDATA[
+                Summarize the overall situation of the patient based on all available information, including personal data, medical history, symptoms, and emotional analysis. Provide a preliminary analysis that suggests potential diagnoses or areas requiring further investigation.
+                if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Situation Summary and Preliminary Analysis</h2>
+                    <p>[Overall Situation Summary]</p>
+                    <p>[Initial Analysis and Potential Diagnoses]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Doctor's Investigation Recommendations Section -->
+        <record id="section_doctors_investigation_recommendations" model="wrrrit.ai.prompt.section">
+            <field name="sequence">60</field>
+            <field name="title">Doctor's Investigation Recommendations</field>
+            <field name="prompt">
+                <![CDATA[
+                Based on the analysis so far, recommend specific areas for further investigation by the doctor. These recommendations should be tailored to the symptoms, medical history, and any peculiarities observed in the patient's emotional state or expressions.
+                if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Doctor's Investigation Recommendations</h2>
+                    <p>[Targeted Areas for Further Investigation]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Missing and Essential Information Section -->
+        <record id="section_missing_essential_information" model="wrrrit.ai.prompt.section">
+            <field name="sequence">70</field>
+            <field name="title">Missing and Essential Information</field>
+            <field name="prompt">
+                <![CDATA[
+                Identify any critical information that is currently missing or areas where additional detail is essential. Highlight these gaps and suggest specific information or data that could aid in forming a more comprehensive understanding of the patient's condition and needs.
+                if data not available, please omit the field. and if data is available, please fill the field.
+                use only the provided context, do not create your own context.
+                ]]>
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Missing and Essential Information</h2>
+                    <p>[List of Missing Information and Its Importance]</p>
+                    <p>[Suggestions for Essential Additional Information]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Detailed Patient Transcription Template -->
+        <record id="detailed_patient_transcription_template" model="wrrrit.ai.prompt">
+            <field name="name">A- Patient Transcription Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('section_patient_personal_info_detailed'), ref('section_comprehensive_medical_history'), ref('section_detailed_symptoms_emergency'), ref('section_patient_intonation_expressions'), ref('section_situation_summary_analysis'), ref('section_doctors_investigation_recommendations'), ref('section_missing_essential_information')])]"/>
+        </record>
+    </data>
+</odoo>

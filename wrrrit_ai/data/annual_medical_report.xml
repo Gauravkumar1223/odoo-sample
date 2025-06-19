@@ -1,0 +1,152 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Introduction Section -->
+        <record id="frynol_1_section_introduction" model="wrrrit.ai.prompt.section">
+            <field name="sequence">1</field>
+            <field name="title">Introduction</field>
+            <field name="prompt">Outline the objectives of the annual health check-up and provide basic information
+                about the patient. If data not available, please omit the field. If data is available, please fill the
+                field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Introduction</h2>
+                    <p><strong>Objectives of Health Check-up:</strong> [Objectives]</p>
+                    <p><strong>Basic Patient Information:</strong> [Patient Information]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Medical History and Symptom Review Section -->
+        <record id="frynol_1_section_medical_history_symptom_review" model="wrrrit.ai.prompt.section">
+            <field name="sequence">2</field>
+            <field name="title">Medical History and Symptom Review</field>
+            <field name="prompt">Provide a complete medical history and a review of body systems. If data not available,
+                please omit the field. If data is available, please fill the field using only the provided context, do
+                not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Medical History and Symptom Review</h2>
+                    <p><strong>Complete Medical History:</strong> [Medical History]</p>
+                    <p><strong>Review of Body Systems:</strong> [System Review]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- General Physical Examination Section -->
+        <record id="frynol_1_section_general_physical_exam" model="wrrrit.ai.prompt.section">
+            <field name="sequence">3</field>
+            <field name="title">General Physical Examination</field>
+            <field name="prompt">Evaluate the general condition and examine each body system. If data not available,
+                please omit the field. If data is available, please fill the field using only the provided context, do
+                not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>General Physical Examination</h2>
+                    <p><strong>General Condition Evaluation:</strong> [General Condition]</p>
+                    <p><strong>Examination of Body Systems:</strong> [Body System Examination]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Laboratory and Diagnostic Test Results Section -->
+        <record id="frynol_1_section_lab_diagnostic_tests" model="wrrrit.ai.prompt.section">
+            <field name="sequence">4</field>
+            <field name="title">Laboratory and Diagnostic Test Results</field>
+            <field name="prompt">Report the results of a complete blood analysis and other relevant tests (cholesterol,
+                blood sugar, etc.). If data not available, please omit the field. If data is available, please fill the
+                field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Laboratory and Diagnostic Test Results</h2>
+                    <p><strong>Complete Blood Analysis:</strong> [Blood Analysis Results]</p>
+                    <p><strong>Other Relevant Tests:</strong> [Other Test Results]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Evaluation and Observations Section -->
+        <record id="frynol_1_section_evaluation_observations" model="wrrrit.ai.prompt.section">
+            <field name="sequence">5</field>
+            <field name="title">Evaluation and Observations</field>
+            <field name="prompt">Summarize the findings, highlighting any concerns or abnormalities. If data not
+                available, please omit the field. If data is available, please fill the field using only the provided
+                context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Evaluation and Observations</h2>
+                    <p><strong>Summary of Findings:</strong> [Findings Summary]</p>
+                    <p><strong>Concerns or Abnormalities:</strong> [Concerns and Abnormalities]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Preventive Health Recommendations Section -->
+        <record id="frynol_1_section_preventive_health_recommendations" model="wrrrit.ai.prompt.section">
+            <field name="sequence">6</field>
+            <field name="title">Preventive Health Recommendations</field>
+            <field name="prompt">Provide recommendations for preventive health measures, including vaccinations and
+                recommended screenings based on age, gender, and medical history. If data not available, please omit the
+                field. If data is available, please fill the field using only the provided context, do not create your
+                own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Preventive Health Recommendations</h2>
+                    <p><strong>Vaccinations:</strong> [Vaccinations]</p>
+                    <p><strong>Recommended Screenings:</strong> [Screenings]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Conclusion Section -->
+        <record id="frynol_1_section_conclusion" model="wrrrit.ai.prompt.section">
+            <field name="sequence">7</field>
+            <field name="title">Conclusion</field>
+            <field name="prompt">Recap the recommendations and plan the next steps or examinations. If data not
+                available, please omit the field. If data is available, please fill the field using only the provided
+                context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Conclusion</h2>
+                    <p><strong>Summary of Recommendations:</strong> [Recommendations Summary]</p>
+                    <p><strong>Next Steps or Examinations:</strong> [Next Steps]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Annual Health Check-up Template -->
+        <record id="frynol_1_annual_health_checkup_template" model="wrrrit.ai.prompt">
+            <field name="name">Annual Health Check-up Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('frynol_1_section_introduction'), ref('frynol_1_section_medical_history_symptom_review'), ref('frynol_1_section_general_physical_exam'), ref('frynol_1_section_lab_diagnostic_tests'), ref('frynol_1_section_evaluation_observations'), ref('frynol_1_section_preventive_health_recommendations'), ref('frynol_1_section_conclusion')])]"/>
+        </record>
+        <!-- Annual Health Check-up Report Template -->
+        <record id="frynol_1_annual_health_checkup_report_template" model="wrrrit.ai.report">
+            <field name="name">Annual Health Check-up Report Template</field>
+            <field name="prompt_template_id" ref="frynol_1_annual_health_checkup_template"/>
+            <!-- Include other fields as necessary, e.g., header, footer, style -->
+        </record>
+
+    </data>
+</odoo>

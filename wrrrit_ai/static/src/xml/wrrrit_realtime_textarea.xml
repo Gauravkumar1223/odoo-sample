@@ -1,0 +1,6 @@
+<templates xml:space="preserve">
+    <t t-name="ai_wrrrit.RealtimeTextarea" owl="1">
+        <button t-on-click="toggleStream" class="btn-primary">Toggle Stream</button>
+        <textarea readonly="readonly" t-esc="state.textContent"/>
+    </t>
+</templates>

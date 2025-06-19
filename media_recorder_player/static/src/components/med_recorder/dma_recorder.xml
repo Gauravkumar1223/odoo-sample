@@ -1,0 +1,33 @@
+<templates>
+    <t t-name="media_recorder_player.MedRecorderComponent" owl="1">
+        <!-- Voice Recorder Layout Wrapper -->
+        <div class="voice-recorder-layout">
+
+            <!-- Top Region: Can contain breadcrumbs, page title, or any contextual information -->
+            <div class="voice-recorder__top-region">
+                <!-- Mocked content for top region -->
+            </div>
+
+            <!-- Center/Main Region Container -->
+            <div class="voice-recorder__center-region">
+
+                <!-- Left Panel: Waveform and audio controls -->
+                <div class="voice-recorder__waveform-panel">
+                    <!-- Waveform Visualisation and Audio Controls -->
+                    <!-- Mocked content for the waveform and audio controls -->
+                </div>
+
+                <!-- Right Panel: Transcription, recording management, and action buttons -->
+                <div class="voice-recorder__transcription-panel">
+                    <!-- Transcription Text Area and Action Buttons -->
+                    <!-- Mocked content for transcription area and associated actions -->
+                </div>
+            </div>
+
+            <!-- Bottom Region: Recordings list and additional details about each recording -->
+            <div class="voice-recorder__bottom-region">
+                <!-- Mocked content for the recordings list and additional voice record details -->
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,33 @@
+.detail-view-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.detail-view-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.detail-view-container h5 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-view-container input,
+.detail-view-container select {
+    margin-top: 5px;
+}
+
+.detail-view-container .btn-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.detail-view-container .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}

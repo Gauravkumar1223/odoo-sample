@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="wrrrit_ai_section_layout" name="Section Layout">
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <div class="row">
+                    <!-- Left Side Menu -->
+                    <div class="col-md-3">
+                        <div class="list-group shadow">
+                            <a href="/sections" class="list-group-item list-group-item-action">
+                                <i class="fa fa-list"></i>
+                                List Sections
+                            </a>
+                            <a href="/section/create" class="list-group-item list-group-item-action">
+                                <i class="fa fa-plus"></i>
+                                Add Section
+                            </a>
+                            <a href="/about" class="list-group-item list-group-item-action">
+                                <i class="fa fa-info-circle"></i>
+                                About
+                            </a>
+                            <a href="/help" class="list-group-item list-group-item-action">
+                                <i class="fa fa-question-circle"></i>
+                                Help
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Area -->
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <t t-raw="0"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="wrrrit_ai.template_sections_list" name="Sections List">
+        <t t-call="wrrrit_ai.wrrrit_ai_section_layout">
+            <div class="container-fluid mt-4">
+                <h1 class="mb-3">Sections</h1>
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Sequence</th>
+                                <th>Title</th>
+                                <th>Prompt</th>
+                                <th>Extra</th>
+                                <th>Style</th>
+                                <!-- Add more columns as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="sections" t-as="section">
+                                <tr t-attf-class="clickable-row"
+                                    t-attf-onclick="window.location.href='/section/details/#{section.id}'">
+                                    <td>
+                                        <t t-esc="section.sequence"/>
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="section.title"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="section.prompt"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="section.extra"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="section.style"/>
+                                    </td>
+
+                                    <!-- Add more data fields as needed -->
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item" t-if="current_page > 1">
+                                <a class="page-link" t-att-href="'/sections?page=%s' % (current_page - 1)"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                            <t t-foreach="range(1, total_pages + 1)" t-as="page">
+                                <li t-att-class="'page-item' + (' active' if page == current_page else '')">
+                                    <a class="page-link" t-att-href="'/sections?page=%s' % page">
+                                        <t t-esc="page"/>
+                                    </a>
+                                </li>
+                            </t>
+                            <li class="page-item" t-if="current_page &lt; total_pages">
+                                <a class="page-link" t-att-href="'/sections?page=%s' % (current_page + 1)"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </t>
+
+
+    </template>
+
+    <template id="wrrrit_ai_template_section_details" name="Section Details">
+        <t t-call="wrrrit_ai.wrrrit_ai_section_layout">
+            <div class="container-fluid mt-4">
+                <h1 class="mb-3">Section Details</h1>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Sequence</th>
+                            <td>
+                                <t t-esc="section.sequence"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>
+                                <t t-esc="section.title"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Prompt</th>
+                            <td>
+                                <t t-esc="section.prompt"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Extra</th>
+                            <td>
+                                <t t-raw="section.extra"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Style</th>
+                            <td>
+                                <t t-raw="section.style"/>
+                            </td>
+                        </tr>
+
+                        <!-- Add more rows as needed for other fields -->
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="wrrrit_ai.template_section_edit" name="Edit Section">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Edit Section</h1>
+                <form action="/section/edit" method="post">
+                    <input type="hidden" name="id" t-att-value="section.id"/>
+                    <input type="text" name="title" t-att-value="section.title" required="required"/>
+                    <textarea name="prompt" t-esc="section.prompt"/>
+                    <textarea name="extra" t-esc="section.extra"/>
+                    <input type="text" name="style" t-att-value="section.style"/>
+                    <input type="number" name="sequence" t-att-value="section.sequence" required="required"/>
+                    <input type="submit" class="btn btn-primary" value="Update"/>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="wrrrit_ai_template_section_create" name="Create Section">
+        <t t-call="wrrrit_ai.wrrrit_ai_section_layout">
+            <div class="container-fluid mt-4">
+                <h1 class="mb-3">Create Section</h1>
+
+                <form action="/section/create" method="post" class="form-horizontal">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <label for="title">Title:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="title" name="title" placeholder="Title" required="required"
+                                       class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="prompt">Prompt:</label>
+                            </td>
+                            <td>
+                                <textarea id="prompt" name="prompt" placeholder="Prompt"
+                                          class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="extra">Extra:</label>
+                            </td>
+                            <td>
+                                <textarea id="extra" name="extra" placeholder="Extra" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="style">Style:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="style" name="style" placeholder="Style" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="sequence">Sequence:</label>
+                            </td>
+                            <td>
+                                <input type="number" id="sequence" name="sequence" placeholder="Sequence"
+                                       required="required" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="form-group mt-3">
+                                    <input type="submit" class="btn btn-primary" value="Create"/>
+                                    <a href="/sections" class="btn btn-secondary ml-2">Cancel</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </t>
+    </template>
+    <template id="wrrrit_ai.wrrrit_ai_template_help" name="Help">
+        <t t-call="wrrrit_ai.wrrrit_ai_section_layout">
+            <div class="container-fluid">
+                <div>
+                    <h2>Overview</h2>
+                    <p>The Sections Module in Odoo is a comprehensive tool designed to enhance content management and
+                        organization within the platform. It facilitates handling various types of content, including
+                        textual and graphical elements, and provides an intuitive interface for creating, updating,
+                        viewing, and deleting sections.
+                    </p>
+
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li>
+                            <strong>CRUD Functionality:</strong>
+                            Full Create, Read, Update, and Delete capabilities for managing sections.
+                        </li>
+                        <li>
+                            <strong>Structured Content Layout:</strong>
+                            Each section includes fields like Title, Prompt, Extra, Style, and Sequence for organized
+                            content management.
+                        </li>
+                        <li>
+                            <strong>HTML Content Support:</strong>
+                            Supports HTML content in 'Extra' and 'Style' fields, allowing for rich text formatting and
+                            custom styles.
+                        </li>
+                        <li>
+                            <strong>Interactive List View:</strong>
+                            Sections are displayed in a list view with clickable rows for easy navigation to detailed
+                            views.
+                        </li>
+                        <li>
+                            <strong>Pagination:</strong>
+                            Efficient management of large datasets with a paginated list view.
+                        </li>
+                        <li>
+                            <strong>Detail View:</strong>
+                            Detailed view for each section, presenting all related information in a structured manner.
+                        </li>
+                        <li>
+                            <strong>Side Menu Navigation:</strong>
+                            Easy access to various functionalities through a user-friendly side menu.
+                        </li>
+                        <li>
+                            <strong>Responsive Design:</strong>
+                            Ensures compatibility across different devices and screen sizes.
+                        </li>
+                        <li>
+                            <strong>Integration with Website Layout:</strong>
+                            Seamless integration with Odoo's website layout for a consistent user experience.
+                        </li>
+                    </ul>
+
+                    <h2>Use Cases</h2>
+                    <ul>
+                        <li>
+                            <strong>Content Management:</strong>
+                            Ideal for organizing various content types on the Odoo platform.
+                        </li>
+                        <li>
+                            <strong>Data Organization:</strong>
+                            Useful for structuring and presenting data in detail.
+                        </li>
+                        <li>
+                            <strong>Custom Section Creation:</strong>
+                            Beneficial for creating and managing custom-styled content sections.
+                        </li>
+                    </ul>
+
+                    <p>
+                        <strong>Conclusion:</strong>
+                        The Sections Module is a versatile tool in Odoo, essential for users seeking an enriched content
+                        organization and presentation experience. Its comprehensive feature set and intuitive interface
+                        make it an invaluable addition to the Odoo ecosystem.
+                    </p>
+                </div>
+
+            </div>
+        </t>
+    </template>
+    <template id="wrrrit_ai.wrrrit_ai_template_about" name="About">
+        <t t-call="wrrrit_ai.wrrrit_ai_section_layout">
+            <div class="container-fluid">
+                <div>
+                    <h2>About the Sections Module</h2>
+                    <p>The Sections Module is an innovative feature within the Odoo platform, meticulously designed to
+                        streamline content management and organizational processes. Its primary goal is to offer a
+                        user-friendly interface for managing various types of content effectively.
+                    </p>
+
+                    <h3>Our Mission</h3>
+                    <p>Our mission with the Sections Module is to provide a seamless and efficient experience in
+                        handling diverse content types. From business-centric data to creative content layouts, the
+                        module is engineered to cater to a wide range of organizational needs.
+                    </p>
+
+                    <h3>Why Choose the Sections Module?</h3>
+                    <p>The Sections Module stands out due to its versatility and ease of use. It integrates smoothly
+                        with Odoo's ecosystem, ensuring that users can manage their content without the need for
+                        extensive technical know-how. Whether it's adding rich-text elements, organizing data, or
+                        customizing layouts, the Sections Module is equipped to handle it all.
+                    </p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Robust CRUD functionality for comprehensive content management.</li>
+                        <li>Enhanced support for HTML content, enabling rich text and style customization.</li>
+                        <li>User-friendly interface with interactive and navigable list views.</li>
+                        <li>Responsive design ensuring compatibility across various devices.</li>
+                        <li>Seamless integration with Odoo's standard website layout.</li>
+                    </ul>
+
+                    <p>We are continually working to improve the Sections Module, aligning it with the latest trends and
+                        user feedback. Our commitment is to provide a tool that not only meets but exceeds your content
+                        management expectations.
+                    </p>
+                </div>
+
+            </div>
+        </t>
+    </template>
+    <!--   <template id="my_custom_snippet" name="My Custom Snippet">
+        <div class="s_my_custom_snippet">
+            &lt;!&ndash; Your snippet HTML here &ndash;&gt;
+            <h2>My Custom Snippet Title</h2>
+            <p>This is a custom snippet.</p>
+        </div>
+    </template>
+    <template id="my_custom_snippet_option" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="inside">
+            <t t-snippet="wrrrit_ai.my_custom_snippet"/>
+        </xpath>
+    </template>-->
+
+</odoo>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_wrrrit_ai_voice_record_form" model="ir.ui.view">
+        <field name="name">wrrrit.ai.voice_record.form</field>
+        <field name="model">wrrrit.ai.voice_record</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="main-vertical-container">
+                    <sheet class="reset-sheet">
+                        <div class="absolute-tl inline-flex gap-2">
+                            <p>Reset:</p>
+                            <div class="inline-flex">
+                                <field name="is_report_being_generated" class="rounded"/>
+                                <field name="is_content_being_generated" class="rounded"/>
+                            </div>
+                        </div>
+                        <field class="main-container" name="voice_file" widget="wrrrit_recorder" nolabel="1"
+                                   options="{'model': 'wrrrit.ai.voice_record', 'transcription': 'transcription_data', 'voice': 'voice_file'}"/>
+                            <!--<field name="name" widget="long_task_widget" options="{'taskId': 'report_generate'}"/>-->
+                    </sheet>
+
+                    <sheet class="reset-sheet">
+                        <div class="action-controls">
+                            <button name="action_voice_record_transcribe" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/transcribe.svg" /> A - Transcribe
+                            </button>
+                            <button name="action_voice_record_correct_transcript" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/correct.svg" /> B - Correct Transcript
+                            </button>
+                            <button name="action_generate_report_threading" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/generate.svg" /> C - Generate Report
+                            </button>
+
+                            <button name="action_rewrite_report" string="Rewrite Report" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/others.svg" /> Rewrite Report
+                            </button>
+                            <button name="action_transcription_translate" string="Translate" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/translate.svg" /> Translate
+                            </button>
+                            <button name="action_drugs_diseases" string="Drugs And Diseases" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/drugs.svg" /> Drugs And Diseases
+                            </button>
+                            <button name="action_corrected_drugs_diseases" string="Correct Drugs/Diseases" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/others.svg" /> Correct Drugs/Diseases
+                            </button>
+                            <button name="action_correct_transcription" string="Correct Transcript" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/others.svg" /> Correct Transcript
+                            </button>
+                            <button name="extract_metadata" string="Extract Data" type="object"
+                                    class="wbtn context-btn button-hide" data-context-menu="include">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/menu/others.svg" /> Extract Data
+                            </button>
+                        </div>
+                    </sheet>
+
+                    <sheet class="reset-sheet">
+                        <notebook>
+                            <page string="Transcription">
+                                <sheet>
+                                    <field name="transcription_data" class="custom-transcription-data" nolabel="1"/>
+                                </sheet>
+                            </page>
+
+                            <page string="Generated Report" class="wrr_generated_clickable">
+                                <div class="file-container">
+                                    <div class="file-section">
+                                        <button name="generate_pdf" class="wbtn" string="Recreate PDF" type="object">Recreate PDF</button>
+                                        <field name="generated_report" widget="html" readonly="0" nolabel="1"/>
+                                        <button name="generate_pdf" class="wbtn" string="Recreate PDF" type="object">Recreate PDF</button>
+                                    </div>
+                                    <div class="file-section">
+                                        <h2>PDF Document</h2>
+                                        <field name="generated_file" filename="generated_file_name" widget="pdf_viewer" readonly="1" nolabel="1"/>
+                                        <field name="generated_file_name" invisible="1"/>
+                                    </div>
+                                </div>
+                            </page>
+
+                            <page string="PDF Report">
+                                <div class="file-container">
+                                    <div class="file-section">
+                                        <h2>PDF Document</h2>
+                                        <button name="generate_pdf" class="wbtn" string="Recreate PDF" type="object">Recreate PDF</button>
+                                        <field name="generated_file" filename="generated_file_name" widget="pdf_viewer"
+                                               readonly="1" nolabel="1"/>
+                                        <field name="generated_file_name" invisible="1"/>
+                                    </div>
+                                    <div class="file-section width-80">
+                                        <h2>Word Document</h2>
+                                        <p>You can Download the Document from this link</p>
+                                        <field name="generated_docx" filename="generated_docx_name"
+                                               string="Word Document"
+                                               readonly="1" nolabel="0"/>
+                                        <p>Or Open it in Office Online:</p>
+                                        <field name="docx_url" widget="docx_viewer"/>
+                                        <field name="generated_docx_name" invisible="1"/>
+                                    </div>
+                                </div>
+                            </page>
+
+                            <page string="Corrected Transcription">
+                                <sheet>
+                                    <field name="corrected_transcription_data" widget="html" class="custom-transcription-data" nolabel="1"/>
+                                </sheet>
+                            </page>
+
+                            <page string="Parameters">
+                                <sheet class="parameters-container">
+                                    <group class="rows">
+                                        <field name="name"/>
+                                        <field name="voice_file" filename="voice_file_name" invisible="0"/>
+                                    </group>
+                                    <group name="right_top_group" class="columns">
+                                        <field name="record_locale" class="custom-record-locale"/>
+                                        <field name="owner_id" class="custom-owner-id"/>
+                                        <field name="report_template" class="custom-report-sections" widget="many2one_image"
+                                               options="{'description': 'prompt_template','image': 'logo', 'color': 'color_scheme'}"/>
+                                    </group>
+                                </sheet>
+                            </page>
+
+                            <!--<page string="Drugs and Diseases">
+                                <div class="transcription-container">
+                                    <div class="transcription-section">
+                                        <h3>Detected Drugs</h3>
+                                        <field name="drugs_diseases" nolabel="1"/>
+                                    </div>
+                                    <div class="transcription-section">
+                                        <h3>Drugs</h3>
+                                        <field name="corrected_drugs_diseases" nolabel="1"/>
+                                    </div>
+                                </div>
+                            </page>-->
+
+                            <page string="Translations">
+                                <group class="language-translation" name="top_group" col="3">
+                                    <group name="right_top_group" col="2">
+                                        <field name="record_locale" nolabel="0"/>
+                                    </group>
+                                    <group name="right_top_group" col="2">
+                                        <button name="action_transcription_translate" string="Translate" type="object" class="wbtn"/>
+                                    </group>
+                                </group>
+                                <div class="transcription-container">
+                                    <div class="transcription-section">
+                                        <h3>Transcript</h3>
+                                        <field name="transcription_data" class="custom-transcription-data" nolabel="1"/>
+                                    </div>
+                                    <div class="transcription-section">
+                                        <h3>Translated Transcript</h3>
+                                        <field name="translated_data" class="custom-transcription-data" nolabel="1"/>
+                                    </div>
+                                </div>
+                            </page>
+
+                            <!--<page string="Extracted Data">
+                                <field name="extracted_metadata"/>
+                            </page>-->
+
+                            <page string="Previous Reports">
+                                <field name="pdf_reports" class="widget-container" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </div>
+            </form>
+
+        </field>
+    </record>
+    <!-- Kanban View -->
+    <record id="view_wrrrit_ai_voice_record_kanban" model="ir.ui.view">
+        <field name="name">wrrrit.ai.voice_record.kanban</field>
+        <field name="model">wrrrit.ai.voice_record</field>
+        <field name="arch" type="xml">
+
+
+            <kanban class="o_kanban_mobile bg-image">
+                <templates>
+
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click ">
+                            <div class="o_kanban_record_top oe_kanban_title">
+                                <!-- Name as a header with bold and larger font size inside a grayed box -->
+                                <div>
+                                    <img alt="" class="icon" src="/wrrrit_ai/static/src/img/icons/audio-record.svg" />
+                                    <strong style="font-size: 1.2em;">
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <!-- Details including owner, record locale, and last update -->
+                            <div class="oe_kanban_details">
+                                <div>
+                                    <label for="owner_id">
+                                        <strong>Owner:</strong>
+                                    </label>
+                                    <field name="owner_id"/>
+                                </div>
+                                <div>
+                                    <label for="creation_date">
+                                        <strong>Created:</strong>
+                                    </label>
+                                    <field name="creation_date"/>
+                                </div>
+                                <div>
+                                    <label for="record_locale">
+                                        <strong>Record Locale:</strong>
+                                    </label>
+                                    <field name="record_locale"/>
+                                </div>
+                                <div>
+                                    <label for="last_updated">
+                                        <strong>Last Update:</strong>
+                                    </label>
+                                    <field name="last_updated" widget="date"/>
+                                </div>
+                                <div>
+                                    <label for="transcription_data">
+                                        <strong>Short Summary:</strong>
+                                    </label>
+                                    <field name="transcription_data" widget="wrrrit_truncate"
+                                           options="{'max_len': 145}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_wrrrit_ai_voice_record_tree" model="ir.ui.view">
+        <field name="name">wrrrit.ai.voice_record.tree</field>
+        <field name="model">wrrrit.ai.voice_record</field>
+        <field name="arch" type="xml">
+            <tree string="Voice Record">
+                <field name="name" string="Name"/>
+                <field name="creation_date" string="Created" widget="date"/>
+                <field name="record_locale" string="Record Locale"/>
+                <field name="last_updated" string="Last Update" widget="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_wrrrit_ai_voice_record" model="ir.actions.act_window">
+        <field name="name">Med-Vocals</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wrrrit.ai.voice_record</field>
+        <field name="domain">[]</field>
+        <!--    <field name="domain">['|', ('owner_id', '=', uid), ('is_user_admin', '=', True)]</field>-->
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+</odoo>

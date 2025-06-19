@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl.OdooServices" owl="1">
+        <div t-attf-class="vh-100 {{ state.dark_theme == 'true' ? 'bg-dark' : '' }}">
+            <Layout display="display">
+                <div class="realtimewhisper_container">
+                    <div class="control_panel">
+                        <button type="button" class="startRecording" t-on-click="startRecording">Start Recording</button>
+                        <button type="button" class="stopRecording" t-on-click="stopRecording">Stop Recording</button>
+
+                    </div>
+                    <div class="transcription-vp">
+                        <t t-esc="state.transcript"/>
+                    </div>
+
+                </div>
+            </Layout>
+        </div>
+    </t>
+</templates>

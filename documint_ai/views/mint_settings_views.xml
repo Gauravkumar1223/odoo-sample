@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+        <record id="view_mint_config_settings_form" model="ir.ui.view">
+            <field name="name">mint.config.settings.form</field>
+            <field name="model">mint.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configuration Settings">
+                    <sheet>
+                        <group>
+                            <field name="default_system_prompt"/>
+                            <field name="default_topic_prompt"/>
+                            <field name="default_chapter_prompt"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

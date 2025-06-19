@@ -1,0 +1,167 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- General Information Section -->
+        <record id="frynol_0_section_general_information" model="wrrrit.ai.prompt.section">
+            <field name="sequence">1</field>
+            <field name="title">General Information</field>
+            <field name="prompt">Capture the date, time, and main reason for the consultation, including the patient's
+                name, age, and gender.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>General Information</h2>
+                    <p><strong>Date and Time of Consultation:</strong> [Date], [Time]</p>
+                    <p><strong>Main Reason for Consultation:</strong> [Reason]</p>
+                    <p><strong>Patient's Name:</strong> [Patient's Name]</p>
+                    <p><strong>Age:</strong> [Patient's Age]</p>
+                    <p><strong>Gender:</strong> [Patient's Gender]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Anamnesis Section -->
+        <record id="frynol_0_section_anamnesis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">2</field>
+            <field name="title">Anamnesis</field>
+            <field name="prompt">Detail the patient's current symptoms, personal and family medical history, review of
+                systems, medications, allergies, and lifestyle habits.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Anamnesis</h2>
+                    <p><strong>Current Symptoms:</strong> [Symptoms]</p>
+                    <p><strong>Personal Medical History:</strong> [Personal History]</p>
+                    <p><strong>Family Medical History:</strong> [Family History]</p>
+                    <p><strong>Current Medications and Allergies:</strong> [Medications and Allergies]</p>
+                    <p><strong>Lifestyle Habits:</strong> [Lifestyle]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Clinical Examination Section -->
+        <record id="frynol_0_section_clinical_examination" model="wrrrit.ai.prompt.section">
+            <field name="sequence">3</field>
+            <field name="title">Clinical Examination</field>
+            <field name="prompt">Summarize the findings from the general and systematic clinical examination, focusing
+                on observations relevant to the main complaint.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Clinical Examination</h2>
+                    <p><strong>General Examination:</strong> [General Exam]</p>
+                    <p><strong>Systematic Examination:</strong> [Systematic Exam]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Preliminary Test Results Section -->
+        <record id="frynol_0_section_preliminary_test_results" model="wrrrit.ai.prompt.section">
+            <field name="sequence">4</field>
+            <field name="title">Preliminary Test Results</field>
+            <field name="prompt">Report the results of preliminary tests conducted during the consultation.</field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Preliminary Test Results</h2>
+                    <p><strong>On-Site Test Results:</strong> [On-Site Tests]</p>
+                    <p><strong>Rapid Diagnostic Tests:</strong> [Rapid Tests]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Preliminary or Differential Diagnosis Section -->
+        <record id="frynol_0_section_preliminary_diagnosis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">5</field>
+            <field name="title">Preliminary or Differential Diagnosis</field>
+            <field name="prompt">Provide diagnostic hypotheses based on the anamnesis and clinical examination, with
+                justifications.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Preliminary or Differential Diagnosis</h2>
+                    <p><strong>Diagnostic Hypotheses:</strong> [Hypotheses]</p>
+                    <p><strong>Justifications:</strong> [Justifications]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Management Plan and Recommendations Section -->
+        <record id="frynol_0_section_management_plan" model="wrrrit.ai.prompt.section">
+            <field name="sequence">6</field>
+            <field name="title">Management Plan and Recommendations</field>
+            <field name="prompt">Outline the initial therapeutic plan, recommendations for additional tests, lifestyle
+                modifications, and referrals if necessary.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Management Plan and Recommendations</h2>
+                    <p><strong>Initial Therapeutic Plan:</strong> [Therapeutic Plan]</p>
+                    <p><strong>Additional Test Recommendations:</strong> [Additional Tests]</p>
+                    <p><strong>Lifestyle and Prevention Advice:</strong> [Lifestyle Advice]</p>
+                    <p><strong>Specialist Referral:</strong> [Referral]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Follow-up Plan Section -->
+        <record id="frynol_0_section_follow_up_plan" model="wrrrit.ai.prompt.section">
+            <field name="sequence">7</field>
+            <field name="title">Follow-up Plan</field>
+            <field name="prompt">Describe the follow-up plan including appointment frequency, short and medium-term
+                goals, and patient-specific instructions.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Follow-up Plan</h2>
+                    <p><strong>Follow-up Appointment Frequency:</strong> [Frequency]</p>
+                    <p><strong>Goals:</strong> [Goals]</p>
+                    <p><strong>Patient Instructions:</strong> [Instructions]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Summary and Conclusion Section -->
+        <record id="frynol_0_section_summary_conclusion" model="wrrrit.ai.prompt.section">
+            <field name="sequence">8</field>
+            <field name="title">Summary and Conclusion</field>
+            <field name="prompt">Summarize the key points of the consultation.</field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Summary and Conclusion</h2>
+                    <p><strong>Consultation Summary:</strong> [Summary]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- General Consultation Template -->
+        <record id="frynol_0_general_consultation_template" model="wrrrit.ai.prompt">
+            <field name="name">General Medical Consultation Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('frynol_0_section_general_information'), ref('frynol_0_section_anamnesis'), ref('frynol_0_section_clinical_examination'), ref('frynol_0_section_preliminary_test_results'), ref('frynol_0_section_preliminary_diagnosis'), ref('frynol_0_section_management_plan'), ref('frynol_0_section_follow_up_plan'), ref('frynol_0_section_summary_conclusion')])]"/>
+        </record>
+
+        <!-- Report Template for General Medical Consultation -->
+        <record id="frynol_0_general_consultation_report_template" model="wrrrit.ai.report">
+            <field name="name">General Medical Consultation Report Template</field>
+            <field name="prompt_template_id" ref="frynol_0_general_consultation_template"/>
+            <!-- Include other fields as necessary, e.g., header, footer, style -->
+        </record>
+
+    </data>
+</odoo>

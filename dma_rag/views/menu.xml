@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Existing menu items from menu.xml -->
+    <menuitem
+            id="menu_ans_root"
+            name="Audio"
+            sequence="0"/>
+    <menuitem
+            id="menu_Question_master"
+            name="Audio Details"
+            parent="menu_ans_root"
+            sequence="1"/>
+
+    <record id="action_odoo_services" model="ir.actions.client">
+        <field name="name">Odoo Services</field>
+        <field name="tag">owl.OdooServices</field>
+    </record>
+
+    <record id="action_odoo_realtime" model="ir.actions.client">
+        <field name="name">Odoo realtime</field>
+        <field name="tag">owl.OdooService</field>
+    </record>
+
+    <menuitem id="menu_owl_odoo_services" name="Odoo Services" action="action_odoo_services"  sequence="2" parent="menu_ans_root"/>
+
+    <!-- Upload section from upload.xml -->
+    <record id="view_file_question_tree" model="ir.ui.view">
+        <field name="name">file.question.tree</field>
+        <field name="model">file.question</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="file_data" />
+                <field name="question" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_file_question_form" model="ir.ui.view">
+        <field name="name">file.question.form</field>
+        <field name="model">file.question</field>
+        <field name="arch" type="xml">
+            <form>
+               <div class="checking">
+                    <sheet>
+                        <group>
+                            <field name="file_data" />
+                        </group>
+                        <button string="Start Transcription"
+                            type="object"
+                            class="btn btn-primary"
+                            name="convert_audio_file"
+                        />
+                        <button string="Start Async Transcription"
+                            type="object"
+                            class="btn btn-danger"
+                            name="async_convert_audio_file"
+                        />
+
+                </sheet>
+
+<!--                <field class="main-container"  widget="wrrrit_recorder" nolabel="1"-->
+<!--                               options="{'model': 'wrrrit.ai.voice_record',-->
+<!--                             'transcription': 'transcription_data', 'voice': 'voice_file'}"/>-->
+
+                <sheet>
+                        <group>
+                            <field name="question" />
+                            <field name="answer" />
+                        </group>
+
+                        <div style="clear: both;"></div> <!-- Clear float to avoid layout issues -->
+                </sheet>
+
+
+               </div>
+
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="action_file_question" model="ir.actions.act_window">
+        <field name="name">Audio Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">file.question</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Upload your file questions!
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_file_question"
+        name="Audio Data"
+        action="action_file_question"
+        parent="menu_Question_master"
+        sequence="0" />
+
+</odoo>

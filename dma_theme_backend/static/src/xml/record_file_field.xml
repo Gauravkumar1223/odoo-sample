@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web.RecordFileField" owl="1">
+        <div t-att-title="title" class="flex">
+            <div>
+                <img src="/frynol_theme_backend/static/src/img/record-file.svg" t-att-alt="title" />
+            </div>
+            <div>
+                <b><t t-esc="title"/></b><br />
+                <t t-esc="fileSize"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

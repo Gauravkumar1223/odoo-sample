@@ -1,0 +1,340 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Each Section Definition -->
+        <record id="section_patient_information" model="wrrrit.ai.prompt.section">
+            <field name="sequence">9</field>
+            <field name="title">Patient Information</field>
+            <field name="prompt">Provide the essential personal details of the patient, including full name, address,
+                phone number, date of birth, and gender.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h3>Patient Information</h3>
+                    <p><strong>Name:</strong> [Patient Full Name]</p>
+                    <p><strong>Address:</strong> [Patient Address]</p>
+                    <p><strong>Phone Number:</strong> [Patient Phone Number]</p>
+                    <p><strong>Date of Birth:</strong> [Patient Date of Birth]</p>
+                    <p><strong>Gender:</strong> [Patient Gender]</p>
+                    <!-- Other relevant information as needed -->
+                </div>
+                ]]>
+            </field>
+        </record>
+
+
+        <record id="section_hospitalization_mode" model="wrrrit.ai.prompt.section">
+            <field name="sequence">10</field>
+            <field name="title">Hospitalization Mode</field>
+            <field name="prompt">Describe the mode of the patient's hospitalization (voluntary, involuntary, emergency,
+                etc.).
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Hospitalization Mode</h2>
+                    <p><strong>Admission Type:</strong> [Admission Type]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_admission_mode" model="wrrrit.ai.prompt.section">
+            <field name="sequence">11</field>
+            <field name="title">Admission Mode (Referred By)</field>
+            <field name="prompt">Detail how the patient was referred for admission (e.g., by a general practitioner, a
+                psychiatrist, self-referral).
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Admission Mode (Referred By)</h2>
+                    <p><strong>Referred By:</strong> [Referring Party]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_hospitalization_reason" model="wrrrit.ai.prompt.section">
+            <field name="sequence">12</field>
+            <field name="title">Reason for Hospitalization</field>
+            <field name="prompt">Summarize the main reason(s) for the patient's hospitalization.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Reason for Hospitalization</h2>
+                    <p><strong>Main Reason(s):</strong> [Main Reason(s) for Admission]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_medical_psychiatric_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">13</field>
+            <field name="title">Medical and Psychiatric History</field>
+            <field name="prompt">Document the patient's medical and psychiatric history, including past diagnoses,
+                treatments, and hospitalizations.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Medical and Psychiatric History</h2>
+                    <p><strong>Diagnoses:</strong> [Diagnoses]</p>
+                    <p><strong>Treatments:</strong> [Treatments]</p>
+                    <p><strong>Hospitalizations:</strong> [Hospitalizations]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_family_psychiatric_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">14</field>
+            <field name="title">Family Psychiatric History</field>
+            <field name="prompt">Provide details of any psychiatric conditions that exist within the patient's family
+                history.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Family Psychiatric History</h2>
+                    <p><strong>Conditions:</strong> [Family Psychiatric Conditions]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_addiction_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">15</field>
+            <field name="title">Addiction History</field>
+            <field name="prompt">Outline any history of substance abuse or addiction the patient has experienced.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Addiction History</h2>
+                    <p><strong>Substances:</strong> [Substances Abused]</p>
+                    <p><strong>Addiction Treatment:</strong> [Addiction Treatment History]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+        <!-- ... Previous section definitions ... -->
+
+        <record id="section_biographical_elements_lifestyle" model="wrrrit.ai.prompt.section">
+            <field name="sequence">16</field>
+            <field name="title">Biographical Elements and Lifestyle</field>
+            <field name="prompt">Discuss significant biographical milestones and current lifestyle elements that may
+                influence the patient's mental health.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Biographical Elements and Lifestyle</h2>
+                    <p><strong>Significant Life Events:</strong> [Life Events]</p>
+                    <p><strong>Lifestyle Factors:</strong> [Lifestyle Details]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_legal_protections" model="wrrrit.ai.prompt.section">
+            <field name="sequence">17</field>
+            <field name="title">Legal Protections</field>
+            <field name="prompt">List any legal protections in place for the patient, including guardianship,
+                conservatorship, or protective supervision.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Legal Protections</h2>
+                    <p><strong>Protections:</strong> [Legal Protections in Place]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_illness_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">18</field>
+            <field name="title">Illness History</field>
+            <field name="prompt">Narrate the history of the present illness from its onset, including any significant
+                turning points and treatments received.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Illness History</h2>
+                    <p><strong>History:</strong> [Detailed Illness Narrative]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_initial_clinical_examination" model="wrrrit.ai.prompt.section">
+            <field name="sequence">19</field>
+            <field name="title">Initial Clinical Examination</field>
+            <field name="prompt">Provide a summary of the initial clinical examination findings on admission.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Initial Clinical Examination</h2>
+                    <p><strong>Findings:</strong> [Clinical Examination Findings]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_medical_synthesis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">20</field>
+            <field name="title">Medical Synthesis of Stay</field>
+            <field name="prompt">Synthesize the medical events and treatments during the hospital stay.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Medical Synthesis of Stay</h2>
+                    <p><strong>Summary:</strong> [Medical Events and Treatments]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_clinical_evolution" model="wrrrit.ai.prompt.section">
+            <field name="sequence">21</field>
+            <field name="title">Clinical Evolution During Stay</field>
+            <field name="prompt">Document the patient's clinical progress and any changes in the clinical picture during
+                the stay.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Clinical Evolution During Stay</h2>
+                    <p><strong>Clinical Progress:</strong> [Description of Clinical Changes]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_somatic_assessment" model="wrrrit.ai.prompt.section">
+            <field name="sequence">22</field>
+            <field name="title">Somatic Assessment</field>
+            <field name="prompt">Detail the results of the somatic assessment conducted during the hospital stay.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Somatic Assessment</h2>
+                    <p><strong>Assessment Results:</strong> [Somatic Assessment Findings]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_additional_examinations" model="wrrrit.ai.prompt.section">
+            <field name="sequence">23</field>
+            <field name="title">Additional Examinations</field>
+            <field name="prompt">Summarize any additional examinations and tests conducted, along with their results.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Additional Examinations</h2>
+                    <p><strong>Examinations:</strong> [List of Additional Tests and Results]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_adverse_events" model="wrrrit.ai.prompt.section">
+            <field name="sequence">24</field>
+            <field name="title">Adverse Events (Including Allergies) During Hospitalization</field>
+            <field name="prompt">List any adverse events the patient experienced during the stay, including allergic
+                reactions and how they were managed.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Adverse Events During Hospitalization</h2>
+                    <p><strong>Events:</strong> [Description of Adverse Events and Management]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_cim10_diagnosis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">25</field>
+            <field name="title">ICD-10 Diagnosis</field>
+            <field name="prompt">Present the ICD-10 diagnosis (International Classification of Diseases) identified.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>ICD-10 Diagnosis</h2>
+                    <p><strong>Diagnosis:</strong> [ICD-10 Diagnosis Codes and Descriptions]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_discharge_treatments" model="wrrrit.ai.prompt.section">
+            <field name="sequence">26</field>
+            <field name="title">Discharge Treatments</field>
+            <field name="prompt">Enumerate the treatments prescribed at discharge, including medications and any other
+                interventions.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Discharge Treatments</h2>
+                    <p><strong>Prescribed Treatments:</strong> [List of Medications and Interventions]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <record id="section_follow_up_care" model="wrrrit.ai.prompt.section">
+            <field name="sequence">27</field>
+            <field name="title">Follow-up Care Instructions</field>
+            <field name="prompt">Outline the plan for post-discharge care, including subsequent appointments, therapy
+                sessions, and any lifestyle recommendations.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Follow-up Care Instructions</h2>
+                    <p><strong>Post-Discharge Plan:</strong> [Details of Follow-up Care]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Detailed Psychological Report Template -->
+        <record id="detailed_psychological_report_template" model="wrrrit.ai.prompt">
+            <field name="name">Detailed Psychological Report</field>
+            <field name="section_ids" eval="[(6, 0, [
+                ref('section_patient_information'),
+                ref('section_hospitalization_mode'),
+                ref('section_admission_mode'),
+                ref('section_hospitalization_reason'),
+                ref('section_medical_psychiatric_history'),
+                ref('section_family_psychiatric_history'),
+                ref('section_addiction_history'),
+                ref('section_biographical_elements_lifestyle'),
+                ref('section_legal_protections'),
+                ref('section_illness_history'),
+                ref('section_initial_clinical_examination'),
+                ref('section_medical_synthesis'),
+                ref('section_clinical_evolution'),
+                ref('section_somatic_assessment'),
+                ref('section_additional_examinations'),
+                ref('section_adverse_events'),
+                ref('section_cim10_diagnosis'),
+                ref('section_discharge_treatments'),
+                ref('section_follow_up_care')
+                ])]"/>
+        </record>
+
+    </data>
+</odoo>

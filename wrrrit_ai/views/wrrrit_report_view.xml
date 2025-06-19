@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="view_wrrrit_ai_report_form" model="ir.ui.view">
+        <field name="name">wrrrit.ai.report.form</field>
+        <field name="model">wrrrit.ai.report</field>
+         <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" options="{'size': [100, 100]}"/>
+                        <field name="prompt_template_id"/>
+                    </group>
+                    <group>
+                        <field name="header" />
+                        <field name="template_definition" />
+                        <field name="footer" />
+                    </group>
+                    <group>
+                        <field name="style"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_wrrrit_ai_report_tree" model="ir.ui.view">
+        <field name="name">wrrrit.ai.report.tree</field>
+        <field name="model">wrrrit.ai.report</field>
+         <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="color_scheme"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_wrrrit_ai_report_kanban" model="ir.ui.view">
+        <field name="name">wrrrit.ai.report.kanban</field>
+        <field name="model">wrrrit.ai.report</field>
+        <field name="arch" type="xml">
+             <kanban class="o_kanban_mobile bg-image">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click oe_kanban_card">
+                            <div class="o_kanban_record_top mb16">
+                                <field name="logo" widget="image" options="{'size': [75, 75]}" class="o_kanban_image"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <field name="name" class="o_kanban_record_subtitle"/>
+                                <field name="color_scheme" class="o_kanban_record_subtitle"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <field name="template_definition" widget="html" class="o_kanban_record_subtitle"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_wrrrit_ai_report" model="ir.actions.act_window">
+        <field name="name">Report Templates</field>
+        <field name="res_model">wrrrit.ai.report</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Report Sections Template
+            </p>
+            <p>
+                Add a report name and define its template.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_voice_record_pdf_tree" model="ir.ui.view">
+        <field name="name">wrrrit.ai.voice_record.pdf.tree</field>
+        <field name="model">wrrrit.ai.voice_record.pdf</field>
+        <field name="arch" type="xml">
+            <tree string="Med-Vocal Reports">
+                <field name="name" optional="hide"/>
+                <field name="pdf_report_data" string="Report Name" widget="record_file"/>
+                <field name="voice_record_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_voice_record_pdf_form" model="ir.ui.view">
+        <field name="name">wrrrit.ai.voice_record.pdf.form</field>
+        <field name="model">wrrrit.ai.voice_record.pdf</field>
+        <field name="arch" type="xml">
+            <form string="Med-PDF Report">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="voice_record_id"/>
+                        <field name="pdf_report_data" widget="pdf_viewer"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_voice_record_pdf_modal" model="ir.actions.act_window">
+        <field name="name">Open Med-PDF</field>
+        <field name="res_model">wrrrit.ai.voice_record.pdf</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_voice_record_pdf_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_voice_record_pdf" model="ir.actions.act_window">
+        <field name="name">Med-PDF Reports</field>
+        <field name="res_model">wrrrit.ai.voice_record.pdf</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create or import your PDF Reports here.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Entry -->
+    <menuitem id="menu_wrrrit_ai_report" name="Med-Reports"
+              parent="wrrrit_ai_main_menu" action="action_wrrrit_ai_report"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+        <!-- Tree View for Section -->
+        <record id="view_mint_section_tree" model="ir.ui.view">
+            <field name="name">mint.section.tree</field>
+            <field name="model">mint.section</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Section -->
+        <record id="view_mint_section_form" model="ir.ui.view">
+            <field name="name">mint.section.form</field>
+            <field name="model">mint.section</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                            <field name="content" widget="html"/>
+                            <field name="content_generated" widget="html"/>
+                            <field name="prompt"/>
+                            <field name="locale"/>
+                            <field name="tokens_generated"/>
+                            <field name="style_metadata"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

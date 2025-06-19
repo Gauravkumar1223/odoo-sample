@@ -1,0 +1,2302 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* wrrrit_collector
+# 	* wrrrit_ai
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-02 03:18+0000\n"
+"PO-Revision-Date: 2024-01-02 03:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: wrrrit_collector
+#: model:ir.ui.menu,name:wrrrit_collector.menu_wrrrit_data_lake_entry
+msgid "--AI Data Lake Entry"
+msgstr "--AI Data Lake-Eintrag"
+
+#. module: wrrrit_collector
+#: model:ir.ui.menu,name:wrrrit_collector.menu_action_wrrrit_collector_data
+msgid "--Collector Data"
+msgstr "--Sammlerdaten"
+
+#. module: wrrrit_collector
+#: model:ir.ui.menu,name:wrrrit_collector.menu_wrrrit_metadata_entry
+msgid "--Metadata Entries"
+msgstr "--Metadateneinträge"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_section_layout
+msgid ""
+"<i class=\"fa fa-info-circle\"/>\n"
+"                                About"
+msgstr "<i class=\"fa fa-info-circle\"/>\n Über"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_section_layout
+msgid ""
+"<i class=\"fa fa-list\"/>\n"
+"                                List Sections"
+msgstr "<i class=\"fa fa-list\"/>\n Abschnitte auflisten"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_section_layout
+msgid ""
+"<i class=\"fa fa-plus\"/>\n"
+"                                Add Section"
+msgstr "<i class=\"fa fa-plus\"/>\n Abschnitt hinzufügen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_section_layout
+msgid ""
+"<i class=\"fa fa-question-circle\"/>\n"
+"                                Help"
+msgstr "<i class=\"fa fa-question-circle\"/>\n Hilfe"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+msgid "<span aria-hidden=\"true\">«</span>"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+msgid "<span aria-hidden=\"true\">»</span>"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>CRUD Functionality:</strong>\n"
+"                            Full Create, Read, Update, and Delete capabilities for managing sections."
+msgstr "<strong>CRUD-Funktionalität:</strong>\n Vollständige Erstellungs-, Lese-, Aktualisierungs- und Löschfunktionen zum Verwalten von Abschnitten."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Conclusion:</strong>\n"
+"                        The Sections Module is a versatile tool in Odoo, essential for users seeking an enriched content\n"
+"                        organization and presentation experience. Its comprehensive feature set and intuitive interface\n"
+"                        make it an invaluable addition to the Odoo ecosystem."
+msgstr "<strong>Fazit:</strong>\n Das Abschnittsmodul ist ein vielseitiges Tool in Odoo, unverzichtbar für Benutzer, die eine bereicherte Organisation und Präsentation von Inhalten\n suchen. "
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Content Management:</strong>\n"
+"                            Ideal for organizing various content types on the Odoo platform."
+msgstr "<strong>Content Management:</strong>\n Ideal zum Organisieren verschiedener Inhaltstypen auf der Odoo-Plattform."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_kanban
+msgid "<strong>Created:</strong>"
+msgstr "<strong>Erstellt:</strong>"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_kanban
+msgid "<strong>Creation Date:</strong>"
+msgstr "<strong>Erstellungsdatum:</strong>"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Custom Section Creation:</strong>\n"
+"                            Beneficial for creating and managing custom-styled content sections."
+msgstr "<strong>Benutzerdefinierte Abschnittserstellung:</strong>\n Nützlich für die Erstellung und Verwaltung benutzerdefinierter Inhaltsabschnitte."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Data Organization:</strong>\n"
+"                            Useful for structuring and presenting data in detail."
+msgstr "<strong>Datenorganisation:</strong>\n Nützlich für die detaillierte Strukturierung und Präsentation von Daten."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Detail View:</strong>\n"
+"                            Detailed view for each section, presenting all related information in a structured manner."
+msgstr "<strong>Detailansicht:</strong>\n Detaillierte Ansicht für jeden Abschnitt, in der alle zugehörigen Informationen strukturiert dargestellt werden."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>HTML Content Support:</strong>\n"
+"                            Supports HTML content in 'Extra' and 'Style' fields, allowing for rich text formatting and\n"
+"                            custom styles."
+msgstr "<strong>HTML-Inhaltsunterstützung:</strong>\n Unterstützt HTML-Inhalte in den Feldern „Extra“ und „Stil“ und ermöglicht so Rich-Text-Formatierung und\n benutzerdefinierte Stile."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Integration with Website Layout:</strong>\n"
+"                            Seamless integration with Odoo's website layout for a consistent user experience."
+msgstr "<strong>Integration mit Website-Layout:</strong>\n Nahtlose Integration mit dem Website-Layout von Odoo für ein konsistentes Benutzererlebnis."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Interactive List View:</strong>\n"
+"                            Sections are displayed in a list view with clickable rows for easy navigation to detailed\n"
+"                            views."
+msgstr "<strong>Interaktive Listenansicht:</strong>\n Abschnitte werden in einer Listenansicht mit anklickbaren Zeilen angezeigt, um eine einfache Navigation zu detaillierten\nAnsichten zu ermöglichen."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_kanban
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_kanban
+msgid "<strong>Last Update:</strong>"
+msgstr "<strong>Letzte Aktualisierung:</strong>"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_kanban
+msgid "<strong>Locale</strong>"
+msgstr "<strong>Gebietsschema</strong>"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_kanban
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_kanban
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_kanban
+msgid "<strong>Owner:</strong>"
+msgstr "<strong>Eigentümer:</strong>"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Pagination:</strong>\n"
+"                            Efficient management of large datasets with a paginated list view."
+msgstr "<strong>Paginierung:</strong>\n Effiziente Verwaltung großer Datensätze mit einer paginierten Listenansicht."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_kanban
+msgid "<strong>Patient:</strong>"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_kanban
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_kanban
+msgid "<strong>Record Locale:</strong>"
+msgstr "<strong>Datensatzgebietsschema:</strong>"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Responsive Design:</strong>\n"
+"                            Ensures compatibility across different devices and screen sizes."
+msgstr "<strong>Responsive Design:</strong>\n Gewährleistet die Kompatibilität zwischen verschiedenen Geräten und Bildschirmgrößen."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Side Menu Navigation:</strong>\n"
+"                            Easy access to various functionalities through a user-friendly side menu."
+msgstr "<strong>Navigation im Seitenmenü:</strong>\n Einfacher Zugriff auf verschiedene Funktionen über ein benutzerfreundliches Seitenmenü."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"<strong>Structured Content Layout:</strong>\n"
+"                            Each section includes fields like Title, Prompt, Extra, Style, and Sequence for organized\n"
+"                            content management."
+msgstr "<strong>Strukturiertes Inhaltslayout:</strong>\n Jeder Abschnitt enthält Felder wie Titel, Eingabeaufforderung, Extra, Stil und Reihenfolge für eine organisierte\n Inhaltsverwaltung."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "A - TRANSCRIBE"
+msgstr "A – TRANSKRIBEN"
+
+#. module: wrrrit_ai
+#: model:res.groups,name:wrrrit_ai.group_ai_board
+msgid "AI Board"
+msgstr "KI-Vorstand"
+
+#. module: wrrrit_collector
+#: model:ir.actions.act_window,name:wrrrit_collector.action_wrrrit_collector_data
+#: model:ir.model,name:wrrrit_collector.model_wrrrit_collector_data
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_collector_data_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_collector_data_kanban
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_collector_data_tree
+msgid "AI Collector Data"
+msgstr "AI-Sammlerdaten"
+
+#. module: wrrrit_collector
+#: model:ir.ui.menu,name:wrrrit_collector.menu_wrrrit_root
+msgid "AI Data"
+msgstr "KI-Daten"
+
+#. module: wrrrit_collector
+#: model:ir.actions.act_window,name:wrrrit_collector.action_wrrrit_data_lake_entry
+msgid "AI Data Lake Entry"
+msgstr "AI Data Lake-Eintrag"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__ai_model
+msgid "AI Model"
+msgstr "KI-Modell"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_wizard_ai_voice_record
+msgid "AI Voice Record"
+msgstr "AI-Sprachaufzeichnung"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "About the Sections Module"
+msgstr "Über das Abschnittsmodul"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__name
+msgid "Action Name"
+msgstr "Aktionsname"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_needaction
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_needaction
+msgid "Action Needed"
+msgstr "Aktion erforderlich"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Actions:"
+msgstr "Aktionen:"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__active
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_ids
+msgid "Activities"
+msgstr "Aktivitäten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_exception_decoration
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Aktivitätsausnahmedekoration"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_state
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_state
+msgid "Activity State"
+msgstr "Aktivitätsstatus"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_type_icon
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Symbol für Aktivitätstyp"
+
+#. module: wrrrit_ai
+#: model_terms:ir.actions.act_window,help:wrrrit_ai.action_wrrrit_ai_report
+msgid "Add a report name and define its template."
+msgstr "Fügen Sie einen Berichtsnamen hinzu und definieren Sie seine Vorlage."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__additional_info
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__additional_info
+msgid "Additional Information"
+msgstr "Zusätzliche Informationen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "All Pdfs"
+msgstr "Alle PDFs"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "Analyzed content"
+msgstr "Analysierter Inhalt"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_attachment_count
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_attachment_count
+msgid "Attachment Count"
+msgstr "Anhanganzahl"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__audio_record_duration
+msgid "Audio Record Duration (seconds)"
+msgstr "Audioaufnahmedauer (Sekunden)"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__author
+msgid "Author"
+msgstr "Autor"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "B- (Correct Transcript)"
+msgstr "B- (Korrektes Transkript)"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_background_action
+msgid "Background Action"
+msgstr "Hintergrundaktion"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_report__color_scheme__blue
+msgid "Blue"
+msgstr "Blau"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_wizard_ai_voice_record
+msgid "Button"
+msgstr "Schaltfläche"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "C- GENERATE REPORT"
+msgstr "C – BERICHT ERSTELLEN"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__style
+msgid "CSS Style"
+msgstr "CSS-Stil"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_chat_knowledge_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_wizard_ai_voice_record
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_chat_message
+msgid "Chat Message"
+msgstr "Chat-Nachricht"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_chat_knowledge
+msgid "Chat with Knowledge Base"
+msgstr "Chat mit Wissensdatenbank"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__child_ids
+msgid "Child Folders"
+msgstr "Untergeordnete Ordner"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__color_scheme
+msgid "Color Scheme"
+msgstr "Farbschema"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__background_action__status__completed
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__computed_fields
+msgid "Computed Fields"
+msgstr "Berechnete Felder"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__content
+msgid "Content"
+msgstr "Inhalt"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#, python-format
+msgid "Content Generation"
+msgstr "Inhaltsgenerierung"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Correct Drugs/Diseases"
+msgstr "Richtige Medikamente/Krankheiten"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Correct Transcript"
+msgstr "Korrektes Transkript"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__corrected_drugs_diseases
+msgid "Corrected Drugs and Diseases"
+msgstr "Korrigierte Medikamente und Krankheiten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__corrected_transcription_data
+msgid "Corrected Transcript"
+msgstr "Korrigiertes Transkript"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Corrected Transcription"
+msgstr "Korrigierte Transkription"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__cost
+msgid "Cost"
+msgstr "Kosten"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+msgid "Create Section"
+msgstr "Abschnitt erstellen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.actions.act_window,help:wrrrit_ai.action_voice_record_pdf
+msgid "Create or import your PDF Reports here."
+msgstr "Erstellen oder importieren Sie hier Ihre PDF-Berichte."
+
+#. module: wrrrit_ai
+#: model_terms:ir.actions.act_window,help:wrrrit_ai.action_wrrrit_ai_report
+msgid "Create your first Report Sections Template"
+msgstr "Erstellen Sie Ihre erste Vorlage für Berichtsabschnitte"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_tree
+msgid "Created"
+msgstr "Erstellt"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__create_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__create_uid
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__create_uid
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__create_uid
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__create_date
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__create_date
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__create_date
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__creation_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__creation_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__create_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__creation_date
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Creation Date"
+msgstr "Erstellungsdatum"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__custom_ai_sections
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__custom_ai_sections
+msgid "Custom AI Sections"
+msgstr "Benutzerdefinierte KI-Abschnitte"
+
+#. module: wrrrit_collector
+#: model:ir.model,name:wrrrit_collector.model_wrrrit_data_lake_entry
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__data_lake_entry_id
+msgid "Data Lake Entry"
+msgstr "Data Lake-Eintrag"
+
+#. module: wrrrit_collector
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Data Lake Entry Details"
+msgstr "Data Lake-Eintragsdetails"
+
+#. module: wrrrit_collector
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Data Lake Entry Form"
+msgstr "Data Lake-Eintragsformular"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__description
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Detected Drugs"
+msgstr "Nachgewiesene Drogen"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__display_name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__display_name
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__display_name
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__display_name
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Document"
+msgstr "Dokument"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__name
+msgid "Document Name"
+msgstr "Dokumentname"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__document_type
+msgid "Document Type"
+msgstr "Dokumenttyp"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__document_ids
+msgid "Documents"
+msgstr "Dokumente"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__action_logger__status__done
+msgid "Done"
+msgstr "Fertig"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Drugs"
+msgstr "Drogen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Drugs And Diseases"
+msgstr "Drogen und Krankheiten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__drugs_diseases
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Drugs and Diseases"
+msgstr "Drogen und Krankheiten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__duration
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__duration
+msgid "Duration (seconds)"
+msgstr "Dauer (Sekunden)"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_section_edit
+msgid "Edit Section"
+msgstr "Abschnitt bearbeiten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_knowledge_document_form
+msgid "Embed"
+msgstr "Einbetten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__embedded
+msgid "Embedded"
+msgstr "Eingebettet"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__encrypted_field
+msgid "Encrypted Field"
+msgstr "Verschlüsseltes Feld"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__end_time
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__end_time
+msgid "End Time"
+msgstr "Endzeit"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid ""
+"Enhanced support for HTML content, enabling rich text and style "
+"customization."
+msgstr "Verbesserte Unterstützung für HTML-Inhalte, die eine Rich-Text- und Stilanpassung ermöglicht."
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__entry_created_on
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Entry Created On"
+msgstr "Eintrag erstellt am"
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__entry_last_modified
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Entry Last Modified"
+msgstr "Zuletzt geänderter Eintrag"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document.py:0
+#: code:addons/wrrrit_ai/models/vocal_document.py:0
+#, python-format
+msgid "Error"
+msgstr "Fehler"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document.py:0
+#, python-format
+msgid "Error Generating Report: %s"
+msgstr "Fehler beim Generieren des Berichts: %s"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document.py:0
+#, python-format
+msgid "Error Transcription, Save Record and Try Again"
+msgstr "Fehler bei der Transkription, Datensatz speichern und erneut versuchen"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/wrrrit_voice_recorder_widget.js:0
+#, python-format
+msgid "Error accessing microphone."
+msgstr "Fehler beim Zugriff auf das Mikrofon."
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/web/wrrrit_ai_record_working.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_ai_record.js:0
+#, python-format
+msgid "Error loading recording: "
+msgstr "Fehler beim Laden der Aufzeichnung:"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/wrrrit_voice_recorder_widget.js:0
+#, python-format
+msgid "Error loading voice recording."
+msgstr "Fehler beim Laden der Sprachaufzeichnung."
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/wrrrit_voice_recorder_widget.js:0
+#, python-format
+msgid "Error saving recording."
+msgstr "Fehler beim Speichern der Aufnahme."
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/web/wrrrit_ai_record_working.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_ai_record.js:0
+#, python-format
+msgid "Error saving recording: "
+msgstr "Fehler beim Speichern der Aufnahme:"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_details
+msgid "Extra"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+msgid "Extra:"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Extract Data"
+msgstr "Daten extrahieren"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Extract Important Data"
+msgstr "Wichtige Daten extrahieren"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__extracted_metadata
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Extracted Data"
+msgstr "Extrahierte Daten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__extracted_text
+msgid "Extracted Text"
+msgstr "Extrahierter Text"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_kanban
+msgid "Extracted Text:"
+msgstr "Extrahierter Text:"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__action_logger__status__failed
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__background_action__status__failed
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/wrrrit_voice_recorder_widget.js:0
+#, python-format
+msgid "Failed to load voice recording from server."
+msgstr "Sprachaufzeichnung konnte nicht vom Server geladen werden."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__pdf_knowledge_data
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__file_data
+msgid "File Data"
+msgstr "Dateidaten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__filename
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__file_name
+msgid "File Name"
+msgstr "Dateiname"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__file_size
+msgid "File Size (KB)"
+msgstr "Dateigröße (KB)"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__file_type
+msgid "File Type"
+msgstr "Dateityp"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__folder_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_folder_form
+msgid "Folder"
+msgstr "Ordner"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__name
+msgid "Folder Name"
+msgstr "Ordnername"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_folder
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_folder_tree
+msgid "Folders"
+msgstr "Ordner"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_follower_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_follower_ids
+msgid "Followers"
+msgstr "Follower"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_partner_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Follower (Partner)"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__activity_type_icon
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Fantastisches Schriftart-Symbol, z. B. "
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__footer
+msgid "Footer"
+msgstr "Fußzeile"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "General Details"
+msgstr "Allgemeine Details"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__spanish
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__spanish
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__spanish
+msgid "Generar Español"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__italian
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__italian
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__italian
+msgid "Generare Italiano"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__english
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__english
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__english
+msgid "Generate English"
+msgstr "Englisch generieren"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__german
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__german
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__german
+msgid "Generate German"
+msgstr "Deutsch generieren"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Generate Global Report"
+msgstr "Globalen Bericht generieren"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_context_menu.xml:0
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+#, python-format
+msgid "Generate Report"
+msgstr "Bericht erstellen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Generate Summary"
+msgstr "Zusammenfassung erstellen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Generate Translated Summary"
+msgstr "Übersetzte Zusammenfassung generieren"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__generated_docx_name
+msgid "Generated DOCX Filename"
+msgstr "Generierter DOCX-Dateiname"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__global_report
+msgid "Generated Global Report"
+msgstr "Globaler Bericht generiert"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__generated_file_name
+msgid "Generated PDF Filename"
+msgstr "Generierter PDF-Dateiname"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__generated_file
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__generated_file
+msgid "Generated PDF Report"
+msgstr "Generierter PDF-Bericht"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__pdf_reports
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__pdf_reports
+msgid "Generated PDF Reports"
+msgstr "Generierte PDF-Berichte"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "Generated Pdf"
+msgstr "Generiertes PDF"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__generated_report
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__generated_report
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Generated Report"
+msgstr "Erstellter Bericht"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "Generated Report From Record"
+msgstr "Bericht aus Datensatz generiert"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__pdf_reports
+msgid "Generated Reports"
+msgstr "Generierte Berichte"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__generated_docx
+msgid "Generated Word Document"
+msgstr "Word-Dokument generiert"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__dutch
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__dutch
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__dutch
+msgid "Genereren in het Nederlands"
+msgstr "Genereren in den Niederlanden"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__portuguese
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__portuguese
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__portuguese
+msgid "Gerar Português"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__global_extract
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Global Extract"
+msgstr "Globaler Extrakt"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__global_summary
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Global Summary"
+msgstr "Globale Zusammenfassung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__global_translated_summary
+msgid "Global Translated Summary"
+msgstr "Globale übersetzte Zusammenfassung"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Global Translated Transcript"
+msgstr "Globales übersetztes Transkript"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_report__color_scheme__green
+msgid "Green"
+msgstr "Grün"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Group By"
+msgstr "Gruppieren nach"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__grouped_voices_record_id
+msgid "Group of Voice Records"
+msgstr "Gruppe von Sprachaufzeichnungen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__french
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__french
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__french
+msgid "Générer du Français"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__has_message
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__header
+msgid "Header"
+msgstr "Kopfzeile"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__id
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__id
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__id
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__id
+msgid "ID"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_exception_icon
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_exception_icon
+msgid "Icon"
+msgstr "Symbol"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__activity_exception_icon
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Symbol zur Anzeige einer Ausnahmeaktivität."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__document_type__identification_document
+msgid "Identification Document"
+msgstr "Ausweisdokument"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__message_needaction
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Wenn diese Option aktiviert ist, erfordern neue Nachrichten Ihre Aufmerksamkeit."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__message_has_error
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Wenn diese Option aktiviert ist, liegt bei einigen Nachrichten ein Zustellungsfehler vor."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__action_logger__status__in_progress
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__background_action__status__in_progress
+msgid "In Progress"
+msgstr "In Bearbeitung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__insert_date
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_form
+msgid "Insert Date"
+msgstr "Datum einfügen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__insert_owner
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_form
+msgid "Insert Owner"
+msgstr "Besitzer einfügen"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/medical_document.py:0
+#: code:addons/wrrrit_ai/models/models.py:0
+#: code:addons/wrrrit_ai/models/vocal_document.py:0
+#, python-format
+msgid "Invalid search operator or value for is_user_admin"
+msgstr "Ungültiger Suchoperator oder Wert für is_user_admin"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_audio
+msgid "Is Audio"
+msgstr "Ist Audio"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__is_content_being_generated
+msgid "Is Content Being Generated"
+msgstr "Wird Inhalt generiert?"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_docx
+msgid "Is Docx"
+msgstr "Ist Docx"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_is_follower
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_is_follower
+msgid "Is Follower"
+msgstr "Ist Follower"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_image
+msgid "Is Image"
+msgstr "Ist Bild"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_ocr_done
+msgid "Is OCR Done"
+msgstr "OCR abgeschlossen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_pdf
+msgid "Is Pdf"
+msgstr "Ist PDF"
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__is_processed
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Is Processed"
+msgstr "Wird verarbeitet"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__is_report_being_generated
+msgid "Is Report Being Generated"
+msgstr "Wird ein Bericht erstellt?"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__is_system_agent
+msgid "Is System Agent"
+msgstr "Ist Systemagent"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_txt
+msgid "Is Txt"
+msgstr "Ist Txt"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__is_user
+msgid "Is User"
+msgstr "Ist Benutzer"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__is_user_admin
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__is_user_admin
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__is_user_admin
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__is_user_admin
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__is_user_admin
+msgid "Is User Admin"
+msgstr "Ist Benutzeradministrator"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid "Key Features"
+msgstr "Hauptmerkmale"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_knowledge_document
+msgid "Knowledge Documents"
+msgstr "Wissensdokumente"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_knowledge_document
+msgid "Knowledge document"
+msgstr "Wissensdokument"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message____last_update
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record____last_update
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data____last_update
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry____last_update
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry____last_update
+msgid "Last Modified on"
+msgstr "Letzte Änderung am"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__last_update
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_tree
+msgid "Last Update"
+msgstr "Letzte Aktualisierung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__last_updated
+msgid "Last Updated"
+msgstr "Letzte Aktualisierung"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__write_uid
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__write_uid
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__write_uid
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__write_uid
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__write_date
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__write_date
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__write_date
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__write_date
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__write_date
+msgid "Last Updated on"
+msgstr "Letzte Aktualisierung am"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__latest_report_timestamp
+msgid "Latest Report Timestamp"
+msgstr "Zeitstempel des letzten Berichts"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__latest_transcription_timestamp
+msgid "Latest Transcription Timestamp"
+msgstr "Zeitstempel der neuesten Transkription"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_action_logger
+msgid "Log and track the status of long-running actions"
+msgstr "Protokollieren und verfolgen Sie den Status lang andauernder Aktionen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__logo
+msgid "Logo"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_folder
+msgid "MED AI Folder"
+msgstr "MED AI-Ordner"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_main_attachment_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Hauptanhang"
+
+#. module: wrrrit_ai
+#: model_terms:ir.actions.act_window,help:wrrrit_ai.action_wrrrit_ai_knowledge_document
+msgid "Manage your Knowledge Documents here."
+msgstr "Verwalten Sie hier Ihre Knowledge-Dokumente."
+
+#. module: wrrrit_ai
+#: model:ir.ui.menu,name:wrrrit_ai.wrrrit_ai_main_menu
+msgid "Med Reports"
+msgstr "Med-Berichte"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_chat_knowledge
+#: model:ir.ui.menu,name:wrrrit_ai.menu_chat_knowledge
+msgid "Med-Ask"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_medical_documents
+#: model:ir.ui.menu,name:wrrrit_ai.menu_medical_documents
+msgid "Med-Documents"
+msgstr "Med-Dokumente"
+
+#. module: wrrrit_ai
+#: model:ir.ui.menu,name:wrrrit_ai.wrrrit_ai_document_menu
+msgid "Med-Folio"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_document
+msgid "Med-Group"
+msgstr "Med-Gruppe"
+
+#. module: wrrrit_ai
+#: model:ir.ui.menu,name:wrrrit_ai.menu_wrrrit_ai_knowledge_document
+msgid "Med-Know"
+msgstr "Med-Wissen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_voice_record_pdf_form
+msgid "Med-PDF Report"
+msgstr "Med-PDF-Bericht"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_voice_record_pdf
+msgid "Med-PDF Reports"
+msgstr "Med-PDF-Berichte"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_prompt
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_kanban
+msgid "Med-Prompt"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.ui.menu,name:wrrrit_ai.menu_wrrrit_ai_prompt
+msgid "Med-Prompts"
+msgstr "Med-Eingabeaufforderungen"
+
+#. module: wrrrit_ai
+#: model:ir.ui.menu,name:wrrrit_ai.menu_wrrrit_ai_report
+msgid "Med-Reports"
+msgstr "Med-Berichte"
+
+#. module: wrrrit_ai
+#: model:ir.ui.menu,name:wrrrit_ai.menu_wrrrit_ai_prompt_section
+msgid "Med-Sections"
+msgstr "Med-Abschnitte"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_voice_record_pdf_tree
+msgid "Med-Vocal Reports"
+msgstr "Med-Vocal-Berichte"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_voice_record
+#: model:ir.ui.menu,name:wrrrit_ai.wrrrit_ai_voice_record_menu
+msgid "Med-Vocals"
+msgstr "Med-Gesang"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_medical_document
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__medical_document_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "Medical Document"
+msgstr "Medizinisches Dokument"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__medical_document_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__medical_document_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_tree
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Medical Documents"
+msgstr "Medizinische Dokumente"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__document_type__medical_imagery
+msgid "Medical Imagery"
+msgstr "Medizinische Bilder"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__document_type__medical_report
+msgid "Medical Report"
+msgstr "Medizinischer Bericht"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__voice_record
+msgid "Medical Voice Record"
+msgstr "Medizinische Sprachaufzeichnung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_has_error
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_has_error
+msgid "Message Delivery error"
+msgstr "Fehler bei der Nachrichtenzustellung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__message_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__chat_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_chat_knowledge_form
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__extracted_metadata
+msgid "Meta Extracted"
+msgstr "Meta extrahiert"
+
+#. module: wrrrit_collector
+#: model:ir.actions.act_window,name:wrrrit_collector.action_wrrrit_metadata_entry
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__metadata_entry_ids
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Metadata Entries"
+msgstr "Metadateneinträge"
+
+#. module: wrrrit_collector
+#: model:ir.model,name:wrrrit_collector.model_wrrrit_metadata_entry
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_metadata_entry_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_metadata_entry_tree
+msgid "Metadata Entry"
+msgstr "Metadateneintrag"
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__metadata_json
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Metadata JSON"
+msgstr "Metadaten JSON"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_docx_viewer.xml:0
+#, python-format
+msgid "Microsoft Office"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__my_activity_date_deadline
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Meine Aktivitätsfrist"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_wizard_ai_voice_record__name
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__name
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__name
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__name
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_tree
+msgid "Name"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__new_message_content
+msgid "New Message Content"
+msgstr "Neuer Nachrichteninhalt"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+msgid "Next"
+msgstr "Weiter"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_calendar_event_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Nächstes Aktivitätskalenderereignis"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_date_deadline
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Nächste Aktivitätsfrist"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_summary
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_summary
+msgid "Next Activity Summary"
+msgstr "Nächste Aktivitätszusammenfassung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_type_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_type_id
+msgid "Next Activity Type"
+msgstr "Nächster Aktivitätstyp"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_refresh.xml:0
+#, python-format
+msgid "No process running."
+msgstr "Kein Prozess läuft."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_needaction_counter
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__message_has_error_counter
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__message_has_error_counter
+msgid "Number of errors"
+msgstr "Anzahl der Fehler"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__message_needaction_counter
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Anzahl der Nachrichten, die Maßnahmen erfordern"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__message_has_error_counter
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Anzahl der Nachrichten mit Zustellungsfehlern"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_docx_viewer.xml:0
+#, python-format
+msgid "Office Online"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Old Report Style"
+msgstr "Alter Berichtsstil"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_voice_record_pdf_modal
+msgid "Open Med-PDF"
+msgstr "Med-PDF öffnen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__docx_url
+msgid "Open With Office"
+msgstr "Mit Büro öffnen"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_docx_viewer.xml:0
+#, python-format
+msgid "Open Your Document :"
+msgstr "Öffnen Sie Ihr Dokument:"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Or Open it in Office Online:"
+msgstr "Oder öffnen Sie es in Office Online:"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__document_type__other
+msgid "Other"
+msgstr "Andere"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "Our Mission"
+msgstr "Unsere Mission"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid ""
+"Our mission with the Sections Module is to provide a seamless and efficient experience in\n"
+"                        handling diverse content types. From business-centric data to creative content layouts, the\n"
+"                        module is engineered to cater to a wide range of organizational needs."
+msgstr "Unsere Mission mit dem Abschnittsmodul ist es, ein nahtloses und effizientes Erlebnis beim Umgang mit verschiedenen Inhaltstypen zu bieten. "
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid "Overview"
+msgstr "Übersicht"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__owner_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__owner_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__owner_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "PDF Document"
+msgstr "PDF-Dokument"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__pdf_report_data
+msgid "PDF File"
+msgstr "PDF-Datei"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "PDF Report"
+msgstr "PDF-Bericht"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_voice_record_pdf
+msgid "PDF Reports"
+msgstr "PDF-Berichte"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+msgid "Page navigation"
+msgstr "Seitennavigation"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Parameters"
+msgstr "Parameter"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_folder__parent_id
+msgid "Parent Folder"
+msgstr "Übergeordneter Ordner"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__patient
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Patient"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__patient_id
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__patient_id
+msgid "Patient ID"
+msgstr "Patienten-ID"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__patient
+msgid "Patient Name"
+msgstr "Name des Patienten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__action_logger__status__pending
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__background_action__status__pending
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+msgid "Previous"
+msgstr "Zurück"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Previous Reports"
+msgstr "Frühere Berichte"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "Process Document"
+msgstr "Prozessdokument"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__processing_requested
+msgid "Processing Requested"
+msgstr "Verarbeitung angefordert"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_details
+msgid "Prompt"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__prompt_postfix
+msgid "Prompt Postfix"
+msgstr "Prompt-Postfix"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__prompt_prefix
+msgid "Prompt Prefix"
+msgstr "Prompt-Präfix"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__prompt_template_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_tree
+msgid "Prompt Template"
+msgstr "Prompt-Vorlage"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__prompt_template_ids
+msgid "Prompt Templates"
+msgstr "Eingabeaufforderungsvorlagen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+msgid "Prompt:"
+msgstr "Eingabeaufforderung:"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_chat_knowledge_form
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_chat_knowledge_tree
+msgid "Q/A"
+msgstr "F/A"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__question
+msgid "Question"
+msgstr "Frage"
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__meta_data_raw
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Raw Data"
+msgstr "Rohdaten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__prompt_sections
+msgid "Raw Sections"
+msgstr "Rohschnitte"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_tree
+msgid "Record Locale"
+msgstr "Gebietsschema aufzeichnen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__report_template
+msgid "Record Report Template"
+msgstr "Vorlage für Datensatzbericht"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/web/wrrrit_ai_record_working.js:0
+#: code:addons/wrrrit_ai/static/src/web/wrrrit_ai_record_working.js:0
+#: code:addons/wrrrit_ai/static/src/web/wrrrit_ai_record_working.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_ai_record.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_ai_record.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_ai_record.js:0
+#, python-format
+msgid "Record does not exist or is not saved yet."
+msgstr "Datensatz existiert nicht oder ist noch nicht gespeichert."
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/web/wrrrit_ai_record_working.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_ai_record.js:0
+#: code:addons/wrrrit_ai/static/src/wrrrit_voice_recorder_widget.js:0
+#, python-format
+msgid "Recording saved successfully."
+msgstr "Aufnahme erfolgreich gespeichert."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__document_id
+msgid "Records"
+msgstr "Aufzeichnungen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_report__color_scheme__red
+msgid "Red"
+msgstr "Rot"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__relative_timestamp
+msgid "Relative Timestamp"
+msgstr "Relativer Zeitstempel"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Report Configuration"
+msgstr "Berichtskonfiguration"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#, python-format
+msgid "Report Generation"
+msgstr "Berichterstellung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_medical_document__record_locale
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__record_locale
+msgid "Report Language"
+msgstr "Berichtssprache"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__name
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__name
+msgid "Report Name"
+msgstr "Berichtsname"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__report_template
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__report_template
+msgid "Report Template"
+msgstr "Berichtsvorlage"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_report
+msgid "Report Templates"
+msgstr "Berichtsvorlagen"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#, python-format
+msgid "Report generated for record %s at %s."
+msgstr "Bericht für Datensatz %s um %s generiert."
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#, python-format
+msgid "Report generation has already started for record %s."
+msgstr "Die Berichtserstellung für Datensatz %s wurde bereits gestartet."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_knowledge_document__response
+msgid "Response"
+msgstr "Antwort"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__activity_user_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__activity_user_id
+msgid "Responsible User"
+msgstr "Verantwortlicher Benutzer"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "Responsive design ensuring compatibility across various devices."
+msgstr "Responsives Design, das die Kompatibilität zwischen verschiedenen Geräten gewährleistet."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__result
+msgid "Result"
+msgstr "Ergebnis"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "Robust CRUD functionality for comprehensive content management."
+msgstr "Robuste CRUD-Funktionalität für umfassendes Content-Management."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "Seamless integration with Odoo's standard website layout."
+msgstr "Nahtlose Integration mit dem Standard-Website-Layout von Odoo."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_search
+msgid "Search Documents"
+msgstr "Dokumente durchsuchen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_section_form
+msgid "Section"
+msgstr "Abschnitt"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__prompt
+msgid "Section AI Prompt"
+msgstr "Abschnitt AI-Eingabeaufforderung"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_details
+msgid "Section Details"
+msgstr "Abschnittsdetails"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__extra
+msgid "Section Formatting"
+msgstr "Abschnittsformatierung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__style
+msgid "Section Style"
+msgstr "Abschnittsstil"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__title
+msgid "Section Title"
+msgstr "Abschnittstitel"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.action_wrrrit_ai_prompt_section
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__section_ids
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_report__template_definition
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_form
+msgid "Sections"
+msgstr "Abschnitte"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_report__prompt_template_id
+msgid "Select the prompt template associated with this report template."
+msgstr "Wählen Sie die Eingabeaufforderungsvorlage aus, die dieser Berichtsvorlage zugeordnet ist."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt_section__sequence
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_details
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+msgid "Sequence:"
+msgstr "Sequenz:"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_long_task_widget.xml:0
+#, python-format
+msgid "Start Long Task"
+msgstr "Lange Aufgabe starten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__start_time
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__start_time
+msgid "Start Time"
+msgstr "Startzeit"
+
+#. module: wrrrit_ai
+#. odoo-python
+#: code:addons/wrrrit_ai/models/vocal_document_actions.py:0
+#, python-format
+msgid "Starting report generation for record %s at %s."
+msgstr "Berichtserstellung für Datensatz %s wird um %s gestartet."
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__status
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__status
+msgid "Status"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__activity_state
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "Status basierend auf Aktivitäten\nÜberfällig: Fälligkeitsdatum ist bereits überschritten\nHeute: Aktivitätsdatum ist heute\nGeplant: Zukünftige Aktivitäten."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_details
+msgid "Style"
+msgstr "Stil"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+msgid "Style:"
+msgstr "Stil:"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__name
+msgid "Subject"
+msgstr "Betreff"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_chat_knowledge_form
+msgid "Submit"
+msgstr "Einreichen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__generated_summary
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_chat_message__author__system_agent
+msgid "System Agent"
+msgstr "Systemagent"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__task_id
+msgid "Task ID"
+msgstr "Aufgaben-ID"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__task_status
+msgid "Task Status"
+msgstr "Aufgabenstatus"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_medical_document_form
+msgid "Text From Document"
+msgstr "Text aus Dokument"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid ""
+"The Sections Module in Odoo is a comprehensive tool designed to enhance content management and\n"
+"                        organization within the platform. It facilitates handling various types of content, including\n"
+"                        textual and graphical elements, and provides an intuitive interface for creating, updating,\n"
+"                        viewing, and deleting sections."
+msgstr "Das Abschnittsmodul in Odoo ist ein umfassendes Tool zur Verbesserung der Inhaltsverwaltung und\n Organisation innerhalb der Plattform. "
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid ""
+"The Sections Module is an innovative feature within the Odoo platform, meticulously designed to\n"
+"                        streamline content management and organizational processes. Its primary goal is to offer a\n"
+"                        user-friendly interface for managing various types of content effectively."
+msgstr "Das Abschnittsmodul ist eine innovative Funktion innerhalb der Odoo-Plattform, die sorgfältig entwickelt wurde, um das Content-Management und organisatorische Prozesse zu optimieren. "
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid ""
+"The Sections Module stands out due to its versatility and ease of use. It integrates smoothly\n"
+"                        with Odoo's ecosystem, ensuring that users can manage their content without the need for\n"
+"                        extensive technical know-how. Whether it's adding rich-text elements, organizing data, or\n"
+"                        customizing layouts, the Sections Module is equipped to handle it all."
+msgstr "Das Sections-Modul zeichnet sich durch seine Vielseitigkeit und Benutzerfreundlichkeit aus. "
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__owner_id
+msgid "The user who owns this record."
+msgstr "Der Benutzer, dem dieser Datensatz gehört."
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_docx_viewer.xml:0
+#, python-format
+msgid "This is an embedded"
+msgstr "Dies ist ein eingebettetes"
+
+#. modules: wrrrit_collector, wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_message__timestamp
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_metadata_entry__timestamp
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.template_sections_list
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_details
+msgid "Title"
+msgstr "Titel"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_section_create
+msgid "Title:"
+msgstr "Titel:"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_realtime_textarea.xml:0
+#, python-format
+msgid "Toggle Stream"
+msgstr "Stream umschalten"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__tokens_generated
+msgid "Tokens Generated"
+msgstr "Tokens generiert"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_context_menu.xml:0
+#, python-format
+msgid "Transcribe"
+msgstr "Transkribieren"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__transcription_data
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Transcript"
+msgstr "Transkript"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_kanban
+msgid "Transcript:"
+msgstr "Transkript:"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Transcription"
+msgstr "Transkription"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__transcription_stream
+msgid "Transcription Stream"
+msgstr "Transkriptionsstream"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_context_menu.xml:0
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+#, python-format
+msgid "Translate"
+msgstr "Übersetzen"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_prompt__insert_locale
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_prompt_form
+msgid "Translate Locale"
+msgstr "Gebietsschema übersetzen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Translated"
+msgstr "Übersetzt"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__translated_data
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Translated Transcript"
+msgstr "Übersetztes Transkript"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Translations"
+msgstr "Übersetzungen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Translations :"
+msgstr "Übersetzungen:"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_document__activity_exception_decoration
+#: model:ir.model.fields,help:wrrrit_ai.field_wrrrit_ai_voice_record__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Typ der erfassten Ausnahmeaktivität."
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_chat_knowledge_form
+msgid "Type your message here..."
+msgstr "Geben Sie hier Ihre Nachricht ein..."
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_data_lake_entry__unique_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_collector.view_wrrrit_data_lake_entry_form
+msgid "Unique ID"
+msgstr "Eindeutige ID"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_help
+msgid "Use Cases"
+msgstr "Anwendungsfälle"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_action_logger__user_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_background_action__user_id
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_chat_knowledge__owner_id
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_chat_message__author__user
+msgid "User"
+msgstr "Benutzer"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "User-friendly interface with interactive and navigable list views."
+msgstr "Benutzerfreundliche Oberfläche mit interaktiven und navigierbaren Listenansichten."
+
+#. module: wrrrit_collector
+#: model:ir.model.fields,field_description:wrrrit_collector.field_wrrrit_collector_data__value
+msgid "Value"
+msgstr "Wert"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_document
+msgid "Vocal Group of Records"
+msgstr "Gesangsgruppe der Rekorde"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__file
+msgid "Voice  File"
+msgstr "Sprachdatei"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__record_locale
+msgid "Voice > Report Language"
+msgstr "Stimme > Berichtssprache"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__voice_file
+msgid "Voice File"
+msgstr "Sprachdatei"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__voice_file_name
+msgid "Voice File Name"
+msgstr "Voice-Dateiname"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_voice_record
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record_pdf__voice_record_id
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_document_tree
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_tree
+msgid "Voice Record"
+msgstr "Sprachaufzeichnung"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_voice_record__name
+msgid "Voice Record Name"
+msgstr "Name des Sprachdatensatzes"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields,field_description:wrrrit_ai.field_wrrrit_ai_document__voice_record_ids
+msgid "Voice Records"
+msgstr "Sprachaufzeichnungen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_document_form
+msgid "Voice Records Details"
+msgstr "Details zu Sprachaufzeichnungen"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid ""
+"We are continually working to improve the Sections Module, aligning it with the latest trends and\n"
+"                        user feedback. Our commitment is to provide a tool that not only meets but exceeds your content\n"
+"                        management expectations."
+msgstr "Wir arbeiten kontinuierlich daran, das Abschnittsmodul zu verbessern und es an die neuesten Trends und\n Benutzerfeedback anzupassen. "
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.wrrrit_ai_template_about
+msgid "Why Choose the Sections Module?"
+msgstr "Warum das Abschnittsmodul wählen?"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_docx_viewer.xml:0
+#, python-format
+msgid "With MS Office Online"
+msgstr "Mit MS Office Online"
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "Word Document"
+msgstr "Word-Dokument"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_prompt_section
+msgid "Wrrrit AI Prompt Section"
+msgstr "Wrrrit AI-Eingabeaufforderungsabschnitt"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_prompt
+msgid "Wrrrit Prompt Template"
+msgstr "Wrrrit-Eingabeaufforderungsvorlage"
+
+#. module: wrrrit_ai
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_ai_report
+msgid "Wrrrit Report Template"
+msgstr "Schreibberichtsvorlage"
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__turkish
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__turkish
+msgid "Yazılımı Türkçe Yaz"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__turkish
+msgid "Yazılımı Türkçe Yazة"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model_terms:ir.ui.view,arch_db:wrrrit_ai.view_wrrrit_ai_voice_record_form
+msgid "You can Download the Document from this link"
+msgstr "Sie können das Dokument über diesen Link herunterladen"
+
+#. module: wrrrit_ai
+#. odoo-javascript
+#: code:addons/wrrrit_ai/static/src/xml/wrrrit_docx_viewer.xml:0
+#, python-format
+msgid "document, powered by"
+msgstr "Dokument, bereitgestellt von"
+
+#. module: wrrrit_ai
+#: model:ir.actions.act_window,name:wrrrit_ai.wrrrit_ai_voice_record_wizard_action
+#: model:ir.model,name:wrrrit_ai.model_wrrrit_wizard_ai_voice_record
+msgid "wrrrit.wizard.ai.voice.record"
+msgstr ""
+
+#. module: wrrrit_ai
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_document__record_locale__arabic
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_medical_document__record_locale__arabic
+#: model:ir.model.fields.selection,name:wrrrit_ai.selection__wrrrit_ai_voice_record__record_locale__arabic
+msgid "توليد اللغة العربية"
+msgstr ""
+

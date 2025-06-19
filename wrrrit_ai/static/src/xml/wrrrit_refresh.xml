@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="wrrrit_ai.ProcessProgressWidget" owl="1">
+        <div class="progress-bar-wrapper">
+            <div t-if="state.progress > 0">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                         t-att-aria-valuenow="state.progress"
+                         t-att-aria-valuemin="0"
+                         t-att-aria-valuemax="100"
+                         t-att-style="'width:' + state.progress + '%;'">
+                        <t t-esc="state.progress + '%'"/>
+                    </div>
+                </div>
+            </div>
+            <div t-else="">
+                <span>No process running.</span>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,65 @@
+
+
+// .o_blockUI.fixed-top {
+//     display: none !important;
+// }
+
+.btn-primary{
+    background-color: black;
+    border-color: #007bff !important;
+}
+
+.checking{
+    color: red;
+//     border : 2px solid grey;
+    width: 100%;
+    height: fit-content;
+}
+
+.headrealtime{
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+
+.realtimebtn .start_transcription_css{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.realtimebtn .stop_transcription_css{
+    background-color: #B2293D;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.realtimebtn button:hover{
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid black;
+    color: white;
+    font-weight: 800;
+    margin-left: 50px;
+}
+
+
+.odoo_services{
+margin-left: 100px;
+background-color: black;
+}
+.transcription-vp{
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+}

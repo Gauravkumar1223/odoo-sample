@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wrrrit_ai_report_ai_board,Access Wrrrit AI Report for AI Board,model_wrrrit_ai_report,base.group_user,1,1,1,1
+access_wrrrit_ai_document_ai_board,Access Wrrrit AI Document for AI Board,model_wrrrit_ai_document,base.group_user,1,1,1,1
+access_wrrrit_ai_folder_ai_board,Access Wrrrit AI Folder for AI Board,model_wrrrit_ai_folder,base.group_user,1,1,1,1
+access_wrrrit_ai_voice_record_all,Access Wrrrit AI Voice Record,model_wrrrit_ai_voice_record,base.group_user,1,1,1,1
+access_wrrrit_ai_voice_record_pdf_all,Access Wrrrit AI Voice Record PDF,model_wrrrit_ai_voice_record_pdf,base.group_user,1,1,1,1
+access_wrrrit_ai_knowledge_document_ai_board,Access Wrrrit AI Knowledge Document for AI Board,model_wrrrit_ai_knowledge_document,base.group_user,1,1,1,1
+access_wrrrit_ai_chat_knowledge_ai_board,Access wrrrit.chat.knowledge for AI Board,wrrrit_ai.model_wrrrit_chat_knowledge,base.group_user,1,1,1,1
+access_wrrrit_ai_chat_message_ai_board,Access wrrrit.chat.message for AI Board,wrrrit_ai.model_wrrrit_chat_message,base.group_user,1,1,1,1
+access_medical_document_ai_board,access_medical_document_all,model_wrrrit_ai_medical_document,base.group_user,1,1,1,1
+access_wrrrit_ai_prompt_ai_board,access_wrrrit_ai_prompt,model_wrrrit_ai_prompt,base.group_user,1,1,1,1
+access_background_action_user,background.action.user,model_background_action,base.group_user,1,1,1,1
+access_action_logger_user,action.logger.user,model_action_logger,base.group_user,1,1,1,1
+"access_wrrrit_ai_prompt_section_user","wrrrit_ai_prompt_section_user","model_wrrrit_ai_prompt_section","base.group_user",1,1,1,1

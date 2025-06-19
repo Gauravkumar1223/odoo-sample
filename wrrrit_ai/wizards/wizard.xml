@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="wrrrit_wizard_ai_voice_record" model="ir.ui.view">
+		<field name="name">wrrrit.wizard.ai.voice.record</field>
+		<field name="model">wrrrit.wizard.ai.voice.record</field>
+		<field name="arch" type="xml">
+			<form string="AI Voice Record" create="false">
+				<group>
+					<field name="name"/>
+				</group>
+				<footer>
+					<button name="add_data" string="Button" type="object" class="btn-primary"/>
+					<button string="Cancel" class="btn-secondary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	 </record>
+
+	<record id="wrrrit_ai_voice_record_wizard_action" model="ir.actions.act_window">
+        <field name="name">wrrrit.wizard.ai.voice.record</field>
+        <field name="res_model">wrrrit.wizard.ai.voice.record</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

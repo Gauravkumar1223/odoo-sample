@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="media.RecorderList" owl="1">
+        <!-- Main Container -->
+        <div class="media-recorder-list-container p-3">
+            <!-- Action Row with New Recording Button and Search Bar -->
+            <div class="row mb-3">
+                <!-- New Recording Button Column -->
+                <div class="col-md-6 mb-2 mb-md-0">
+                    <button type="button" class="btn btn-primary w-100"
+                            t-on-click="addRecord">
+                        New Recording
+                    </button>
+                </div>
+                <!-- Search Bar Column -->
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                               placeholder="Search here..."
+                               t-ref="search-input"
+                               t-on-keyup="searchRecords"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchRecords">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recordings Table and Details View -->
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border text-nowrap">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Recording Date</th>
+                                    <th scope="col">Duration (s)</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+ <tbody>
+    <t t-foreach="state.recordList" t-as="record" t-key="record.id">
+        <tr t-on-click="selectRow($event, record.id)" class="align-middle">
+            <td t-esc="record.name"/>
+            <td t-esc="record.recording_date"/>
+            <td t-esc="record.duration"/>
+            <td t-esc="record.type"/>
+            <td>
+                <!-- Assuming you have edit/delete action buttons here -->
+            </td>
+        </tr>
+        <!-- This is the details view div to toggle open/close -->
+        <tr t-if="state.selectedRecordId === record.id" class="bg-light">
+            <td colspan="5" class="p-3">
+                <div class="detail-view-container">
+                    <!-- Detail View Headline -->
+                    <h5 class="mb-3">Recording Details</h5>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <!-- Name and Recording Date -->
+                        <div class="mb-3 me-2 flex-grow-1">
+                            <label t-att-for="'detailName_' + record.id" class="form-label">Name</label>
+                            <input t-att-id="'detailName_' + record.id" type="text" class="form-control"
+                                   value="record.name" t-on-input="handleInputChange('name', $event)" />
+                        </div>
+                        <div class="mb-3 me-2 flex-grow-1">
+                            <label t-att-for="'detailRecordingDate_' + record.id"
+                                   class="form-label">Recording Date</label>
+                            <input t-att-id="'detailRecordingDate_' + record.id" type="datetime-local"
+                                   class="form-control" value="record.recording_date" t-on-input="handleInputChange('recording_date', $event)" />
+                        </div>
+                        <!-- Duration and Type Select -->
+                        <div class="mb-3 me-2 flex-grow-1">
+                            <label t-att-for="'detailDuration_' + record.id"
+                                   class="form-label">Duration (seconds)</label>
+                            <input t-att-id="'detailDuration_' + record.id" type="number" class="form-control"
+                                   value="record.duration" t-on-input="handleInputChange('duration', $event)" />
+                        </div>
+                        <div class="mb-3 me-2 flex-grow-1">
+                            <label t-att-for="'detailType_' + record.id" class="form-label">Type</label>
+                            <select t-att-id="'detailType_' + record.id" class="form-select"
+                                    t-on-change="handleInputChange('type', $event)">
+                                <option value="audio" t-att-selected="record.type === 'audio'">Audio</option>
+                                <option value="screen" t-att-selected="record.type === 'screen'">Screen Capture</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Actions -->
+                    <div class="text-end mt-3">
+                        <button type="button" class="btn btn-success me-2"
+                                t-on-click="updateRecord">Save</button>
+                        <button type="button" class="btn btn-secondary" t-on-click="cancelEdit">Cancel</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </t>
+</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

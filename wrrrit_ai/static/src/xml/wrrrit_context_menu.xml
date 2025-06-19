@@ -1,0 +1,12 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="ContextMenu" owl="1">
+        <div class="context-menu">
+            <ul>
+                <li><a href="#" data-action="action_generate_report">Generate Report</a></li>
+                <li><a href="#" data-action="action_voice_record_transcribe">Transcribe</a></li>
+                <li><a href="#" data-action="action_transcription_translate">Translate</a></li>
+                <!-- Add more actions here -->
+            </ul>
+        </div>
+    </t>
+</templates>

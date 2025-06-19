@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mint_document,mint.document,model_mint_document,base.group_user,1,1,1,1
+access_mint_chapter,mint.chapter,model_mint_chapter,base.group_user,1,1,1,1
+access_mint_section,mint.section,model_mint_section,base.group_user,1,1,1,1
+access_mint_config_settings,mint.config.settings,model_mint_config_settings,base.group_system,1,1,1,1

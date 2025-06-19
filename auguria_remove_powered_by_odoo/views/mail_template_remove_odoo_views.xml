@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record model="ir.actions.server" id="ag_remove_powered_by_odoo">
+        <field name="name">Remove Powered By Odoo</field>
+        <field name="model_id" ref="mail.model_mail_template"/>
+        <field name="binding_model_id" ref="mail.model_mail_template"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.ag_remove_powered_by_odoo()</field>
+    </record>
+</odoo>

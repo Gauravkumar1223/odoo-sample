@@ -1,0 +1,171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* media_recorder_player
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-10 12:13+0000\n"
+"PO-Revision-Date: 2024-01-10 12:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_recorder__type__audio
+msgid "Audio"
+msgstr ""
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__auto_play
+msgid "Auto Play"
+msgstr "Lecture automatique"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__auto_save
+msgid "Auto Save"
+msgstr "Enregistrement automatique"
+
+#. module: media_recorder_player
+#: model_terms:ir.actions.act_window,help:media_recorder_player.action_media_recorder
+msgid "Click to create a new Media Recording."
+msgstr "Cliquez pour créer un nouvel enregistrement multimédia."
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__create_uid
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__create_date
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__display_name
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__duration
+msgid "Duration (seconds)"
+msgstr "Durée (secondes)"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__format
+msgid "Format"
+msgstr "Formater"
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_settings__quality__high
+msgid "High"
+msgstr "Élevé"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__id
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder____last_update
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__write_uid
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__write_date
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_settings__quality__low
+msgid "Low"
+msgstr "Faible"
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_settings__format__mp3
+msgid "MP3"
+msgstr ""
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_settings__format__mp4
+msgid "MP4"
+msgstr ""
+
+#. module: media_recorder_player
+#: model:ir.actions.act_window,name:media_recorder_player.action_media_recorder
+#: model:ir.model,name:media_recorder_player.model_media_recorder
+#: model:ir.ui.menu,name:media_recorder_player.menu_media_recorder
+msgid "Media Recorder"
+msgstr "Enregistreur multimédia"
+
+#. module: media_recorder_player
+#: model:ir.ui.menu,name:media_recorder_player.media_recorder_player_main_menu
+msgid "Media Recorder/Player"
+msgstr "Enregistreur/Lecteur multimédia"
+
+#. module: media_recorder_player
+#: model:ir.model,name:media_recorder_player.model_media_settings
+msgid "Media Recorder/Player Settings"
+msgstr "Paramètres de l'enregistreur/lecteur multimédia"
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_settings__quality__medium
+msgid "Medium"
+msgstr "Moyen"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_settings__quality
+msgid "Quality"
+msgstr "Qualité"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__user_id
+msgid "Recorded By"
+msgstr "Enregistré par"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__recording_date
+msgid "Recording Date"
+msgstr "Date d'enregistrement"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__file
+msgid "Recording File"
+msgstr "Fichier d'enregistrement"
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_recorder__type__screen
+msgid "Screen Capture"
+msgstr "Capture d'écran"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__name
+msgid "Title"
+msgstr "Titre"
+
+#. module: media_recorder_player
+#: model:ir.model.fields,field_description:media_recorder_player.field_media_recorder__type
+msgid "Type"
+msgstr ""
+
+#. module: media_recorder_player
+#: model:ir.model.fields.selection,name:media_recorder_player.selection__media_settings__format__wav
+msgid "WAV"
+msgstr ""
+

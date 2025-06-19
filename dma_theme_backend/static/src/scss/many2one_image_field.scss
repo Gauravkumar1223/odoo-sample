@@ -1,0 +1,42 @@
+.many2one-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+
+  .many2one-image {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #E7F0F6;
+    border: 2px solid #E7F0F6;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    &.selected {
+      border: 2px solid #0E6DA1;
+    }
+
+    .many2one-image__title {
+      font-size: 16px;
+      font-weight: 400;
+      color: #101828;
+      margin-bottom: 12px;
+
+      span {
+        color: #667085;
+        font-size: 12px;
+        padding-top: 12px;
+      }
+    }
+
+    .many2one-image__img img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <!-- Main Menu item -->
+        <menuitem id="documint_ai_mint_main_menu" name="AI Doc Writer"
+                  web_icon="documint_ai,static/description/icon.png" sequence="3"/>
+
+        <!-- Action to open Document views -->
+        <record id="documint_ai_action_mint_documents" model="ir.actions.act_window">
+            <field name="name">Documents</field>
+            <field name="res_model">mint.document</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+        <record id="action_mint_config_settings" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="res_model">mint.config.settings</field>
+            <field name="view_mode">form</field>
+
+
+            <field name="view_id" ref="view_mint_config_settings_form"/>
+        </record>
+
+
+        <!-- Sub Menu item for Documents -->
+        <menuitem id="documint_ai_mint_menu_documents" name="Documents" parent="documint_ai_mint_main_menu"
+                  action="documint_ai_action_mint_documents"/>
+        <!-- Sub Menu item for Configuration -->
+        <menuitem id="mint_menu_config_settings" name="Configuration"
+                  parent="documint_ai_mint_main_menu"
+                  action="action_mint_config_settings"/>
+
+        <!-- Add other necessary definitions -->
+
+    </data>
+</odoo>

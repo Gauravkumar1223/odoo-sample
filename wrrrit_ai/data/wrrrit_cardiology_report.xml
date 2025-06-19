@@ -1,0 +1,209 @@
+<odoo>
+    <data noupdate="1">
+
+        <!-- Doctor Information Section -->
+        <record id="section_doctor_information" model="wrrrit.ai.prompt.section">
+            <field name="sequence">200</field>
+            <field name="title">Doctor Information</field>
+            <field name="prompt">Extract and present the attending doctor's information including name, specialty in
+                cardiology, and any relevant qualifications. Format this information in a concise manner for clear
+                understanding.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2 style="font-family: Arial, sans-serif; color: blue; font-weight: bold; text-decoration: underline;">Doctor Information</h2>
+                    <p style="font-family: Arial, sans-serif;"><b>Name:</b> [Doctor's Name]</p>
+                    <p style="font-family: Arial, sans-serif;"><b>Specialty:</b> [Cardiology Specialty]</p>
+                    <p style="font-family: Arial, sans-serif;"><b>Qualifications:</b> [Qualifications]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Extended Patient Information Section -->
+        <record id="section_extended_patient_information" model="wrrrit.ai.prompt.section">
+            <field name="sequence">205</field>
+            <field name="title">Extended Patient Information</field>
+            <field name="prompt">Include detailed patient information relevant to cardiology, such as medical history
+                specific to heart conditions, allergies, and family medical history.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Extended Patient Information</h2>
+                    <!-- Existing patient information fields -->
+                    <p><b>Relevant Medical History:</b> [Medical History]</p>
+                    <p><b>Allergies:</b> [Allergies]</p>
+                    <p><b>Family Medical History:</b> [Family Medical History]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiology Clinical Examination Section -->
+        <record id="section_cardiology_clinical_examination" model="wrrrit.ai.prompt.section">
+            <field name="sequence">210</field>
+            <field name="title">Cardiology Clinical Examination</field>
+            <field name="prompt">Provide a detailed summary of the clinical examination findings specific to cardiology,
+                including ECG, echocardiogram results, and other relevant observations.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2><font style="color: rgb(0, 0, 255);"><strong>Clinical Examination</strong></font><br></h2>
+                    <!-- Existing clinical examination details -->
+                    <p><b>ECG Results:</b> [ECG Results]</p>
+                    <p><b>Echocardiogram Results:</b> [Echocardiogram Results]</p>
+                    <!-- Additional cardiology-specific observations -->
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Diagnosis Section -->
+        <record id="section_cardiology_diagnosis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">215</field>
+            <field name="title">Cardiology Diagnosis</field>
+            <field name="prompt">Provide a comprehensive cardiology-focused diagnosis based on medical history, current
+                symptoms, and test results.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Cardiology Diagnosis</h2>
+                    <!-- Diagnosis points focusing on cardiology -->
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Conclusion and Recommendations Section -->
+        <record id="section_conclusion_recommendations" model="wrrrit.ai.prompt.section">
+            <field name="sequence">220</field>
+            <field name="title">Conclusion and Recommendations</field>
+            <field name="prompt">Summarize the overall findings and provide recommendations based on the cardiology
+                diagnosis, including treatments, lifestyle changes, and follow-up appointments.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Conclusion and Recommendations</h2>
+                    <!-- Conclusion and treatment recommendations -->
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiology Prompt Template -->
+        <record id="cardiology_prompt_template" model="wrrrit.ai.prompt">
+            <field name="name">Cardiology Prompt Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('section_doctor_information'), ref('section_extended_patient_information'), ref('section_cardiology_clinical_examination'), ref('section_cardiology_diagnosis'), ref('section_conclusion_recommendations')])]"/>
+        </record>
+        
+
+        <!-- Consultation Details Section -->
+        <record id="section_consultation_details" model="wrrrit.ai.prompt.section">
+            <field name="sequence">300</field>
+            <field name="title">Consultation Details</field>
+            <field name="prompt">Extract and present the details of the cardiology consultation including date, time,
+                and
+                location. Include this information only if available.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2 style="font-family: Arial, sans-serif; color: blue; font-weight: bold; text-decoration: underline;">Consultation Details</h2>
+                    <p style="font-family: Arial, sans-serif;"><b>Date:</b> [Consultation Date]</p>
+                    <p style="font-family: Arial, sans-serif;"><b>Time:</b> [Consultation Time]</p>
+                    <p style="font-family: Arial, sans-serif;"><b>Location:</b> [Consultation Location]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Patient Information Section -->
+        <record id="section_patient_info_cardiology" model="wrrrit.ai.prompt.section">
+            <field name="sequence">305</field>
+            <field name="title">Patient Information</field>
+            <field name="prompt">Include the patient's basic information such as name, age, and gender. Present this
+                information only if it's available.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Patient Information</h2>
+                    <p><b>Name:</b> [Patient Name]</p>
+                    <p><b>Age:</b> [Patient Age]</p>
+                    <p><b>Gender:</b> [Patient Gender]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Medical History Section -->
+        <record id="section_medical_history_cardiology" model="wrrrit.ai.prompt.section">
+            <field name="sequence">310</field>
+            <field name="title">Medical History</field>
+            <field name="prompt">Summarize the patient's relevant medical history, focusing on cardiological aspects.
+                Include this section only if the information is available.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Medical History</h2>
+                    <p>[Medical History Details]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Consultation Discussion Section -->
+        <record id="section_consultation_discussion" model="wrrrit.ai.prompt.section">
+            <field name="sequence">315</field>
+            <field name="title">Consultation Discussion</field>
+            <field name="prompt">Provide an overview of the discussion between the doctor and patient during the
+                cardiology
+                consultation, focusing on symptoms, concerns, and queries raised by the patient. Include only the
+                relevant
+                discussion points.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Consultation Discussion</h2>
+                    <p>[Discussion Summary]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Doctor's Assessment and Recommendations Section -->
+        <record id="section_doctors_assessment" model="wrrrit.ai.prompt.section">
+            <field name="sequence">320</field>
+            <field name="title">Doctor's Assessment and Recommendations</field>
+            <field name="prompt">Summarize the doctor's assessment and any recommendations or follow-up actions
+                suggested.
+                Include this information based on the specifics of the consultation.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Doctor's Assessment and Recommendations</h2>
+                    <p>[Assessment and Recommendations]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiology Consultation Report Template -->
+        <record id="cardiology_consultation_report_template" model="wrrrit.ai.prompt">
+            <field name="name">Cardiology Consultation Report Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('section_consultation_details'), ref('section_patient_info_cardiology'), ref('section_medical_history_cardiology'), ref('section_consultation_discussion'), ref('section_doctors_assessment')])]"/>
+        </record>
+
+    </data>
+</odoo>
+

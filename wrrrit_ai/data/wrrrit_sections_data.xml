@@ -1,0 +1,290 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Document Date Section -->
+        <record id="section_document_date" model="wrrrit.ai.prompt.section">
+            <field name="sequence">5</field>
+            <field name="title">Document Title and Date</field>
+            <field name="prompt">Identify and extract the date of the document from the provided text, the name of the
+                patient and its last name. If available, also include the name of the clinic or the city where the
+                clinic is located. Present this information in a clear and concise format.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h1 style="font-family: Arial, sans-serif; color: green; font-weight: bold;">Medical Report : [extract patient first name] - [extract patient last name]</h1>
+                    <h2 style="font-family: Arial, sans-serif; color: blue; font-weight: bold; text-decoration: underline;">Document Details</h2>
+                    <p style="font-family: Arial, sans-serif;"><b>Date of Document:</b> [Document Date]</p>
+                    <p style="font-family: Arial, sans-serif;"><b>Clinic Name/City:</b> [Clinic Name or City]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Patient Information Section -->
+        <record id="section_patient_information" model="wrrrit.ai.prompt.section">
+            <field name="sequence">10</field>
+            <field name="title">Patient Information</field>
+            <field name="prompt">Using the provided patient information and adhering to the instructions to exclude
+                medical history, generate a structured patient information section. Include available details such as
+                first name, last name, birthdate, citizenship, address, phone number, occupation, and marital status.
+                Format the information in a bullet-list style, and exclude any identification info from the medical
+                history.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Patient Information</h2>
+                    <ul>
+                        <li><b>First Name:</b> [First Name]</li>
+                        <li><b>Last Name:</b> [Last Name]</li>
+                        <li><b>Birthdate:</b> [Birthdate]</li>
+                        <li><b>Citizenship:</b> [Citizenship]</li>
+                        <li><b>Address:</b> [Address]</li>
+                        <li><b>Phone Number:</b> [Phone Number]</li>
+                        <li><b>Occupation:</b> [Occupation]</li>
+                        <li><b>Gender:</b> [Gender]</li>
+                        <li><b>Marital Status:</b> [Marital Status]</li>
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Patient Information Section -->
+        <record id="section_patient_information_conditional" model="wrrrit.ai.prompt.section">
+            <field name="sequence">15</field>
+            <field name="title">Patient Information</field>
+            <field name="prompt">Using the provided patient information and adhering to the instructions to exclude
+                medical history, generate a structured patient information section. Include available details such as
+                first name, last name, birthdate, citizenship, address, phone number, occupation, and marital status.
+                Format the information in a bullet-list style, and exclude any identification info from the medical
+                history.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2 style='color: blue; font-weight: bold; text-decoration: underline;'>Patient Information</h2>
+                    <ul>
+                        <!-- Conditional rendering for each field -->
+                        {% if [First Name] %}<li><b>First Name:</b> [First Name]</li>{% endif %}
+                        {% if [Last Name] %}<li><b>Last Name:</b> [Last Name]</li>{% endif %}
+                        {% if [Birthdate] %}<li><b>Birthdate:</b> [Birthdate]</li>{% endif %}
+                        {% if [Citizenship] %}<li><b>Citizenship:</b> [Citizenship]</li>{% endif %}
+                        {% if [Address] %}<li><b>Address:</b> [Address]</li>{% endif %}
+                        {% if [Phone Number] %}<li><b>Phone Number:</b> [Phone Number]</li>{% endif %}
+                        {% if [Occupation] %}<li><b>Occupation:</b> [Occupation]</li>{% endif %}
+                        {% if [Gender] %}<li><b>Gender:</b> [Gender]</li>{% endif %}
+                        {% if [Marital Status] %}<li><b>Marital Status:</b> [Marital Status]</li>{% endif %}
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+
+        <!-- Clinical Examination Section -->
+        <record id="section_clinical_examination" model="wrrrit.ai.prompt.section">
+            <field name="sequence">15</field>
+            <field name="title">Clinical Examination</field>
+            <field name="prompt">Please provide a detailed summary of the clinical examination findings, focusing on key
+                observations and results. Structure the information in a clear, concise manner.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2><font class="bg-o-color-4" style="color: rgb(0, 0, 255);"><strong><span style="font-size: 24px;">Clinical Examination</span></strong></font><font class="text-o-color-1 bg-black"></font><br></h2>
+                    <ul style="font-family: Arial, sans-serif;">
+                        <li><b>Observation 1:</b> [Detail]</li>
+                        <li><b>Observation 2:</b> [Detail]</li>
+                        <li><b>Observation 3:</b> [Detail]</li>
+                        <!-- Additional observations as needed -->
+                    </ul>
+                    <p style="font-family: Arial, sans-serif;"><b>Overall Assessment:</b></p>
+                    <p style="font-family: Arial, sans-serif;"><span style="font-size: 16px;"><strong>&nbsp;[Summary]</strong></span></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Current Treatments and Medications Section -->
+        <record id="section_current_treatments" model="wrrrit.ai.prompt.section">
+            <field name="sequence">20</field>
+            <field name="title">Current Treatments and Medications</field>
+            <field name="prompt">List all current treatments and medications for the patient, including dosages,
+                frequencies, and any specific instructions or observations. Organize the information clearly.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h3 style='color: blue; font-weight: bold; text-decoration: underline;'>Current Treatments and Medications</h3>
+                    <ul>
+                        <li><b>Treatment/Medication 1:</b> [Name] - [Dosage] - [Frequency] - [Special Instructions]</li>
+                        <li><b>Treatment/Medication 2:</b> [Name] - [Dosage] - [Frequency] - [Special Instructions]</li>
+                        <li><b>Treatment/Medication 3:</b> [Name] - [Dosage] - [Frequency] - [Special Instructions]</li>
+                        <!-- Additional treatments and medications as necessary -->
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Additional Tests Section -->
+        <record id="section_additional_tests" model="wrrrit.ai.prompt.section">
+            <field name="sequence">25</field>
+            <field name="title">Additional Tests</field>
+            <field name="prompt">Summarize the results of additional tests including Radiology, Biology,
+                Electrophysiology, and Coronary Angiography. Present each test's findings in a bullet-list format,
+                focusing on key observations and conclusions.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h3 style='color: blue; font-weight: bold; text-decoration: underline;'>Additional Tests Results</h3>
+                    <h4>Radiology</h4>
+                    <ul>
+                        <li>[Radiology Finding 1]</li>
+                        <li>[Radiology Finding 2]</li>
+                        <!-- More Radiology Findings -->
+                    </ul>
+                    <h4>Biology</h4>
+                    <ul>
+                        <li>[Biology Finding 1]</li>
+                        <li>[Biology Finding 2]</li>
+                        <!-- More Biology Findings -->
+                    </ul>
+                    <h4>Electrophysiology</h4>
+                    <ul>
+                        <li>[Electrophysiology Finding 1]</li>
+                        <li>[Electrophysiology Finding 2]</li>
+                        <!-- More Electrophysiology Findings -->
+                    </ul>
+                    <h4>Coronary Angiography</h4>
+                    <ul>
+                        <li>[Coronary Angiography Finding 1]</li>
+                        <li>[Coronary Angiography Finding 2]</li>
+                        <!-- More Coronary Angiography Findings -->
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Diagnosis Section -->
+        <record id="section_diagnosis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">30</field>
+            <field name="title">Diagnosis</field>
+            <field name="prompt">Provide a comprehensive diagnosis based on the patient's medical history, current
+                symptoms, and test results. Present the diagnosis in a bullet-list format, clearly outlining the main
+                points and conclusions.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h3 style='color: blue; font-weight: bold; text-decoration: underline;'>Diagnosis</h3>
+                    <ul>
+                        <li>[Diagnosis Point 1]</li>
+                        <li>[Diagnosis Point 2]</li>
+                        <li>[Diagnosis Point 3]</li>
+                        <!-- Additional diagnosis points as necessary -->
+                    </ul>
+                    <p><b>Overall Assessment:</b> [Summary of Diagnosis]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Initial Treatment Section -->
+        <record id="section_initial_treatment" model="wrrrit.ai.prompt.section">
+            <field name="sequence">35</field>
+            <field name="title">Initial Treatment</field>
+            <field name="prompt">Detail the initial treatment plan for the patient. Include medications, dosages,
+                therapies, and any procedures planned or commenced. Present this information in a clear, structured
+                format.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h3 style='color: blue; font-weight: bold; text-decoration: underline;'>Initial Treatment Plan</h3>
+                    <ul>
+                        <li><b>Medication:</b> [Medication Name] - [Dosage] - [Frequency]</li>
+                        <li><b>Therapy:</b> [Therapy Type] - [Details]</li>
+                        <li><b>Procedure:</b> [Procedure Name] - [Details]</li>
+                        <!-- Additional treatment details as necessary -->
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Patient Progress Section -->
+        <record id="section_patient_progress" model="wrrrit.ai.prompt.section">
+            <field name="sequence">40</field>
+            <field name="title">Progress/Development</field>
+            <field name="prompt">Summarize the patient's progress and any developments in their medical condition.
+                Include key milestones, changes in treatment, and any significant observations. Present this information
+                in a clear, structured manner.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h3 style='color: blue; font-weight: bold; text-decoration: underline;'>Patient Progress and Development</h3>
+                    <ul>
+                        <li><b>Date:</b> [Date] - <b>Observation/Development:</b> [Details]</li>
+                        <li><b>Date:</b> [Date] - <b>Observation/Development:</b> [Details]</li>
+                        <li><b>Date:</b> [Date] - <b>Observation/Development:</b> [Details]</li>
+                        <!-- Additional progress entries as necessary -->
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Continue with other sections as needed -->
+
+        <!-- Joke Section -->
+        <record id="section_joke" model="wrrrit.ai.prompt.section">
+            <field name="sequence">90</field>
+            <field name="title">Joke</field>
+            <field name="prompt">Write a joke about doctors.</field>
+            <field name="extra">
+                <![CDATA[
+                <div style='font-family: Arial, sans-serif;'>
+                    <h3 style='color: blue; font-weight: bold; text-decoration: underline;'>Joke</h3>
+                    <ul>
+                        <li>[Joke]</li>
+                    </ul>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Drugs and Diseases Section -->
+        <record id="section_drugs_and_diseases" model="wrrrit.ai.prompt.section">
+            <field name="sequence">100</field>
+            <field name="title">Drugs and Diseases</field>
+            <field name="prompt">Please carefully review the following medical transcription and extract a list of all
+                mentioned drugs, medications, and diseases. Ensure that each item is clearly identified and separated in
+                the list. Focus specifically on the names of drugs, any medications being taken, and any diseases or
+                conditions that are mentioned.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <p><span style="font-size: 14px;" class="text-o-color-5">1/ Drug/Medication 1: [Name]</span></p>
+                <p><span style="font-size: 14px;" class="text-o-color-5">2/ Drug/Medication 2: [Name]</span></p>
+                <!-- ...and so on for all identified items. -->
+                <p><span style="font-size: 14px;" class="text-o-color-5">1/ Disease/Condition 1: [Name]</span></p>
+                <p><span style="font-size: 14px;" class="text-o-color-5">...and so on for all identified items.</span><br></p>
+                ]]>
+            </field>
+        </record>
+
+
+        <record id="default_prompt_template" model="wrrrit.ai.prompt">
+            <field name="name">Typical Prompt Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('section_document_date'), ref('section_patient_information'), ref('section_clinical_examination'), ref('section_current_treatments'), ref('section_additional_tests'), ref('section_diagnosis'), ref('section_initial_treatment'), ref('section_patient_progress')])]"/>
+        </record>
+
+    </data>
+</odoo>

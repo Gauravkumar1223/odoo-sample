@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+
+        <!-- Tree View for Chapter -->
+        <record id="view_mint_chapter_tree" model="ir.ui.view">
+            <field name="name">mint.chapter.tree</field>
+            <field name="model">mint.chapter</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="title"/>
+                    <field name="locale"/>
+                    <field name="content_generated" widget="html"/>
+                    <field name="prompt"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Chapter -->
+        <record id="view_mint_chapter_form" model="ir.ui.view">
+            <field name="name">mint.chapter.form</field>
+            <field name="model">mint.chapter</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="title"/>
+                            <field name="locale"/>
+                            <field name="sequence"/>
+                            <field name="section_ids" widget="one2many_list"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

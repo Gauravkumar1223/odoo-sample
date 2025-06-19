@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.file.question,access_file_question,frynol_rag.model_file_question,base.group_user,1,1,1,1

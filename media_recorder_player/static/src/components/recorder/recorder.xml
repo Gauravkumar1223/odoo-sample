@@ -1,0 +1,133 @@
+<templates>
+    <t t-name="media_recorder_player.VoiceRecorderComponent" owl="1">
+        <div class="voice-recorder o-dark-mode" style="color: var(--text-color); background: var(--background-color);">
+            <div class="top-panel o-dark-mode">
+
+
+            </div>
+            <!-- Main Container -->
+            <div class="main-container o-dark-mode">
+
+                <!-- Left Panel: Waveform and Controls -->
+                <div class="left-panel o-dark-mode" style="width: 30%;">
+                    <!-- Current Time Display -->
+
+
+                    <!-- Control Panel Area -->
+                    <div class="control-panel">
+                        <div class="current-time-display">
+
+                            <span class="timer" id="timer">
+                                <span t-esc="state.currentTimeMinutes" class="minutes">00</span>:
+                                <span t-esc="state.currentTimeSeconds" class="seconds">00</span>.
+                                <span t-esc="state.currentTimeMilliseconds" class="milliseconds">000</span>
+                            </span>
+                        </div>
+
+
+                        <!-- Waveform Area -->
+                        <div class="waveform-area">
+                            <div t-ref="waveformContainer" class="waveform-container">
+                                <div t-ref="waveform-recorder" class="waveform-recorder">
+                                    <canvas t-ref="gridCanvas" class="grid-overlay"/>
+                                </div>
+                            </div>
+                            <div class="zoom-control">
+                                <input id="zoom-slider" type="range" min="20" max="200" t-model="state.zoomLevel"
+                                       t-on-input="setZoomLevel"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel: Transcription Area -->
+                <div class="right-panel o-dark-mode" style="width: 70%;">
+
+                    <div class="recording-controls">
+                        <button t-if="!state.isRecording" t-on-click="startRecording"
+                                class="btn btn-record">Record
+                        </button>
+                        <button t-if="state.isRecording" t-on-click="pauseRecording"
+                                class="btn btn-pause">Pause
+                        </button>
+                        <button t-if="state.isRecording" t-on-click="stopRecording"
+                                class="btn">Stop
+                        </button>
+                    </div>
+                    <div class="transcription-container">
+                        <textarea id="transcription" t-ref="textareaRef" t-model="state.transcription"
+                                  placeholder="Transcription will appear here..."
+                                  class="transcription-textarea"
+                        />
+                        <div class="transcription-buttons">
+                            <button t-on-click="saveTranscription" class="btn">Fake Transcribe</button>
+                            <button t-on-click="saveRecording" class="btn">Save To Server</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Panel for Recordings List -->
+            <div class="bottom-panel" style="color: var(--text-color); background: var(--background-color);">
+                <div class="recordings-list">
+                    <t t-foreach="state.recordings" t-as="recording" t-key="recording_index">
+                        <div class="recording-item">
+                            <span class="recording-info">
+                                Recording #
+                                <t t-esc="recording_index + 1"/>
+                                - Duration:<t t-esc="recording.duration"/>s
+                            </span>
+                            <div class="recording-buttons">
+                                <button t-on-click="() => playRecording(recording.url)"
+                                        t-if="!state.isPlaying || (state.isPlaying and state.currentSrc !== recording.url)"
+                                        class="btn btn-play">Play
+                                </button>
+                                <button t-on-click="pausePlayback"
+                                        t-if="state.isPlaying and state.currentSrc === recording.url"
+                                        class="btn btn-pause playing">Pause
+                                </button>
+                                <!-- ... Rest of your buttons -->
+                                <button t-on-click="stopPlayback" t-if="state.isPlaying"
+                                        class="btn btn-stop"
+                                        t-att-class="{ 'visible': state.isPlaying and state.currentSrc === recording.url }">
+                                    Stop
+                                </button>
+                                <button t-on-click="() => deleteRecording(recording)" class="btn btn-delete">Delete
+                                </button>
+                            </div>
+                        </div>
+
+                    </t>
+                </div>
+                <div class="voice-recorder-fields"
+                     style="color: var(--text-color); background: var(--background-color);">
+                    <table class="o_table o_table_view o_list_view table table-sm table-hover table-striped fancy-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Recording Date</th>
+                                <th>Duration (seconds)</th>
+                                <th>Type</th>
+                                <th>Recorded By</th>
+                                <th>Locale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td t-esc="state.voiceRecord.name"/>
+                                <td t-esc="state.voiceRecord.recording_date"/>
+                                <td t-esc="state.voiceRecord.duration.toFixed(2)"/>
+                                <td t-esc="state.voiceRecord.type === 'audio' ? 'Audio' : 'Screen Capture'"/>
+                                <td t-esc="state.voiceRecord.user_id ? state.voiceRecord.user_id[1] : ''"/>
+                                <td t-esc="state.voiceRecord.locale"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+        </div>
+    </t>
+</templates>

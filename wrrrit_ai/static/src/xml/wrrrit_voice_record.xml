@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="wrrrit_ai.VoiceRecorder" owl="1">
+
+        <div class="record-transcription">
+            <!-- Left Panel: Waveform and Controls -->
+            <div class="widget-container voice-recorder o-dark-mode">
+                <div class="header">
+                    <h2>Voice Record</h2>
+                    <p t-if="!state.isRecording and !state.audioURL">Try Recording your sound now</p>
+                    <p t-elif="state.isRecording">Recording...</p>
+                    <p t-elif="state.audioURL">Play your sound</p>
+                </div>
+                <div class="content">
+                    <div class="top-panel o-dark-mode"></div>
+                    <!-- Current Time Display -->
+
+                    <!-- Control Panel Area -->
+                    <div class="control-panel">
+                        <div class="audio-visualizer">
+                            <!--<canvas id="audio-visualizer" class="wrr_audio_canvas"/>-->
+                            <div id="audio-visualizer" class="wrr_audio_canvas"></div>
+                            <select id="mic-select" style="display: none"></select>
+                        </div>
+
+                        <div class="recording-controls">
+                            <!-- Record Button -->
+                            <button t-if="state.recordingStatus === 'inactive' and !state.audioURL"
+                                    t-on-click="startRecording"
+                                    class="wbtn wbtn-record">Record
+                            </button>
+                            <!-- Pause Button -->
+                            <button t-if="state.recordingStatus === 'recording'" t-on-click="pauseRecording"
+                                    class="wbtn wbtn-pause">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/pause.svg"/>
+                                Pause
+                            </button>
+                            <!-- Resume Button -->
+                            <button t-if="state.recordingStatus === 'paused' || state.recordingStatus === 'paused'"
+                                    t-on-click="resumeRecording" class="wbtn">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/play.svg"/>
+                                Resume
+                            </button>
+                            <!-- Stop Button -->
+                            <button t-if="state.recordingStatus ==='recording'  || state.recordingStatus === 'paused'"
+                                    t-on-click="stopRecording" class="wbtn">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/stop.svg"/>
+                                Stop
+                            </button>
+                            <!-- Play/Pause Button -->
+                            <button t-if="state.audioURL" t-on-click="playRecording"
+                                    t-att-class="{'wbtn wbtn-play': !state.audioPlaying, 'wbtn wbtn-pause': state.audioPlaying}"
+                                    t-att-disabled="!state.audioURL">
+                                <t t-if="!state.audioPlaying">
+                                    <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/play.svg"/>
+                                    Play
+                                </t>
+                                <t t-else="">
+                                    <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/pause.svg"/>
+                                    Pause
+                                </t>
+                            </button>
+                            <!-- Delete Button -->
+                            <button t-if="state.audioURL and !state.audioPlaying" t-on-click="deleteRecording"
+                                    class="wbtn wbtn-delete">
+                                <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/delete.svg"/>
+                                Delete
+                            </button>
+                        </div>
+
+                        <button t-if="state.audioURL" class="wbtn wbtn-action generate-report"
+                                t-on-click="clickGenerateReport">
+                            <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/report.svg"/>
+                            Generate Report
+                        </button>
+
+                        <div class="selectOptions">
+                                <!-- select particular model -->
+                                <select id="model-select" t-on-change="changeModel">
+                                    <option value="deepgram">Deepgram</option>
+                                    <option value="assemblyai">AssemblyAI</option>
+                                    <option value="faster-whisper">Whisper</option>
+                                    <option value="seamless">SeamlessM4T</option>
+                                </select>
+                        </div>
+
+                        <div id="pause-visualizer"></div>
+
+                        <!-- Waveform Area -->
+                        <!--<div class="waveform-area">
+                            <div t-ref="waveformContainer" class="waveform-container">
+                                <div t-ref="waveform-recorder" class="waveform-recorder">
+                                    <canvas t-ref="gridCanvas" class="grid-overlay"/>
+                                </div>
+                            </div>
+                            <div class="zoom-control">
+                                <input id="zoom-slider" type="range" min="20" max="200"
+                                       t-model="state.zoomLevel"
+                                       t-on-input="setZoomLevel"/>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Transcription Area -->
+            <div class="widget-container transcription">
+                <div class="content">
+                    <div class="timer-lang-actions">
+                        <!-- Timer -->
+                        <div class="timer">
+                            <img alt="" class="timer-icon" src="/wrrrit_ai/static/src/img/icons/timer.svg"/>
+                            <div class="current-time-display">
+                                <span class="timer" id="timer">
+                                    <span t-esc="state.currentTimeMinutes" class="minutes">00</span>:
+                                    <span t-esc="state.currentTimeSeconds" class="seconds">00</span>.
+                                    <span t-esc="state.currentTimeMilliseconds" class="milliseconds">000</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="lang-actions">
+                            <!-- Language Selection -->
+                            <div class="language-options">
+                                <div class="language-option">
+                                    <input type="radio" id="languageGerman" name="language" value="de"
+                                           t-model="state.selectedLanguage"/>
+                                    <label for="languageGerman">German</label>
+                                </div>
+                                <div class="language-option">
+                                    <input type="radio" id="languageFrench" name="language" value="fr"
+                                           t-model="state.selectedLanguage"/>
+                                    <label for="languageFrench">French</label>
+                                </div>
+                                <div class="language-option">
+                                    <input type="radio" id="languageEnglish" name="language" value="en"
+                                           t-model="state.selectedLanguage"/>
+                                    <label for="languageEnglish">English</label>
+                                </div>
+
+                            </div>
+                            <!-- Action Buttons -->
+                            <div class="recording-controls">
+                                <button class="wbtn wbtn-action" t-on-click="clickTranscribe">
+                                    <img alt="" class="wbtn-icon" src="/wrrrit_ai/static/src/img/icons/transcribe.svg"/>
+                                    Transcribe
+                                </button>
+                                <button class="wbtn wbtn-action button-hide" t-on-click="clickCorrectTranscription">
+                                    <img alt="" class="wbtn-icon"
+                                         src="/wrrrit_ai/static/src/img/icons/correct-transcript.svg"/>
+                                    Correct
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Transcription</h3>
+
+                    <!-- Tab links -->
+
+                    <!-- Tab content for Transcript -->
+                    <div class="transcription-text">
+                        <t t-esc="state.transcript"/>
+                    </div>
+
+                    <!-- Tab content for Correct Transcript -->
+                    <div class="transcription-text" t-ref="correct_transcript" style="display: none">
+                        <!-- Render as HTML -->
+                    </div>
+
+                    <div id="audio-timestamp" style="color: green; font-weight: bold; display: none;"/>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="wrrrit_ai.WrrritRefresh" owl="1">
+        <textarea t-esc="props.value" t-on-input="onInput"/>
+    </t>
+
+    <t t-name="wrrrit_ai.WrrritTruncate" owl="1">
+        <t t-if="state.truncatedString">
+            <t t-if="state.styled">
+                <div class="truncated-box">
+                    <strong>
+                        <span t-esc="state.truncatedString"/>
+                    </strong>
+                </div>
+            </t>
+            <t t-else="">
+                <t t-esc="state.truncatedString"/>
+            </t>
+        </t>
+    </t>
+</templates>

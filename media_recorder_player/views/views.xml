@@ -1,0 +1,116 @@
+<odoo>
+    <data>
+        <record id="view_form_media_recorder" model="ir.ui.view">
+            <field name="name">media.recorder.form</field>
+            <field name="model">media.recorder</field>
+            <field name="arch" type="xml">
+                <form>
+
+
+                    <field class="main-container" name="file" widget="recorder"/>
+
+
+                    <!-- Any additional fields here if needed
+                    <field name="recording_date"/>
+                    <field name="duration"/>
+                    <field name="type"/>
+                    <field name="user_id"/>
+                    -->
+                    <group>
+                        <field name="name"/>
+                        <field name="file" widget="binary"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_media_recorder" model="ir.ui.view">
+            <field name="name">media.recorder.tree</field>
+            <field name="model">media.recorder</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="recording_date"/>
+                    <field name="duration"/>
+                    <field name="type"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_kanban_media_recorder" model="ir.ui.view">
+            <field name="name">media.recorder.kanban</field>
+            <field name="model">media.recorder</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <field name="name"/>
+                                <div>
+                                    <field name="type"/>
+                                </div>
+                                <div>
+                                    <field name="duration"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_search_media_recorder" model="ir.ui.view">
+            <field name="name">media.recorder.search</field>
+            <field name="model">media.recorder</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_media_recorder" model="ir.actions.act_window">
+            <field name="name">Media Recorder</field>
+            <field name="res_model">media.recorder</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Media Recording.
+                </p>
+            </field>
+        </record>
+        <record id="action_media_recorder_list_js" model="ir.actions.client">
+            <field name="name">Media Recorder List OWL</field>
+            <field name="tag">media.action_recorder_list_js</field>
+        </record>
+
+
+        <!-- Main Menu Item -->
+        <menuitem id="media_recorder_player_main_menu" name="Media Recorder/Player"
+                  sequence="5"
+                  web_icon="media_recorder_player,static/description/icon.png"/>
+
+        <!-- Sub Menu Items -->
+        <menuitem id="menu_media_recorder" name="Media Recorder"
+                  parent="media_recorder_player_main_menu"
+                  action="action_media_recorder"
+                  sequence="1"/>
+
+        <!-- Menu item for the OWL view -->
+        <menuitem name="Media Recorder List OWL" id="menu_media_recorder_list_js"
+                  sequence="10" action="action_media_recorder_list_js"
+                  parent="media_recorder_player_main_menu"
+        />
+
+        <!-- Add other submenus if needed -->
+
+    </data>
+</odoo>

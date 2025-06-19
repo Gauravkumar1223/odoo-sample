@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ct_footer_debranding" inherit_id="web.brand_promotion_message" name="Footer debranding" active="True"
+              priority="1">
+        <xpath expr="." position="replace">
+            <t t-set="odoo_logo" style="display: none;">
+                <a target="_blank"
+                   t-attf-href="http://www.odoo.com?utm_source=db&amp;utm_medium=#{_utm_medium}"
+                   class="badge text-bg-light">
+                    <img alt="Odoo"
+                         src="/web/static/img/odoo_logo_tiny.png"
+                         width="62" height="20"
+                         style="width: auto; height: 1em; vertical-align: baseline;"/>
+                </a>
+            </t>
+            <t t-set="final_message" style="display: none;">Powered by %s%s</t>
+            <t t-out="final_message % (odoo_logo, _message and ('- ' + _message) or '')" style="display: none;"/>
+        </xpath>
+    </template>
+</odoo>

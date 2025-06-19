@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <!-- Form View -->
+    <record id="view_medical_document_form" model="ir.ui.view">
+        <field name="name">medical.document.form</field>
+        <field name="model">wrrrit.ai.medical.document</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Medical Document">
+                <header>
+
+                    <button name="action_ocr_document" string="Process Document" type="object"
+                            class="btn-danger "/>
+                    <button name="action_generate_report" string="Generate Report" type="object"
+                            class="btn-primary "/>
+
+                    <button name="extract_metadata" string="Extract Data" type="object"
+                            class="btn-danger "/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="record_locale"/>
+                        <field name="report_template"/>
+
+                        <field name="owner_id"/>
+                        <field name="creation_date"/>
+                        <field name="is_ocr_done"/>
+
+
+                        <field name="last_update"/>
+                    </group>
+                    <notebook>
+                        <page string="Document">
+                            <div style="height: 25%; width: 80%;">
+                                <group>
+                                    <field name="file_data" filename="file_name"/>
+                                    <field name="file_name" invisible="1"/>
+                                    <field name="file_type" invisible="1"/>
+                                </group>
+                                <group>
+                                    <field name="file_data" widget="pdf_viewer"
+                                           attrs="{'invisible': [('is_pdf', '=', False)]}"/>
+                                    <field name="file_data" widget="image"
+                                           attrs="{'invisible': [('is_image', '=', False)]}"/>
+                                    <field name="file_data" widget="html"
+                                           attrs="{'invisible': [('is_txt', '=', False)]}"/>
+                                    <!-- Handling for docx -->
+                                    <field name="file_data" widget="html"
+                                           attrs="{'invisible': [('is_docx', '=', False)]}"/>
+                                    <!-- Handling for audio -->
+                                    <field name="file_data" widget="wrrrit_recorder"
+                                           attrs="{'invisible': [('is_audio', '=', False)]}"/>
+
+                                    <field name="file_name" invisible="1"/>
+
+                                    <field name="is_pdf" invisible="1"/>
+                                    <field name="is_image" invisible="1"/>
+                                    <field name="is_txt" invisible="1"/>
+                                    <field name="is_docx" invisible="1"/>
+                                    <field name="is_audio" invisible="1"/>
+                                </group>
+                            </div>
+                        </page>
+                        <page string="Generated Pdf ">
+
+
+                            <field name="generated_file" widget="pdf_viewer"/>
+                        </page>
+
+                        <page string="All Pdfs ">
+                            <field name="pdf_reports" widget="one2many"/>
+                        </page>
+                        <page string="Generated Report From Record">
+                            <field name="description" widget="html"/>
+                        </page>
+
+                        <page string="Text From Document">
+                            <field name="extracted_text"/>
+                            <field name="extracted_metadata"/>
+                        </page>
+
+                        <page string="Analyzed content">
+                            <field name="extracted_text"/>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_medical_document_tree" model="ir.ui.view">
+        <field name="name">medical.document.tree</field>
+        <field name="model">wrrrit.ai.medical.document</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Medical Documents">
+                <field name="name"/>
+                <field name="owner_id"/>
+                <field name="creation_date"/>
+                <field name="last_update"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_medical_document_kanban" model="ir.ui.view">
+        <field name="name">medical.document.kanban</field>
+        <field name="model">wrrrit.ai.medical.document</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile bg-image">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click ">
+                            <div class="o_kanban_record_top oe_kanban_title">
+                                <!-- Name as a header with bold and larger font size inside a grayed box -->
+                                <div style="background-color: #aec6cf; padding: 10px; border-radius: 5px;
+                         width: 100%; text-align: center;">
+                                    <strong style="font-size: 1.2em;">
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <!-- Details including owner_id, record locale, and last update -->
+                            <div class="oe_kanban_details">
+                                <div>
+                                    <label for="owner_id">
+                                        <strong>Owner:</strong>
+                                    </label>
+                                    <field name="owner_id"/>
+                                </div>
+                                <div>
+                                    <label for="record_locale">
+                                        <strong>Record Locale:</strong>
+                                    </label>
+                                    <field name="record_locale"/>
+                                </div>
+                                <div>
+                                    <label for="last_update">
+                                        <strong>Last Update:</strong>
+                                    </label>
+                                    <field name="last_update" widget="date"/>
+                                </div>
+                                <div>
+                                    <label for="extracted_text">
+                                        <h3>Extracted Text:</h3>
+                                    </label>
+                                    <field name="extracted_text"
+                                           widget="wrrrit_truncate"
+                                           options="{'max_len': 55, 'styled': false}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Action to open the correct view -->
+    <record id="action_medical_documents" model="ir.actions.act_window">
+        <field name="name">Med-Documents</field>
+        <field name="res_model">wrrrit.ai.medical.document</field>
+        <field name="domain">[]</field>
+
+        <field name="view_mode">kanban,form,tree</field>
+    </record>
+
+    <!-- Menu item -->
+    <menuitem id="menu_medical_documents" name="Med-Documents" parent="wrrrit_ai_main_menu"
+              action="action_medical_documents" sequence="3"/>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="patients_page" name="frynolRag">
+        <t t-extend="website.responsive_layout">
+            <!-- Content goes here -->
+            <div class="container">
+                <h1>Transcription Page</h1>
+                <p>Hello Vishal</p>
+
+                <t t-foreach="records" t-as="record">
+                        <t t-esc="record.locale"/>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,113 @@
+<odoo>
+    <data>
+
+        <!-- Tree View for Document -->
+        <record id="view_mint_document_tree" model="ir.ui.view">
+            <field name="name">mint.document.tree</field>
+            <field name="model">mint.document</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="locale"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Document -->
+        <record id="view_mint_document_form" model="ir.ui.view">
+            <field name="name">mint.document.form</field>
+            <field name="model">mint.document</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <button string="Generate Description"
+                                type="object"
+                                name="action_generate_description"
+                                class="btn btn-primary"
+                                icon="fa-lightbulb-o"/>
+                        <button string="Generate Chapters"
+                                type="object"
+                                name="action_generate_chapters"
+                                class="btn btn-primary"
+                                icon="fa-lightbulb-o"/>
+                        <button string="Generate Section Content"
+                                type="object"
+                                name="action_generate_section_contents"
+                                class="btn btn-primary"
+                                icon="fa-lightbulb-o"/>
+                        <button string="Generate Content"
+                                type="object"
+                                name="action_generate_all_content"
+                                class="btn btn-primary"/>
+                        <button string="Compile Full Content"
+                                type="object"
+                                name="generate_full_content"
+                                class="btn btn-danger"/>
+                    </sheet>
+                    <sheet>
+                        <group>
+
+                            <field name="name" readonly="1"/>
+                            <field name="title"/>
+                            <field name="prompt"/>
+                            <field name="locale"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                    <sheet>
+                        <notebook string="Generated Stucture">
+                            <page string="Structure">
+                                <field name="content_structure"/>
+                            </page>
+                              <page string="Json Structure">
+                                <field name="description"/>
+                            </page>
+                            <page string="Chapters">
+                                <field name="chapter_ids" widget="one2many_list">
+                                    <tree string="Chapters">
+                                        <field name="name"/>
+                                        <field name="title"/>
+                                        <field name="content_generated" widget="html"/>
+                                        <field name="prompt" widget="html"/>
+                                        <field name="sequence"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Generated HTML Content">
+                                <field name="content_generated" widget="html"/>
+                            </page>
+                            <page string="Generated Content">
+                                <field name="content_generated"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+
+            </field>
+        </record>
+
+        <!-- Kanban View for Document -->
+        <record id="view_mint_document_kanban" model="ir.ui.view">
+            <field name="name">mint.document.kanban</field>
+            <field name="model">mint.document</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <field name="name"/>
+                                <field name="state"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

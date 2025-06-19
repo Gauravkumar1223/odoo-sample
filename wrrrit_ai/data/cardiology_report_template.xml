@@ -1,0 +1,154 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Introduction Section -->
+        <record id="frynol_2_section_introduction" model="wrrrit.ai.prompt.section">
+            <field name="sequence">1</field>
+            <field name="title">Introduction</field>
+            <field name="prompt">Outline the objective of the cardiological examination and provide demographic
+                information of the patient. If data not available, please omit the field. If data is available, please
+                fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Introduction</h2>
+                    <p><strong>Objective of Cardiological Examination:</strong> [Objective]</p>
+                    <p><strong>Demographic Information of Patient:</strong> [Demographic Information]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiac Medical History Section -->
+        <record id="frynol_2_section_cardiac_medical_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">2</field>
+            <field name="title">Cardiac Medical History</field>
+            <field name="prompt">Detail the patient's personal and familial history of heart diseases and current
+                heart-related symptoms (chest pain, shortness of breath, etc.). If data not available, please omit the
+                field. If data is available, please fill the field using only the provided context, do not create your
+                own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Cardiac Medical History</h2>
+                    <p><strong>History of Heart Diseases:</strong> [Heart Disease History]</p>
+                    <p><strong>Current Heart-Related Symptoms:</strong> [Current Symptoms]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiac Physical Examination Section -->
+        <record id="frynol_2_section_cardiac_physical_exam" model="wrrrit.ai.prompt.section">
+            <field name="sequence">3</field>
+            <field name="title">Cardiac Physical Examination</field>
+            <field name="prompt">Conduct and describe the cardiac physical examination, including inspection, palpation,
+                and auscultation (heart sounds, murmurs). If data not available, please omit the field. If data is
+                available, please fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Cardiac Physical Examination</h2>
+                    <p><strong>Inspection and Palpation:</strong> [Inspection and Palpation]</p>
+                    <p><strong>Auscultation:</strong> [Auscultation]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiological Test Results Section -->
+        <record id="frynol_2_section_cardiological_test_results" model="wrrrit.ai.prompt.section">
+            <field name="sequence">4</field>
+            <field name="title">Cardiological Test Results</field>
+            <field name="prompt">Report the results of cardiological tests, including ECG, echocardiogram, stress tests,
+                and other imaging exams (if applicable). If data not available, please omit the field. If data is
+                available, please fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Cardiological Test Results</h2>
+                    <p><strong>Electrocardiogram (ECG):</strong> [ECG Results]</p>
+                    <p><strong>Echocardiogram:</strong> [Echocardiogram Results]</p>
+                    <p><strong>Stress Tests:</strong> [Stress Test Results]</p>
+                    <p><strong>Other Imaging Exams:</strong> [Imaging Exam Results]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Evaluation and Diagnosis Section -->
+        <record id="frynol_2_section_evaluation_diagnosis" model="wrrrit.ai.prompt.section">
+            <field name="sequence">5</field>
+            <field name="title">Evaluation and Diagnosis</field>
+            <field name="prompt">Interpret the test results and provide a cardiac diagnosis. If data not available,
+                please omit the field. If data is available, please fill the field using only the provided context, do
+                not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Evaluation and Diagnosis</h2>
+                    <p><strong>Test Results Interpretation:</strong> [Interpretation]</p>
+                    <p><strong>Cardiac Diagnosis:</strong> [Diagnosis]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Treatment Plan Section -->
+        <record id="frynol_2_section_treatment_plan" model="wrrrit.ai.prompt.section">
+            <field name="sequence">6</field>
+            <field name="title">Treatment Plan</field>
+            <field name="prompt">Detail the specific medications, lifestyle changes, and procedures or surgeries (if
+                necessary) for the treatment plan. If data not available, please omit the field. If data is available,
+                please fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Treatment Plan</h2>
+                    <p><strong>Specific Medications:</strong> [Medications]</p>
+                    <p><strong>Lifestyle Changes:</strong> [Lifestyle Changes]</p>
+                    <p><strong>Procedures or Surgeries:</strong> [Procedures/Surgeries]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Conclusion and Follow-up Section -->
+        <record id="frynol_2_section_conclusion_follow_up" model="wrrrit.ai.prompt.section">
+            <field name="sequence">7</field>
+            <field name="title">Conclusion and Follow-up</field>
+            <field name="prompt">Summarize the recommendations and plan for follow-up visits. If data not available,
+                please omit the field. If data is available, please fill the field using only the provided context, do
+                not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Conclusion and Follow-up</h2>
+                    <p><strong>Recommendations Summary:</strong> [Recommendations]</p>
+                    <p><strong>Follow-up Visit Planning:</strong> [Follow-up Plan]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Medical Cardiological Examination Template -->
+        <record id="frynol_2_medical_cardiological_exam_template" model="wrrrit.ai.prompt">
+            <field name="name">Medical Cardiological Examination Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('frynol_2_section_introduction'), ref('frynol_2_section_cardiac_medical_history'), ref('frynol_2_section_cardiac_physical_exam'), ref('frynol_2_section_cardiological_test_results'), ref('frynol_2_section_evaluation_diagnosis'), ref('frynol_2_section_treatment_plan'), ref('frynol_2_section_conclusion_follow_up')])]"/>
+        </record>
+        <record id="frynol_2_medical_cardiological_exam_report_template" model="wrrrit.ai.report">
+            <field name="name">Medical Cardiological Examination Report Template</field>
+            <field name="prompt_template_id" ref="frynol_2_medical_cardiological_exam_template"/>
+            <!-- Include other fields as necessary, e.g., header, footer, style -->
+        </record>
+
+    </data>
+</odoo>

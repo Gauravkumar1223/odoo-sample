@@ -1,0 +1,15 @@
+twilio
+openai
+azure-cognitiveservices-speech
+azure-cognitiveservices-vision-computervision
+azure-common
+azure-core
+langchain==0.0.340
+cryptography==3.4.8
+pydub
+deepgram-sdk
+xhtml2pdf==0.2.4
+
+
+unidecode
+fuzzywuzzy

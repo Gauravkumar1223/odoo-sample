@@ -1,0 +1,26 @@
+<templates>
+    <t t-name="web.Many2OneImageField" owl="1">
+        <div class="many2one-images">
+            <t t-if="props.sources">
+                <t t-foreach="props.sources" t-as="option" t-key="option.id">
+                    <div t-attf-class="many2one-image #{props.value[0] and props.value[0] === option.id and 'selected' or '' }"
+                         t-on-click="() => this.onSelect(option)">
+                        <div class="many2one-image__title">
+                            <t t-esc="option.label"/><br />
+                            <span t-if="option.description">
+                                <t t-esc="option.description"/>
+                            </span>
+                        </div>
+                        <div class="many2one-image__img">
+                            <img t-if="option.image" t-att-src="option.image"/>
+                            <img t-else="" src="/web/static/img/placeholder.png"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+            <t t-else="">
+                <p>No options available</p>
+            </t>
+        </div>
+    </t>
+</templates>

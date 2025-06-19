@@ -1,0 +1,18 @@
+# OAuth and API credentials
+**/token*.json
+**/credential*.json
+**/client_secret*.json
+**/*config*settings*.py
+*.env
+.env.*
+
+# Google Drive API files
+googledrive/
+**/googledrive/
+
+# General credential patterns
+**/secrets/
+**/config/local/
+**/*secret*
+**/*token*
+**/*credential*

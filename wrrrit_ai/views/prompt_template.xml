@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_wrrrit_ai_prompt_tree" model="ir.ui.view">
+        <field name="name">wrrrit_ai_prompt.tree</field>
+        <field name="model">wrrrit.ai.prompt</field>
+        <field name="arch" type="xml">
+            <tree string="Prompt Template">
+                <field name="name"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+
+
+    <!-- Form View -->
+    <record id="view_wrrrit_ai_prompt_form" model="ir.ui.view">
+        <field name="name">wrrrit_ai_prompt.form</field>
+        <field name="model">wrrrit.ai.prompt</field>
+        <field name="arch" type="xml">
+            <form string="Prompt Template">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="prompt_prefix"/>
+                        <field name="prompt_postfix"/>
+                        <field name="prompt_sections"/>
+                        <field name="ai_model"/>
+                        <field name="create_date"/>
+                    </group>
+                    <group class="inline-grid">
+                        <field name="insert_date" string="Insert Date"/>
+                        <field name="insert_locale" string="Translate Locale"/>
+                        <field name="insert_owner" string="Insert Owner"/>
+                    </group>
+                </sheet>
+                <sheet>
+                    <notebook>
+                        <page string="Sections" class="unique-page">
+                            <field name="section_ids">
+                                <tree>
+                                    <field name="sequence"/>
+                                    <field name="title" class="b-primary"/>
+                                    <field name="prompt" class="reset-style" width="30" />
+                                    <field name="extra" class="reset-style" widget="html"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Kanban View -->
+    <record id="view_wrrrit_ai_prompt_kanban" model="ir.ui.view">
+        <field name="name">wrrrit_ai_prompt.kanban</field>
+        <field name="model">wrrrit.ai.prompt</field>
+        <field name="arch" type="xml">
+            <kanban string="Med-Prompt" class="o_kanban_mobile bg-image">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card">
+                            <field name="name"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action to open the above views -->
+    <record id="action_wrrrit_ai_prompt" model="ir.actions.act_window">
+        <field name="name">Med-Prompt</field>
+        <field name="res_model">wrrrit.ai.prompt</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Menu item -->
+    <menuitem id="menu_wrrrit_ai_prompt" name="Med-Prompts" parent="wrrrit_ai_main_menu"
+              sequence="10" action="action_wrrrit_ai_prompt"/>
+
+    <!-- Form View for Section -->
+    <record id="view_wrrrit_ai_prompt_section_form" model="ir.ui.view">
+        <field name="name">wrrrit.ai.prompt.section.form</field>
+        <field name="model">wrrrit.ai.prompt.section</field>
+        <field name="arch" type="xml">
+            <form string="Section">
+                <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="title"/>
+                        <field name="prompt"/>
+                        <field name="extra" widget="html"/>
+
+                    </group>
+                    <group>
+                        <field name="prompt_template_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_wrrrit_ai_prompt_section_tree" model="ir.ui.view">
+        <field name="name">wrrrit.ai.prompt.section.tree</field>
+        <field name="model">wrrrit.ai.prompt.section</field>
+        <field name="arch" type="xml">
+            <tree create="true" edit="true">
+
+                <field name="sequence"/>
+                <field name="title"/>
+                <field name="extra" widget="html"/>
+                <field name="prompt"/>
+                <!-- Add other fields as necessary -->
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_wrrrit_ai_prompt_section_kanban" model="ir.ui.view">
+        <field name="name">wrrrit.ai.prompt.section.kanban</field>
+        <field name="model">wrrrit.ai.prompt.section</field>
+        <field name="arch" type="xml">
+            <kanban create="true" edit="true">
+                <field name="sequence"/>
+                <field name="title"/>
+                <field name="extra" widget="html"/>
+                <field name="prompt"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <field name="title"/>
+                            <field name="prompt"/>
+
+                            <!-- Add other fields or styling as necessary -->
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_wrrrit_ai_prompt_section" model="ir.actions.act_window">
+        <field name="name">Sections</field>
+        <field name="res_model">wrrrit.ai.prompt.section</field>
+        <field name="view_mode">form,tree,kanban</field>
+        <field name="view_id" ref="view_wrrrit_ai_prompt_section_tree"/>
+    </record>
+
+
+    <menuitem id="menu_wrrrit_ai_prompt_section"
+              name="Med-Sections"
+              parent="wrrrit_ai_main_menu"
+              sequence="100"
+              action="action_wrrrit_ai_prompt_section"/>
+
+
+</odoo>

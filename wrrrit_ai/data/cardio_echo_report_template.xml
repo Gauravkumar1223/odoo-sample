@@ -1,0 +1,118 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Introduction Section -->
+        <record id="frynol_section_introduction" model="wrrrit.ai.prompt.section">
+            <field name="sequence">1</field>
+            <field name="title">Introduction</field>
+            <field name="prompt">Capture the patient's identity, date of the examination, referring physician, and
+                reason for the exam. If data not available, please omit the field. If data is available, please fill the
+                field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Introduction</h2>
+                    <p><strong>Patient Identity:</strong> [Patient Identity]</p>
+                    <p><strong>Date of Examination:</strong> [Examination Date]</p>
+                    <p><strong>Referring Physician and Reason for Exam:</strong> [Referring Physician and Reason]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Medical History Section -->
+        <record id="frynol_section_medical_history" model="wrrrit.ai.prompt.section">
+            <field name="sequence">2</field>
+            <field name="title">Medical History</field>
+            <field name="prompt">Detail the patient's cardiac history and current symptoms, if any. If data not
+                available, please omit the field. If data is available, please fill the field using only the provided
+                context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Medical History</h2>
+                    <p><strong>Cardiac History of the Patient:</strong> [Cardiac History]</p>
+                    <p><strong>Current Symptoms:</strong> [Current Symptoms]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Echocardiography Technique Section -->
+        <record id="frynol_section_echocardiography_technique" model="wrrrit.ai.prompt.section">
+            <field name="sequence">3</field>
+            <field name="title">Echocardiography Technique</field>
+            <field name="prompt">Describe the echocardiography method and views used, including results of measurements
+                (cardiac function, dimensions, etc.). If data not available, please omit the field. If data is
+                available, please fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Echocardiography Technique</h2>
+                    <p><strong>Method and Views Used:</strong> [Method and Views]</p>
+                    <p><strong>Measurement Results:</strong> [Measurement Results]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Evaluation of Cardiac Structures Section -->
+        <record id="frynol_section_evaluation_cardiac_structures" model="wrrrit.ai.prompt.section">
+            <field name="sequence">4</field>
+            <field name="title">Evaluation of Cardiac Structures</field>
+            <field name="prompt">Assess the condition of the cardiac valves, potential anatomical abnormalities, and
+                myocardial contractility. If data not available, please omit the field. If data is available, please
+                fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Evaluation of Cardiac Structures</h2>
+                    <p><strong>Condition of Cardiac Valves:</strong> [Valve Condition]</p>
+                    <p><strong>Anatomical Abnormalities:</strong> [Anatomical Abnormalities]</p>
+                    <p><strong>Myocardial Contractility Evaluation:</strong> [Myocardial Contractility]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Conclusion and Interpretation Section -->
+        <record id="frynol_section_conclusion_interpretation" model="wrrrit.ai.prompt.section">
+            <field name="sequence">5</field>
+            <field name="title">Conclusion and Interpretation</field>
+            <field name="prompt">Provide the diagnostic interpretation, evaluation of cardiac function, and
+                recommendations for follow-up or treatment. If data not available, please omit the field. If data is
+                available, please fill the field using only the provided context, do not create your own context.
+            </field>
+            <field name="extra">
+                <![CDATA[
+                <div>
+                    <h2>Conclusion and Interpretation</h2>
+                    <p><strong>Diagnostic Interpretation:</strong> [Diagnostic Interpretation]</p>
+                    <p><strong>Cardiac Function Evaluation:</strong> [Cardiac Function]</p>
+                    <p><strong>Recommendations for Follow-up/Treatment:</strong> [Recommendations]</p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Cardiac Echocardiography Template -->
+        <record id="frynol_cardiac_echocardiography_template" model="wrrrit.ai.prompt">
+            <field name="name">Cardiac Echocardiography Template</field>
+            <field name="section_ids"
+                   eval="[(6, 0, [ref('frynol_section_introduction'), ref('frynol_section_medical_history'), ref('frynol_section_echocardiography_technique'), ref('frynol_section_evaluation_cardiac_structures'), ref('frynol_section_conclusion_interpretation')])]"/>
+        </record>
+
+        <!-- Cardiac Echocardiography Report Template -->
+        <record id="frynol_cardiac_echocardiography_report_template" model="wrrrit.ai.report">
+            <field name="name">Cardiac Echocardiography Report Template</field>
+            <field name="prompt_template_id" ref="frynol_cardiac_echocardiography_template"/>
+            <!-- Include other fields as necessary, e.g., header, footer, style -->
+        </record>
+
+
+    </data>
+</odoo>

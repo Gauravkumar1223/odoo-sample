@@ -1,0 +1,18 @@
+<templates>
+    <t t-name="media_player_recorder.OwlLifecycleComponent" owl="1">
+        <div>
+            <textarea readonly="readonly" t-esc="state.log" style="width: 100%; height: 200px;"></textarea>
+        </div>
+        <div>
+            <audio id="audio-player" controls="1">
+                <source type="audio/webm"/>
+                Your browser does not support the audio element.
+            </audio>
+            <canvas id="audio-waveform" width="400" height="100"></canvas>
+            <div id="waveform-owl" style="width: 100%; height: 200px;">
+            </div>
+
+
+        </div>
+    </t>
+</templates>

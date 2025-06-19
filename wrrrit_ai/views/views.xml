@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!--    <record id="base.main_company" model="res.company">-->
+    <!--        <field name="favicon"   type="base64" file="wrrrit_ai/static/description/icon.png"/>-->
+    <!--    </record>-->
+
+    <!-- Define the Tree view for the document model -->
+    <record id="view_wrrrit_ai_document_tree" model="ir.ui.view">
+        <field name="name">wrrrit.ai.document.tree</field>
+        <field name="model">wrrrit.ai.document</field>
+        <field name="arch" type="xml">
+            <tree string="Voice Record" decoration-info="processing_requested==True" decoration-muted="active==False">
+                <field name="name"/>
+                <field name="creation_date" widget="date"/>
+                <field name="owner_id"/>
+                <field name="patient"/>
+                <field name="folder_id"/>
+                <field name="record_locale"/>
+                <field name="file"/>
+                <field name="document_type"/>
+                <field name="active" widget="boolean_toggle" options="{'active': 'Active', 'inactive': 'Inactive'}"/>
+                <field name="processing_requested" options="{'True': 'Yes', 'False': 'No'}" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Define the Search view for the document model -->
+    <record id="view_wrrrit_ai_document_search" model="ir.ui.view">
+        <field name="name">wrrrit.ai.document.search</field>
+        <field name="model">wrrrit.ai.document</field>
+        <field name="arch" type="xml">
+            <search string="Search Documents">
+                <field name="name" string="Name"/>
+                <field name="owner_id" string="Owner"/>
+                <field name="patient" string="Patient"/>
+                <field name="folder_id" string="Folder"/>
+                <field name="creation_date" string="Creation Date"/>
+                <field name="active" string="Active"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Owner" name="group_by_owner" context="{'group_by': 'owner_id'}"/>
+                    <filter string="Creation Date" name="group_by_creation_date"
+                            context="{'group_by': 'creation_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Define the Form view for the document model -->
+    <record id="wrrrit_ai_document_form" model="ir.ui.view">
+        <field name="name">wrrrit.ai.document.form</field>
+        <field name="model">wrrrit.ai.document</field>
+        <field name="arch" type="xml">
+            <form string="Document">
+                <sheet>
+
+                    <!-- H1 header and separator -->
+                    <div style="margin-bottom: 20px;">
+                        <h1>
+                            <field name="name" style="display: inline;"/>
+                        </h1>
+                        <hr/>
+                    </div>
+
+                    <!-- Main groups with explanatory headers -->
+                    <group string="General Details">
+                        <field name="owner_id"/>
+
+                        <!--                        <field name="custom_ai_sections"/>-->
+                        <field name="patient"/>
+                        <field name="creation_date"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+
+                    <!-- Voice Record Details group with nested tree view -->
+                    <group string="Voice Records Details">
+                        <field name="voice_record_ids" widget="many2many" options="{'no_create': False}">
+                            <tree>
+                                <!-- Specify the fields you want to display in the list view -->
+                                <field name="name"/>
+                                <field name="last_updated"/>
+                                <field name="transcription_data"
+                                       widget="wrrrit_truncate"
+                                       options="{'max_len': 35, 'styled': false}"/>
+                                <!-- Add other fields as needed -->
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Medical Documents">
+                        <field name="medical_document_ids" widget="many2many" options="{'no_create': False}">
+                            <tree>
+                                <!-- Specify the fields you want to display in the list view -->
+                                <field name="name"/>
+
+                                <field name="extracted_text"
+                                       widget="wrrrit_truncate"
+                                       options="{'max_len': 35, 'styled': false}"/>
+                                <!-- Add other fields as needed -->
+                            </tree>
+                        </field>
+
+                    </group>
+
+                    <group string="Report Configuration">
+                        <field name="record_locale"/>
+                        <field name="report_template"/>
+                    </group>
+
+
+                    <group string="Actions:">
+                        <div class="outer-button-container">
+
+                            <!-- Custom buttons with actions -->
+                            <div class="inner-button-container">
+                                <button string="Generate Summary" type="object" class="button-action button_action3"
+                                        name="action_global_summarize">
+                                </button>
+
+                                <button string="Generate Translated Summary" type="object"
+                                        class="button-action button_action2"
+                                        name="action_global_translate">
+                                </button>
+
+
+                                <button string="Extract Important Data" type="object"
+                                        class="button-action button_action2"
+                                        name="action_global_extract">
+                                </button>
+                                <button string="Generate Global Report" type="object"
+                                        class="button-action button_action3"
+                                        name="action_global_report">
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </group>
+                    <notebook>
+                        <page string="Global Summary">
+                            <field name="global_summary" widget="html"/>
+                            <!--widget="wrrrit_truncate"
+                            options="{'max_len': 10000, 'styled': true}"/>-->
+                        </page>
+                        <page string="Global Translated Transcript ">
+                            <field name="global_translated_summary"/>
+                        </page>
+                        <page string="Global Extract">
+                            <field name="global_extract" widget="html"/>
+                        </page>
+                        <page string="Translated">
+                            <field name="computed_fields" widget="html"/>
+                        </page>
+                        <page string="Generated Report">
+                            <field name="global_report" widget="pdf_viewer"/>
+                        </page>
+                        <page string="Previous Reports">
+                            <field name="pdf_reports" widget="one2many"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Define the action window, with the kanban view as the default view -->
+    <record id="action_wrrrit_ai_document" model="ir.actions.act_window">
+        <field name="name">Med-Group</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wrrrit.ai.document</field>
+        <field name="domain">[]</field>
+        <!--        <field name="domain">[('is_user_admin', '=', True)]</field>-->
+        <field name="view_mode">kanban,form,tree</field>
+    </record>
+
+    <record id="action_wrrrit_ai_voice_record" model="ir.actions.act_window">
+        <field name="name">Med-Vocals</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wrrrit.ai.voice_record</field>
+        <field name="domain">[]</field>
+        <!--    <field name="domain">['|', ('owner_id', '=', uid), ('is_user_admin', '=', True)]</field>-->
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <!-- Define the menus -->
+    <menuitem id="wrrrit_ai_main_menu" name="Medical Reports" sequence="2"
+              web_icon="wrrrit_ai,static/description/icon.png"/>
+    <menuitem id="wrrrit_ai_voice_record_menu" name="Med-Vocals" parent="wrrrit_ai_main_menu"
+              action="action_wrrrit_ai_voice_record"
+              sequence="3"/>
+    <menuitem id="wrrrit_ai_document_menu" name="Med-Folio" parent="wrrrit_ai_main_menu"
+              action="action_wrrrit_ai_document"
+              sequence="5"/>
+
+
+    <!-- Define the user group -->
+
+
+    <!-- Define the Kanban view for the document model -->
+    <record id="view_wrrrit_ai_document_kanban" model="ir.ui.view">
+        <field name="name">wrrrit.ai.document.kanban</field>
+        <field name="model">wrrrit.ai.document</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile bg-image">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click ">
+                            <div
+                                    style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; width: 100%;
+                                text-align: center;">
+                                <strong style="font-size: 1.2em;">
+                                    <field name="name"/>
+                                </strong>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div style="padding: 10px;">
+                                    <label for="owner_id">
+                                        <strong>Owner:</strong>
+                                    </label>
+                                    <field name="owner_id"/>
+                                </div>
+                                <div style="padding: 10px;">
+                                    <label for="patient">
+                                        <strong>Patient:</strong>
+                                    </label>
+                                    <field name="patient"/>
+                                </div>
+                                <div style="padding: 10px;">
+                                    <label for="creation_date">
+                                        <strong>Creation Date:</strong>
+                                    </label>
+                                    <field name="creation_date"/>
+                                </div>
+                                <div style="padding: 10px;">
+                                    <label for="record_locale">
+                                        <strong>Locale</strong>
+                                    </label>
+                                    <field name="record_locale"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Define the Tree view for the folder model -->
+    <record id="view_wrrrit_ai_folder_tree" model="ir.ui.view">
+        <field name="name">wrrrit.ai.folder.tree</field>
+        <field name="model">wrrrit.ai.folder</field>
+        <field name="arch" type="xml">
+            <tree string="Folders">
+                <field name="name"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the Form view for the folder model -->
+    <record id="view_wrrrit_ai_folder_form" model="ir.ui.view">
+        <field name="name">wrrrit.ai.folder.form</field>
+        <field name="model">wrrrit.ai.folder</field>
+        <field name="arch" type="xml">
+            <form string="Folder">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                        <field name="child_ids" widget="many2many_tags"/>
+                        <field name="document_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Define the action window for the Folder model -->
+    <record id="action_wrrrit_ai_folder" model="ir.actions.act_window">
+        <field name="name">Folders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wrrrit.ai.folder</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define the menu for the Folder model -->
+    <!--    <menuitem id="wrrrit_ai_folder_menu" name="Folders" parent="wrrrit_ai_main_menu" action="action_wrrrit_ai_folder"-->
+    <!--              sequence="20"/>-->
+
+
+    <!-- Scheduled action to process pending records every minute -->
+    <!--
+    <record id="cron_process_pending_records" model="ir.cron">
+        <field name="name">Process Pending Records</field>
+        <field name="model_id" ref="model_wrrrit_ai_document"/>
+        <field name="state">code</field>
+        <field name="code">model.process_pending_records()</field>
+        <field name="owner_id" ref="base.user_root"/>
+        <field name="active" eval="True"/>
+        <field name="interval_number">100</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+    </record>
+-->
+    <template id="chat" name="Chat with document">
+        <t t-foreach="chat_history" t-as="message">
+            <p>
+                <t t-esc="message.content"/>
+            </p>
+        </t>
+    </template>
+
+
+</odoo>

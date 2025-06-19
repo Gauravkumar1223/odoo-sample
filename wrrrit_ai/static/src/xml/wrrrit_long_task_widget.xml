@@ -1,0 +1,8 @@
+<templates>
+    <t t-name="LongTaskWidget" owl="1">
+        <div>
+            <button t-ref="startButton" t-on-click="startLongTask">Start Long Task</button>
+            <span t-esc="state.status"/>
+        </div>
+    </t>
+</templates>

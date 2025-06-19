@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_media_recorder,media_recorder,model_media_recorder,,1,1,1,1
+access_media_settings,media_settings,model_media_settings,,1,1,1,1
